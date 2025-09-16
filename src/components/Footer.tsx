@@ -15,8 +15,8 @@ export function Footer() {
 
             <li className="flex items-center gap-2">
               <Phone size={18} className="text-[#0DB02B]" />
-              <a href="tel:+919321508866" className="hover:text-[#0DB02B]">
-                +91 9321508866
+              <a href="tel:+919321508896" className="hover:text-[#0DB02B]">
+                +91 9321508896
               </a>
             </li>
 
@@ -110,7 +110,7 @@ export function Footer() {
       {/* CHAT BUTTON */}
       <div className="fixed bottom-8 right-8 z-40">
         <a
-          href="https://wa.me/919321508866"
+          href="https://wa.me/919321508896"
           target="_blank"
           rel="noopener noreferrer"
         >
