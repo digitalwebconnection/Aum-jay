@@ -1,7 +1,7 @@
 "use client"
 import { MessageCircle } from "lucide-react"
 import { Link } from "react-router-dom"
-import { Facebook, Twitter, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Twitter, Youtube, Linkedin, Mail, Phone, MapPin, Instagram } from "lucide-react"
 
 export function Footer() {
   return (
@@ -12,7 +12,6 @@ export function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-4">Address</h3>
           <ul className="space-y-3">
-
             <li className="flex items-center gap-2">
               <Phone size={18} className="text-[#0DB02B]" />
               <a href="tel:+919321508896" className="hover:text-[#0DB02B]">
@@ -25,7 +24,6 @@ export function Footer() {
               <a
                 href="mailto:info@aumjayrenewables.com"
                 className="hover:text-[#0DB02B]"
-
               >
                 info@aumjayrenewables.com
               </a>
@@ -39,23 +37,48 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-[#0DB02B]"
               >
-                Shop No. 1, Om Sai Plaza CHSL, Ghodbunder Road, Kasarvadavali, Thane West - 6400615, Maharashtra, India.
+                Shop No. 1, Om Sai Plaza CHSL, Ghodbunder Road, Kasarvadavali,
+                Thane West - 6400615, Maharashtra, India.
               </a>
             </li>
-
           </ul>
+
+          {/* Social Links */}
           <div className="flex gap-4 mt-4">
-            <a href="#" className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition">
-              <Twitter size={18} />
+            <a
+              href="https://www.instagram.com/aumjay_renewables/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition"
+            >
+              <Instagram size={18} />
             </a>
-            <a href="#" className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition">
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61580450987888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition"
+            >
               <Facebook size={18} />
             </a>
-            <a href="#" className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition">
-              <Youtube size={18} />
-            </a>
-            <a href="#" className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition">
+
+            <a
+              href="https://www.linkedin.com/in/jaymin-pathak-042b34384/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition"
+            >
               <Linkedin size={18} />
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full border border-gray-400 hover:bg-[#0DB02B] transition"
+            >
+              <Youtube size={18} />
             </a>
           </div>
         </div>
@@ -88,12 +111,14 @@ export function Footer() {
         {/* Newsletter */}
         <div>
           <h3 className="text-white font-semibold mb-4">Newsletter</h3>
-          <p className="mb-4 text-sm">Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+          <p className="mb-4 text-sm">
+            Dolor amet sit justo amet elitr clita ipsum elitr est.
+          </p>
           <form className="flex">
             <input
               type="email"
               placeholder="Your email"
-              className="p-2 rounded-l-md w-full text-gray-900  bg-gray-100 focus:outline-none"
+              className="p-2 rounded-l-md w-full text-gray-900 bg-gray-100 focus:outline-none"
             />
             <button className="bg-[#0DB02B] text-white px-4 rounded-r-md hover:bg-green-600 transition">
               SignUp
@@ -104,10 +129,12 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="mt-10 border-t border-gray-600 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <p>© <span className="text-[#0DB02B]">AUMJAY RENEWABLES</span>, All Right Reserved.</p>
-
+        <p>
+          © <span className="text-[#0DB02B]">AUMJAY RENEWABLES</span>, All Right Reserved.
+        </p>
       </div>
-      {/* CHAT BUTTON */}
+
+      {/* Chat Button */}
       <div className="fixed bottom-8 right-8 z-40">
         <a
           href="https://wa.me/919321508896"
@@ -120,7 +147,6 @@ export function Footer() {
           </button>
         </a>
       </div>
-
     </footer>
   )
 }
