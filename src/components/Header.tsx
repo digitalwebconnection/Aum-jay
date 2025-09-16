@@ -28,32 +28,32 @@ export default function Header() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 items-center">
-            <Link to="/" className="text-gray-700 hover:text-green-600">Home</Link>
-            <Link to="/about" className="text-gray-700 hover:text-green-600">About</Link>
-            <Link to="/service" className="text-gray-700 hover:text-green-600">Service</Link>
+          <div className="hidden md:flex space-x-12 items-center">
+            <Link to="/" className="text-gray-700 hover:text-[#0DB02B]">Home</Link>
+            <Link to="/about" className="text-gray-700 hover:text-[#0DB02B]">About</Link>
+            <Link to="/service" className="text-gray-700 hover:text-[#0DB02B]">Service</Link>
 
             {/* ✅ Project dropdown */}
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-green-600 gap-1">
+              <button className="flex items-center text-gray-700 hover:text-[#0DB02B] gap-1">
                 Project <ChevronDown className="w-4 h-4" />
               </button>
               <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md py-2 w-40">
-                <Link to="/project/b2c" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">B2C</Link>
-                <Link to="/project/b2b" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">B2B</Link>
+                <Link to="/project/b2c" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2C</Link>
+                <Link to="/project/b2b" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2B</Link>
               </div>
             </div>
 
-            <Link to="/contact" className="text-gray-700 hover:text-green-600">Contact</Link>
+            <Link to="/contact" className="text-gray-700 hover:text-[#0DB02B]">Contact</Link>
 
-            <Link to="/contact" className="flex items-center px-4 py-2  bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-colors">
+            <Link to="/contact" className="flex items-center px-6 py-2  bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition-colors">
               Get A Quote <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-gray-700 hover:text-green-600 focus:outline-none">
+            <button onClick={toggleMenu} className="text-gray-700 hover:text-[#0DB02B] focus:outline-none">
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -63,19 +63,19 @@ export default function Header() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
-          <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Home</Link>
-          <Link to="/about" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">About</Link>
-          <Link to="/service" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Service</Link>
+          <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Home</Link>
+          <Link to="/about" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">About</Link>
+          <Link to="/service" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Service</Link>
 
           {/* ✅ Mobile Project submenu */}
           <div className="border-t border-gray-100">
             <span className="block px-4 py-2 text-gray-700 font-semibold">Project</span>
-            <Link to="/project/b2c" className="block pl-8 pr-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">B2C</Link>
-            <Link to="/project/b2b" className="block pl-8 pr-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">B2B</Link>
+            <Link to="/project/b2c" className="block pl-8 pr-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2C</Link>
+            <Link to="/project/b2b" className="block pl-8 pr-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2B</Link>
           </div>
 
-          <Link to="/contact" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Contact</Link>
-          <Link to="/contact" className="block px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded mx-4 text-center">Get A Quote</Link>
+          <Link to="/contact" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Contact</Link>
+          <Link to="/contact" className="block px-4 py-2 text-white bg-[#0DB02B] hover:bg-green-700 rounded mx-4 text-center">Get A Quote</Link>
         </div>
       )}
     </nav>

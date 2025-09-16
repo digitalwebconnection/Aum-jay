@@ -5,10 +5,11 @@ import { Sun, Zap, Shield } from "lucide-react"
 
 // ---- Brand palette (Waaree-inspired)
 const BRAND = {
-  green: "#19A844",
+  green: "#0DB02B",
   deep: "#0F7F34",
   yellow: "#FFC527",
   dark: "#071B0F",
+  white: "#FFFFFF",
 }
 
 // ---- Background images (solar)
@@ -24,6 +25,7 @@ type BrandCSSVars = React.CSSProperties & {
   ["--brand-deep"]?: string
   ["--brand-yellow"]?: string
   ["--brand-dark"]?: string
+  ["--brand-white"]?: string
 }
 
 export default function HeroHm() {
@@ -39,6 +41,7 @@ export default function HeroHm() {
     "--brand-deep": BRAND.deep,
     "--brand-yellow": BRAND.yellow,
     "--brand-dark": BRAND.dark,
+    "--brand-white": BRAND.white,
   }
 
   return (
@@ -89,8 +92,8 @@ export default function HeroHm() {
           <div className="max-w-4xl transition-all duration-1000 animate-slide-up">
             {/* Badge */}
             <span
-              className="inline-flex items-center gap-2 mb-6 px-3 py-1 text-sm font-semibold text-[var(--brand-dark)] rounded-full shadow-lg animate-pulse-glow"
-              style={{ background: BRAND.yellow }}
+              className="inline-flex items-center gap-2 mb-6 px-3 py-1 text-sm  text-white rounded-full shadow-lg animate-pulse-glow"
+              style={{ background: BRAND.green }}
             >
               🏆 Authorized Waaree Franchise
             </span>
@@ -116,12 +119,12 @@ export default function HeroHm() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
                 className="text-lg px-8 py-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                style={{ background: BRAND.yellow, color: BRAND.dark }}
+                style={{ background: BRAND.green, color: BRAND.white }}
               >
                 🔆 Book Free Home/Society Survey
               </button>
               <button
-                className="text-lg px-8 py-4 rounded-lg font-semibold transition-all hover:bg-green-800 duration-300 hover:scale-105 border-2 text-white"
+                className="text-lg px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 border-amber-400 border-2 text-white"
               >
                 📩 Request Business Proposal
               </button>
@@ -191,10 +194,7 @@ export default function HeroHm() {
         `}</style>
       </section>
 
-      {/* ====== PREMIUM ADD-ONS ====== */}
-      {/* <ImpactCounters /> */}
-
-      {/* <Testimonials /> */}
+    
     </>
   )
 }
@@ -257,149 +257,3 @@ function SolarSun({ className = "" }) {
   )
 }
 
-/* ===================== IMPACT COUNTERS ===================== */
-// function ImpactCounters() {
-//   const [active, setActive] = useState(false)
-//   const ref = useRef<HTMLDivElement | null>(null)
-
-//   useEffect(() => {
-//     const prefersReduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
-//     const io = new IntersectionObserver(
-//       (entries) => {
-//         entries.forEach((e) => {
-//           if (e.isIntersecting) {
-//             setActive(true)
-//             io.disconnect()
-//           }
-//         })
-//       },
-//       { threshold: 0.4 }
-//     )
-//     if (ref.current) io.observe(ref.current)
-//     return () => io.disconnect()
-//   }, [])
-
-//   const stats = [
-//     { label: "kW Installed", value: 18500 },
-//     { label: "Households Powered", value: 3200 },
-//     { label: "CO₂ Saved (tons)", value: 27000 },
-//   ]
-
-//   return (
-//     <section className="relative bg-[var(--brand-dark)]/95 border-t border-white/10">
-//       <div ref={ref} className="container bg-green-400 mx-auto px-6 py-12 md:py-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
-//         {stats.map((s) => (
-//           <CounterCard key={s.label} value={s.value} label={s.label} active={active} />
-//         ))}
-//       </div>
-//       <style>{`.stat-card{background:linear-gradient(180deg, rgba(25,168,68,0.12), rgba(7,27,15,0.35));}`}</style>
-//     </section>
-//   )
-// }
-
-// function CounterCard({ value, label, active }: { value: number; label: string; active: boolean }) {
-//   const [num, setNum] = useState(0)
-//   useEffect(() => {
-//     if (!active) return
-//     const prefersReduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
-//     if (prefersReduced) {
-//       setNum(value)
-//       return
-//     }
-//     const duration = 1500
-//     const start = performance.now()
-//     const step = (t: number) => {
-//       const p = Math.min(1, (t - start) / duration)
-//       const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
-//       setNum(Math.floor(eased * value))
-//       if (p < 1) requestAnimationFrame(step)
-//     }
-//     requestAnimationFrame(step)
-//   }, [active, value])
-
-//   return (
-//     <div className="stat-card rounded-2xl p-6 border border-white/10 backdrop-blur transition-transform hover:scale-[1.02]">
-//       <div className="text-4xl md:text-5xl font-extrabold" style={{ color: "var(--brand-yellow)" }}>
-//         {num.toLocaleString()}
-//       </div>
-//       <div className="mt-2 text-white/80">{label}</div>
-//     </div>
-//   )
-// }
-
-/* ===================== PARTNER MARQUEE ===================== */
-
-
-// function BrandChip({ label, alt = false }: { label: string; alt?: boolean }) {
-//   const bg = alt ? "rgba(255,197,39,0.14)" : "rgba(25,168,68,0.16)"
-//   const border = alt ? "rgba(255,197,39,0.35)" : "rgba(25,168,68,0.35)"
-//   const color = alt ? "#FFE27A" : "#9AECBF"
-//   return (
-//     <span
-//       className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold"
-//       style={{ background: bg, color, border: `1px solid ${border}` }}
-//       aria-label={label}
-//     >
-//       {label}
-//     </span>
-//   )
-// }
-
-/* ===================== TESTIMONIALS ===================== */
-// function Testimonials() {
-//   const slides = [
-//     { q: "Seamless install and bill dropped by 85%. Team was professional end-to-end.", n: "R. Mehta", r: "Homeowner, Thane" },
-//     { q: "Their audit + proposal was transparent. Great ROI for our society.", n: "A. Kulkarni", r: "Society Secretary, Powai" },
-//     { q: "On-time commissioning for our warehouse. Monitoring is top-notch.", n: "K. Shah", r: "Operations Head, Bhiwandi" },
-//   ]
-//   const [idx, setIdx] = useState(0)
-//   const [paused, setPaused] = useState(false)
-
-//   useEffect(() => {
-//     if (paused) return
-//     const id = setInterval(() => setIdx((i) => (i + 1) % slides.length), 5500)
-//     return () => clearInterval(id)
-//   }, [paused, slides.length])
-
-//   return (
-//     <section className="relative bg-[var(--brand-dark)] py-16">
-//       <div className="container mx-auto px-6">
-//         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">What our customers say</h2>
-//         <div
-//           className="relative overflow-hidden min-h-[200px] group"
-//           onMouseEnter={() => setPaused(true)}
-//           onMouseLeave={() => setPaused(false)}
-//         >
-//           {slides.map((s, i) => (
-//             <article
-//               key={i}
-//               aria-hidden={i !== idx}
-//               className={`transition-all duration-700 ease-out ${
-//                 i === idx ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
-//               } absolute inset-0`}
-//             >
-//               <div className="rounded-2xl p-8 md:p-10 bg-gradient-to-br from-[rgb(0,115,33)] to-[rgba(162,120,2,0.9)] border border-white/10 shadow-xl">
-//                 <p className="text-lg md:text-xl text-white/90">“{s.q}”</p>
-//                 <div className="mt-6 text-white font-semibold">{s.n}</div>
-//                 <div className="text-white/70 text-sm">{s.r}</div>
-//               </div>
-//             </article>
-//           ))}
-//           {/* Dots */}
-//           <div className="mt-6 flex gap-2">
-//             {slides.map((_, i) => (
-//               <button
-//                 key={i}
-//                 onClick={() => setIdx(i)}
-//                 aria-label={`Go to slide ${i + 1}`}
-//                 className={`w-2.5 h-2.5 rounded-full transition-all ${
-//                   i === idx ? "bg-[var(--brand-yellow)] w-6" : "bg-white/40"
-//                 }`}
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }

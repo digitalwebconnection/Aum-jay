@@ -64,9 +64,9 @@ export default function Scroll() {
 function Marquee({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
   // Replace these with actual brand images
   const logos: Array<{ src?: string; alt: string; text?: string }> = [
-    { src: "https://img.favpng.com/15/15/21/waaree-solar-logo-waaree-solar-energy-logo-tLGBnStN_t.jpg", alt: "Waaree" },
-    { src: "https://static.wixstatic.com/media/78663d_378a8a4925084c029cc420095ed30c3f~mv2.jpg/v1/fill/w_1000,h_398,al_c,q_90/file.jpg", alt: "Polycab" },
-    { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1IjyReFEn8wSm5kBsrfkCPTTxsBZPLArIIg&s", alt: "Adani Solar" },
+    { src: "https://www.epcworld.in/wp-content/uploads/2025/05/1473406729waree%20-%20final.jpg", alt: "Waaree" },
+    { src: "https://companieslogo.com/img/orig/POLYCAB.NS_BIG-75d2f870.png?t=1729362040", alt: "Polycab" },
+    { src: "https://i0.wp.com/solarquarter.com/wp-content/uploads/2019/10/Adani-Solar.png?fit=200%2C124&ssl=1", alt: "Adani Solar" },
     { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/ISO_9001-2015.svg/1200px-ISO_9001-2015.svg.png", alt: "ISO 9001" },
     { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq3nvPsX4c16iUN2F2LIxvu9Ru7D2iqHJTbRD5JAaDuFBgyWvqbYaA4o6YsWj0_L3OORI&usqp=CAU", alt: "ISO 14001" },
     { src: "https://5.imimg.com/data5/SELLER/Default/2023/8/333242435/WU/UE/UO/1883722/iso-45001-2018-occupational-health-and-safety.jpg", alt: "ISO 45001" },

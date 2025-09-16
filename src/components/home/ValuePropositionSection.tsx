@@ -87,7 +87,7 @@ export default function ValuePropositionSection() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block bg-emerald-600 text-white text-sm font-medium px-3 py-1 rounded-3xl mb-4 shadow-lg">
+            <span className="inline-block bg-[#0DB02B] text-white text-sm font-medium px-3 py-1 rounded-3xl mb-4 shadow-lg">
               Why Choose AUMJAY + Waaree
             </span>
 
@@ -283,8 +283,8 @@ function SEOCard() {
       <span aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 k group-hover:opacity-100 transition-opacity duration-500 blur-xl bg-[conic-gradient(from_120deg,rgba(16,185,129,0.18),rgba(250,204,21,0.18),transparent_80%)]" />
 
       <div className="relative flex items-center gap-2 border-b border-black/5 px-5 py-3">
-        <div className="rounded-md bg-emerald-100 p-2">
-          <Search className="h-5 w-5 text-emerald-900" />
+        <div className="rounded-md bg-[#0DB02B] p-2">
+          <Search className="h-5 w-5 text-white" />
         </div>
         <h3 id="seo-local-heading" className="text-base font-semibold text-gray-950">
           Localisation
@@ -317,7 +317,7 @@ function AreaChip({ area }: { area: string }) {
     <motion.span
       whileHover={{ y: -1, scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      className="inline-flex items-center gap-1 rounded-full border border-emerald-600 bg-gray-200 px-3 py-1 text-xs text-black shadow-sm"
+      className="inline-flex items-center gap-1 rounded-full border border-[#0DB02B] bg-gray-200 px-3 py-1 text-xs text-black shadow-sm"
     >
       <MapPin className="h-3.5 w-3.5" /> {area}
     </motion.span>

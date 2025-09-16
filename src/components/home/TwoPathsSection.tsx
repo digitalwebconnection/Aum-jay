@@ -153,12 +153,12 @@ export default function TwoPathsSection() {
                         key={f.title}
                         variants={fadeUp}
                         whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(16,185,129,0.12)" }}
-                        className="flex items-start gap-4 p-4 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-green-500 transition-all"
+                        className="flex items-start gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-[#0DB02B] hover:text-white transition-all"
                       >
                         <div className="p-2 bg-green-100 rounded-full"><Icon className="w-6 h-6 text-green-600" /></div>
                         <div>
-                          <h4 className="font-semibold text-black">{f.title}</h4>
-                          <p className="text-sm text-gray-600">{f.description}</p>
+                          <h4 className="font-semibold text-lg">{f.title}</h4>
+                          <p className="text-sm ">{f.description}</p>
                         </div>
                       </motion.div>
                     )
@@ -166,10 +166,10 @@ export default function TwoPathsSection() {
                 </motion.div>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
-                  <a href="#" className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-md hover:bg-yellow-500 transition-colors shadow-md hover:shadow-lg">
+                  <a href="#" className="px-6 py-3 bg-[#0DB02B] text-white font-bold  rounded-md hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
                     Explore Homeowner Plans
                   </a>
-                  <a href="#" className="px-6 py-3 border border-green-600 text-green-700 font-semibold rounded-md hover:bg-green-50 transition-colors">
+                  <a href="#" className="px-6 py-3 border border-yellow-400 font-semibold rounded-md hover:bg-green-50 transition-colors">
                     Book Free Survey
                   </a>
                 </div>
@@ -216,10 +216,10 @@ export default function TwoPathsSection() {
                 </motion.div>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
-                  <a href="#" className="px-6 py-3 bg-green-700 text-white font-bold rounded-md hover:bg-green-800 transition-colors shadow-md hover:shadow-lg">
+                  <a href="#" className="px-6 py-3 bg-[#0DB02B] text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
                     Explore Business Solutions
                   </a>
-                  <a href="#" className="px-6 py-3 border border-yellow-500 text-yellow-700 font-semibold rounded-md hover:bg-yellow-50 transition-colors">
+                  <a href="#" className="px-6 py-3 border border-yellow-400  font-semibold rounded-md hover:bg-yellow-50 transition-colors">
                     Request Business Proposal
                   </a>
                 </div>
