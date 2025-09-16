@@ -203,7 +203,7 @@ export default function TwoPathsSection() {
                         key={f.title}
                         variants={fadeUp}
                         whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(250,204,21,0.14)" }}
-                        className="flex items-start gap-4 p-4 border-l-4 border-yellow-400 bg-white rounded-md shadow-xl hover:bg-yellow-500 transition-all"
+                        className="flex items-start gap-4 p-4 border-l-4 border-yellow-400 bg-white rounded-md shadow-xl hover:bg-yellow-200 transition-all"
                       >
                         <div className="p-2 bg-yellow-100 rounded-full"><Icon className="w-6 h-6 text-yellow-500" /></div>
                         <div>
