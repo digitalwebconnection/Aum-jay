@@ -1,7 +1,7 @@
 "use client"
 import { MessageCircle } from "lucide-react"
 import { Link } from "react-router-dom"
-import { Facebook, Twitter, Youtube, Linkedin, Mail, Phone, MapPin, Instagram } from "lucide-react"
+import { Facebook,  Youtube, Linkedin, Mail, Phone, MapPin, Instagram } from "lucide-react"
 
 export function Footer() {
   return (
