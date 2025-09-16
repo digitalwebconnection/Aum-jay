@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Sun, Zap, Shield } from "lucide-react"
 
 // ---- Brand palette (Waaree-inspired)
@@ -297,53 +297,53 @@ function SolarSun({ className = "" }) {
 //   )
 // }
 
-function CounterCard({ value, label, active }: { value: number; label: string; active: boolean }) {
-  const [num, setNum] = useState(0)
-  useEffect(() => {
-    if (!active) return
-    const prefersReduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
-    if (prefersReduced) {
-      setNum(value)
-      return
-    }
-    const duration = 1500
-    const start = performance.now()
-    const step = (t: number) => {
-      const p = Math.min(1, (t - start) / duration)
-      const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
-      setNum(Math.floor(eased * value))
-      if (p < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  }, [active, value])
+// function CounterCard({ value, label, active }: { value: number; label: string; active: boolean }) {
+//   const [num, setNum] = useState(0)
+//   useEffect(() => {
+//     if (!active) return
+//     const prefersReduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+//     if (prefersReduced) {
+//       setNum(value)
+//       return
+//     }
+//     const duration = 1500
+//     const start = performance.now()
+//     const step = (t: number) => {
+//       const p = Math.min(1, (t - start) / duration)
+//       const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
+//       setNum(Math.floor(eased * value))
+//       if (p < 1) requestAnimationFrame(step)
+//     }
+//     requestAnimationFrame(step)
+//   }, [active, value])
 
-  return (
-    <div className="stat-card rounded-2xl p-6 border border-white/10 backdrop-blur transition-transform hover:scale-[1.02]">
-      <div className="text-4xl md:text-5xl font-extrabold" style={{ color: "var(--brand-yellow)" }}>
-        {num.toLocaleString()}
-      </div>
-      <div className="mt-2 text-white/80">{label}</div>
-    </div>
-  )
-}
+//   return (
+//     <div className="stat-card rounded-2xl p-6 border border-white/10 backdrop-blur transition-transform hover:scale-[1.02]">
+//       <div className="text-4xl md:text-5xl font-extrabold" style={{ color: "var(--brand-yellow)" }}>
+//         {num.toLocaleString()}
+//       </div>
+//       <div className="mt-2 text-white/80">{label}</div>
+//     </div>
+//   )
+// }
 
 /* ===================== PARTNER MARQUEE ===================== */
 
 
-function BrandChip({ label, alt = false }: { label: string; alt?: boolean }) {
-  const bg = alt ? "rgba(255,197,39,0.14)" : "rgba(25,168,68,0.16)"
-  const border = alt ? "rgba(255,197,39,0.35)" : "rgba(25,168,68,0.35)"
-  const color = alt ? "#FFE27A" : "#9AECBF"
-  return (
-    <span
-      className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold"
-      style={{ background: bg, color, border: `1px solid ${border}` }}
-      aria-label={label}
-    >
-      {label}
-    </span>
-  )
-}
+// function BrandChip({ label, alt = false }: { label: string; alt?: boolean }) {
+//   const bg = alt ? "rgba(255,197,39,0.14)" : "rgba(25,168,68,0.16)"
+//   const border = alt ? "rgba(255,197,39,0.35)" : "rgba(25,168,68,0.35)"
+//   const color = alt ? "#FFE27A" : "#9AECBF"
+//   return (
+//     <span
+//       className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold"
+//       style={{ background: bg, color, border: `1px solid ${border}` }}
+//       aria-label={label}
+//     >
+//       {label}
+//     </span>
+//   )
+// }
 
 /* ===================== TESTIMONIALS ===================== */
 // function Testimonials() {

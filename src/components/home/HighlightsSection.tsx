@@ -48,7 +48,7 @@ export default function HighlightsSection() {
 
   useEffect(() => {
     // Respect user motion preferences
-    const prefersReduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+    // const prefersReduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
 
     const observer = new IntersectionObserver(
       ([entry]) => {

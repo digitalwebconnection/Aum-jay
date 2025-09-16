@@ -667,20 +667,20 @@ function ClockIcon() {
   );
 }
 
-function StepItem({ icon, label, desc }: { icon: React.ReactNode; label: string; desc: string }) {
-  return (
-    <div className="relative flex flex-col items-start">
-      <div className="z-10 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-medium shadow-sm">
-        <span className="text-gray-800">{label}</span>
-      </div>
-      <div className="mt-2 flex items-start gap-2 text-sm text-gray-700">
-        <div className="mt-0.5 text-gray-900">{icon}</div>
-        <p className="leading-snug">{desc}</p>
-      </div>
-    </div>
-  );
-}
+// function StepItem({ icon, label, desc }: { icon: React.ReactNode; label: string; desc: string }) {
+//   return (
+//     <div className="relative flex flex-col items-start">
+//       <div className="z-10 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-medium shadow-sm">
+//         <span className="text-gray-800">{label}</span>
+//       </div>
+//       <div className="mt-2 flex items-start gap-2 text-sm text-gray-700">
+//         <div className="mt-0.5 text-gray-900">{icon}</div>
+//         <p className="leading-snug">{desc}</p>
+//       </div>
+//     </div>
+//   );
+// }
 
-function AlertDot() {
-  return <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500 ring-4 ring-red-200" />;
-}
+// function AlertDot() {
+//   return <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500 ring-4 ring-red-200" />;
+// }
