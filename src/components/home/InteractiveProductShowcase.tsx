@@ -181,10 +181,10 @@ export default function InteractiveProductShowcase(): React.ReactElement {
           <button
             key={p.id}
             onClick={() => handleProductChange(p)}
-            className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 whitespace-nowrap
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 whitespace-nowrap
               ${
                 activeProduct.id === p.id
-                  ? "bg-green-500 text-white shadow-lg scale-105"
+                  ? "bg-[#0DB02B] text-white shadow-lg scale-105 rounded-lg"
                   : "bg-black/40 text-white/90 hover:bg-black/70"
               }`}
           >

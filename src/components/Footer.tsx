@@ -109,17 +109,17 @@ export function Footer() {
       </div>
       {/* CHAT BUTTON */}
       <div className="fixed bottom-8 right-8 z-40">
-  <a
-    href="https://wa.me/919321508866"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <button className="px-6 py-3 bg-[#0DB02B] hover:bg-green-600 text-white rounded-full shadow-lg flex items-center text-lg font-semibold">
-      <MessageCircle className="w-6 h-6 mr-2" />
-      Chat With Us
-    </button>
-  </a>
-</div>
+        <a
+          href="https://wa.me/919321508866"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="px-6 py-3 bg-[#0DB02B] hover:bg-green-600 text-white rounded-full shadow-lg flex items-center text-lg font-semibold">
+            <MessageCircle className="w-6 h-6 mr-2" />
+            Chat With Us
+          </button>
+        </a>
+      </div>
 
     </footer>
   )

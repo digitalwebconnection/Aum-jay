@@ -129,9 +129,9 @@ export default function ImpactNumbersSection() {
           >
             <div className="rounded-2xl bg-white">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
-                <WhyItem icon={<TrendingDown className="w-5 h-5 text-yellow-600" />} title="90% Average Savings" desc="Smart sizing + net-metering for bill cuts." />
-                <WhyItem icon={<Shield className="w-5 h-5 text-green-600" />} title="3200+ Homes Powered" desc="Waaree-grade performance assurance." />
-                <WhyItem icon={<Building2 className="w-5 h-5 text-green-700" />} title="CO₂ Offset = 50,000+ Trees" desc="Authorized Waaree franchise • Mumbai & Thane." />
+               <a href="" className=" border-[#0DB02B] border rounded-xl"> <WhyItem icon={<TrendingDown className="w-5 h-5 text-yellow-600" />} title="90% Average Savings" desc="Smart sizing + net-metering for bill cuts." /></a>
+ <a href="" className=" border-[#0DB02B] border rounded-xl">                <WhyItem icon={<Shield className="w-5 h-5 text-green-600" />} title="3200+ Homes Powered" desc="Waaree-grade performance assurance." /></a>
+                 <a href="" className=" border-[#0DB02B] border rounded-xl"> <WhyItem icon={<Building2 className="w-5 h-5 text-green-700" />} title="CO₂ Offset = 50,000+ Trees" desc="Authorized Waaree franchise • Mumbai & Thane." /></a>            
               </div>
             </div>
           </motion.div>

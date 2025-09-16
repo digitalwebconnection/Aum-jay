@@ -277,10 +277,10 @@ export default function TwoPathsSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE_OUT } } : {}}
         >
-          <a href="#" className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-md hover:bg-yellow-500 transition-colors shadow-md hover:shadow-lg">
+          <a href="#" className="px-6 py-3 bg-[#0DB02B] border-[#0DB02B] border-2 text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
             🔆 Book Free Survey
           </a>
-          <a href="#" className="px-6 py-3 bg-green-700 text-white font-bold rounded-md hover:bg-green-800 transition-colors shadow-md hover:shadow-lg">
+          <a href="#" className="px-6 py-3 font-bold rounded-md border-[#0DB02B] border-2  hover:bg-yellow-100 transition-colors shadow-md hover:shadow-lg">
             📩 Request Business Proposal
           </a>
         </motion.div>
@@ -288,7 +288,7 @@ export default function TwoPathsSection() {
 
       {/* Subtle floating icons */}
       <Sun className="absolute top-10 left-10 w-20 h-20 text-yellow-400 opacity-20 animate-float-slow" />
-      <Battery className="absolute bottom-20 right-10 w-16 h-16 text-green-500 opacity-20 animate-float-slow-reverse" />
+      <Battery className="absolute bottom-20 right-10 w-16 h-16 text-[#0DB02B] opacity-30 animate-float-slow-reverse" />
       <Zap className="absolute top-1/3 right-20 w-14 h-14 text-yellow-500 opacity-15 animate-float-slow" />
 
       {/* Extra animations */}
