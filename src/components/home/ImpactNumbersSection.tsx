@@ -28,7 +28,7 @@ const stats: Array<{
     icon: Shield,
     number: 25,
     suffix: "+",
-    label: " Homes Powered",
+    label: " year Experience ",
     gradient: "bg-gradient-to-r from-green-400 to-green-600",
   },
   {
