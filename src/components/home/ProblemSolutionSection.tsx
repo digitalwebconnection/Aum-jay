@@ -332,7 +332,7 @@ export default function ProblemSolutionSection() {
               <div className="mt-5 flex flex-col gap-2 sm:flex-row">
                 <a
                   href="#book-survey"
-                  className="shine-btn inline-flex items-center justify-center rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                  className="shine-btn inline-flex items-center justify-center rounded-xl bg-[#0DB02B] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
                 >
                   Book Free Survey
                 </a>
@@ -358,7 +358,7 @@ export default function ProblemSolutionSection() {
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#book-survey"
-            className="shine-btn inline-flex items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            className="shine-btn inline-flex items-center justify-center rounded-xl bg-[#0DB02B] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           >
             See exact savings → Book a free survey
           </a>
