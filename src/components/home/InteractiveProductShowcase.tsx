@@ -66,8 +66,8 @@ const allProducts: Product[] = [
       "https://waareeimages.s3.ap-south-1.amazonaws.com/A_solar_pumpinstalled_by_Waaree_Energies_in_operation_a759a9f5e1.webp",
   },
   {
-    id: "micaee-export",
-    title: "Micaee Export",
+    id: "Commercial & Product Supply",
+    title: "Commercial & Product Supply",
     description:
       "Export-quality solar products meeting international standards and certifications.",
     details:
@@ -75,6 +75,7 @@ const allProducts: Product[] = [
     subtitle: "",
     image: "https://waaree.com/wp-content/uploads/2025/07/Solar-panels-online-scaled.jpg",
   },
+ 
 ]
 
 export default function InteractiveProductShowcase(): React.ReactElement {
@@ -194,7 +195,7 @@ export default function InteractiveProductShowcase(): React.ReactElement {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="relative z-20 flex items-center h-full px-6 md:px-50">
+      <div className="relative z-20 flex items-center h-full px-6 md:px-70">
         <div className="max-w-2xl">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {activeProduct.title}

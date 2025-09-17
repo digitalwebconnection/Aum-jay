@@ -1,8 +1,13 @@
 // import BottomCTASection from "./BottomCTASection";
+import Calculator from "./Calculator";
+import ComparisonTableSection from "./ComparisonTableSection";
+import DealerProgramSection from "./DealerProgramSection";
 import HeroHm from "./HeroHm";
 import HighlightsSection from "./HighlightsSection";
 import ImpactNumbersSection from "./ImpactNumbersSection";
 import InteractiveProductShowcase from "./InteractiveProductShowcase";
+import ProblemSolutionSection from "./ProblemSolutionSection";
+import ProjectGallerySection from "./ProjectGallerySection";
 import Scroll from "./Scroll";
 import TestimonialsSection from "./TestimonialsSection";
 import TwoPathsSection from "./TwoPathsSection";
@@ -13,11 +18,18 @@ export default function HomeMain() {
         <>
         <HeroHm/>
         <HighlightsSection/>
-        <TwoPathsSection/>
-        <InteractiveProductShowcase/>
-        <ImpactNumbersSection/>
         <Scroll/>
         <ValuePropositionSection/>
+        <ProblemSolutionSection/>
+        <ImpactNumbersSection/>
+        <ProjectGallerySection/>
+        <TwoPathsSection/>
+        <InteractiveProductShowcase/>
+        <DealerProgramSection/>
+        <ComparisonTableSection/>
+        <Calculator/>
+        
+        
         <TestimonialsSection/>
         {/* <BottomCTASection/> */}
 
