@@ -398,10 +398,7 @@ export default function ComparisonTableSection() {
           </a>
         </div>
 
-        {/* Fine print */}
-        <p className="mt-4 text-center text-xs text-slate-500">
-          Comparisons are indicative; specifications and service levels may vary by site and state policy.
-        </p>
+        
       </div>
 
       {/* local styles */}
