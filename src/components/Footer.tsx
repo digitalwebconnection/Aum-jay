@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { Link } from "react-router-dom"
-
 import {
   MessageCircle,
   Facebook,
@@ -15,7 +14,6 @@ import {
   ShieldCheck,
   BadgeCheck,
   Leaf,
-
   Building2,
   ChevronRight,
 } from "lucide-react"
@@ -27,10 +25,24 @@ export function Footer() {
   const [chatOpen, setChatOpen] = useState(false)
   const [attention, setAttention] = useState(false)
 
+  // Subtle nudge
   useEffect(() => {
     const t1 = setTimeout(() => setAttention(true), 2000)
     const t2 = setTimeout(() => setAttention(false), 6000)
     return () => { clearTimeout(t1); clearTimeout(t2) }
+  }, [])
+
+  // 🔔 AUTO-OPEN: open chat after 5s (once per session)
+  useEffect(() => {
+    const key = "aj_auto_opened_chat"
+    const already = typeof window !== "undefined" ? sessionStorage.getItem(key) : "1"
+    const t = setTimeout(() => {
+      if (!already) {
+        setChatOpen(true)
+        try { sessionStorage.setItem(key, "1") } catch {}
+      }
+    }, 5000)
+    return () => clearTimeout(t)
   }, [])
 
   /* ---------------- Newsletter (client-only demo) ---------------- */
@@ -47,8 +59,7 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[#0c1820] text-slate-300">
-      {/* Decorative top wave / hairline */}
-      
+      {/* top hairline */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
 
       {/* Partner ribbon */}
@@ -69,16 +80,17 @@ export function Footer() {
 
       {/* Main grid */}
       <div className="mx-auto max-w-7xl px-6 pb-12">
-        <div className="grid grid-cols-1 gap-15 md:grid-cols-4  ">
+        <div className="grid grid-cols-1 gap-15 md:grid-cols-4">
           {/* Brand + newsletter */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-[color:var(--brand)] text-white shadow"
-                   style={{ ["--brand" as any]: BRAND }}>
+              <div
+                className="grid h-9 w-9 place-items-center rounded-xl bg-[color:var(--brand)] text-white shadow"
+                style={{ ["--brand" as any]: BRAND }}
+              >
                 <Leaf className="h-5 w-5" />
               </div>
               <div>
-           
                 <h3 className="text-xl font-semibold text-white">Powering Thane–Mumbai rooftops</h3>
               </div>
             </div>
@@ -96,7 +108,7 @@ export function Footer() {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setSent(null) }}
                   placeholder="Enter your email for subsidy & ROI tips"
-                  className="w-full  px-3 py-3 text-sm text-white bg-amber-50 placeholder:text-black/80 focus:outline-none"
+                  className="w-full px-3 py-3 text-sm text-white bg-amber-50 placeholder:text-black/80 focus:outline-none"
                   aria-label="Email"
                 />
                 <button
@@ -107,7 +119,7 @@ export function Footer() {
                   Subscribe
                 </button>
               </div>
-              <div className="mt-2  text-xs">
+              <div className="mt-2 text-xs">
                 {sent === "ok" && <span className="text-emerald-300">Thanks! Check your inbox for a confirmation.</span>}
                 {sent === "err" && <span className="text-rose-300">Please enter a valid email.</span>}
               </div>
@@ -127,7 +139,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label as string}
-                  className="group inline-flex items-center gap-2 rounded-full hover:bg-green-800 border border-white/15 bg-white/5 px-3 py-2 text-xs text-slate-300 transition "
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs text-slate-300 transition hover:bg-green-800"
                 >
                   {icon}
                   <span className="hidden sm:inline">{label}</span>
@@ -160,7 +172,6 @@ export function Footer() {
             </ul>
 
             <div className="mt-4 rounded-xl border border-white/10">
-              {/* Lightweight map embed (replace with your exact embed if you have) */}
               <iframe
                 title="AUMJAY Map"
                 loading="lazy"
@@ -192,56 +203,35 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-
-            
           </div>
-
-         
         </div>
       </div>
 
-     
-
       {/* Bottom bar */}
-      <div className="mx-auto max-w-7xl px-6 py-4 text-xs text-slate-400 border-t border-white/30">
+      <div className="mx-auto max-w-7xl border-t border-white/30 px-6 py-4 text-xs text-slate-400">
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
           <p>
             © <span className="text-emerald-300">AUMJAY RENEWABLES</span>. All rights reserved.
           </p>
-          
         </div>
       </div>
 
-      {/* Floating chat widget (polished) */}
+      {/* Floating chat widget */}
       <ChatWidget chatOpen={chatOpen} attention={attention} onToggle={() => setChatOpen(v => !v)} />
 
       {/* Local animations */}
       <style>{`
-        @keyframes shine {
-          from { transform: translateX(-120%) }
-          to   { transform: translateX(220%) }
-        }
+        @keyframes shine { from { transform: translateX(-120%) } to { transform: translateX(220%) } }
         .animate-shine { animation: shine 1.2s ease-in-out forwards }
-
-        @keyframes ripple {
-          0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.35) }
-          80%  { box-shadow: 0 0 0 18px rgba(255,255,255,0) }
-          100% { box-shadow: 0 0 0 0 rgba(255,255,255,0) }
-        }
+        @keyframes ripple { 0%{ box-shadow:0 0 0 0 rgba(255,255,255,.35) } 80%{ box-shadow:0 0 0 18px rgba(255,255,255,0) } 100%{ box-shadow:0 0 0 0 rgba(255,255,255,0) } }
         .group-active\\:animate-ripple:active { animation: ripple .6s ease-out }
-
-        @keyframes attention {
-          0%,100% { transform: translateY(0) scale(1) }
-          50% { transform: translateY(-3px) scale(1.03) }
-        }
+        @keyframes attention { 0%,100%{ transform:translateY(0) scale(1) } 50%{ transform:translateY(-3px) scale(1.03) } }
         .animate-attention { animation: attention 1.2s ease-in-out 0s 3 }
-
-        /* typing dots */
-        .typing-dots { display: inline-flex; gap: 2px }
-        .typing-dots .dot { width: 5px; height: 5px; border-radius: 9999px; background: #9CA3AF; animation: typing 1.2s infinite ease-in-out }
-        .typing-dots .dot:nth-child(2) { animation-delay: .15s }
-        .typing-dots .dot:nth-child(3) { animation-delay: .3s }
-        @keyframes typing { 0%,60%,100% { transform: translateY(0); opacity: .6 } 30% { transform: translateY(-3px); opacity: 1 } }
+        .typing-dots { display:inline-flex; gap:2px }
+        .typing-dots .dot { width:5px; height:5px; border-radius:9999px; background:#9CA3AF; animation: typing 1.2s infinite ease-in-out }
+        .typing-dots .dot:nth-child(2){ animation-delay:.15s }
+        .typing-dots .dot:nth-child(3){ animation-delay:.3s }
+        @keyframes typing { 0%,60%,100%{ transform:translateY(0); opacity:.6 } 30%{ transform:translateY(-3px); opacity:1 } }
       `}</style>
     </footer>
   )
@@ -260,7 +250,7 @@ function ChatWidget({
 }) {
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Popover */}
+      {/* Popover (opens above the button) */}
       <div
         className={[
           "mb-3 w-[300px] sm:w-[340px] origin-bottom-right transition-all duration-300",
@@ -273,8 +263,10 @@ function ChatWidget({
           <div className="rounded-2xl border border-black/10 bg-white/95 p-4 shadow-2xl backdrop-blur">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-[color:var(--brand)] text-white"
-                     style={{ ["--brand" as any]: BRAND }}>
+                <div
+                  className="grid h-10 w-10 place-items-center rounded-full bg-[color:var(--brand)] text-white"
+                  style={{ ["--brand" as any]: BRAND }}
+                >
                   <MessageCircle className="h-5 w-5" />
                 </div>
                 <span className="absolute -right-1 -bottom-1 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-white" />
@@ -325,20 +317,17 @@ function ChatWidget({
         aria-expanded={chatOpen}
         aria-label="Chat with us on WhatsApp"
         className={[
-          "group relative flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
+          "group relative ms-40 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
           "bg-gradient-to-r from-[color:var(--brand)] via-emerald-600 to-[color:var(--brand)]",
           "shadow-[0_10px_30px_rgba(16,185,129,0.5)] transition-transform duration-300 hover:shadow-[0_14px_36px_rgba(16,185,129,0.6)]",
           attention ? "animate-attention" : "",
         ].join(" ")}
         style={{ ["--brand" as any]: BRAND }}
       >
-        {/* glow ring */}
         <span className="absolute inset-0 rounded-full ring-2 ring-white/10" />
-        {/* shine */}
         <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
           <span className="absolute -left-10 top-0 h-full w-10 translate-x-[-120%] rotate-12 bg-white/30 blur-md group-hover:animate-shine" />
         </span>
-        {/* ripple on press */}
         <span className="group-active:animate-ripple pointer-events-none absolute inset-0 rounded-full" />
 
         <MessageCircle className="mr-2 h-6 w-6 drop-shadow" />
