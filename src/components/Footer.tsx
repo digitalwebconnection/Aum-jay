@@ -96,8 +96,7 @@ export function Footer() {
             </div>
 
             <p className="mt-4 max-w-md text-sm text-slate-400">
-              ALMM/IEC components, Waaree-backed supply, and end-to-end EPC—from survey to net-metering.
-              Transparent timelines, clean installs, real savings.
+             Stay updated with subsidy news, solar savings tips, and AUMJAY project showcases.
             </p>
 
             {/* Newsletter */}
@@ -158,7 +157,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 text-[color:var(--brand)]" style={{ ["--brand" as any]: BRAND }} />
-                <a href="mailto:info@aumjayrenewables.com" className="hover:text-white">info@aumjayrenewables.com</a>
+                <a href="mailto:info@aumjayrenewables.com" className="hover:text-white font-semibold">info@aumjayrenewables.com</a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 text-[color:var(--brand)]" style={{ ["--brand" as any]: BRAND }} />
@@ -211,7 +210,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl border-t border-white/30 px-6 py-4 text-xs text-slate-400">
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
           <p>
-            © <span className="text-emerald-300">AUMJAY RENEWABLES</span>. All rights reserved.
+            © <span className="text-emerald-300">2025 AUMJAY RENEWABLES,</span> Authorized Waaree Franchise. All Rights Reserved.
+
           </p>
         </div>
       </div>

@@ -21,7 +21,7 @@ const TIERS: Tier[] = [
     id: "tier-1",
     name: "Authorized Dealer",
     tag: "Entry",
-    margin: "Up to 8–10%",
+    margin: "8–10% margin",
     perks: [
       "Assured Waaree supply (fast-moving SKUs)",
       "Lead pass-through in territory (shared)",
@@ -35,8 +35,9 @@ const TIERS: Tier[] = [
     id: "tier-2",
     name: "Preferred Partner",
     tag: "Growth",
-    margin: "Up to 12–14%",
+    margin: "12–14% margin",
     perks: [
+        "(₹1.4L on ₹10L turnover)",
       "Priority allocation for high-demand SKUs",
       "Quarterly incentives on targets",
       "City/zone semi-exclusivity",
@@ -49,8 +50,9 @@ const TIERS: Tier[] = [
     id: "tier-3",
     name: "Exclusive Distributor",
     tag: "Elite",
-    margin: "Up to 15%+",
+    margin: "Custom margins ",
     perks: [
+        "Custom margins + zone exclusivity",
       "Territory exclusivity on MoQ",
       "Dedicated account & warranty routing",
       "Co-funded local campaigns",
@@ -194,7 +196,7 @@ export default function DealerProgramSection() {
             Dealer / Distributor Program
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Commercial & Product Supply — <span className="text-emerald-700">faster stock, better margins</span>
+            Business & Dealer Program — <span className="text-emerald-700">faster stock, better margins</span>
           </h2>
           <p className="mt-3 text-slate-600">
             Choose your tier, see exact perks, and apply in minutes. Built for velocity from inquiry to dispatch.
@@ -296,8 +298,8 @@ export default function DealerProgramSection() {
               <h3 className="mt-1 text-2xl font-semibold">
                 Ready to grow in your city?
               </h3>
-              <p className="text-emerald-50">
-                Tell us your territory and monthly volume. We’ll propose the best tier & stock plan.
+              <p className="text-emerald-50 text-xl">
+               Lock Your Territory in Mumbai & Thane – Limited Zones Available.
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">

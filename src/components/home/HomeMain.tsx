@@ -1,7 +1,9 @@
 // import BottomCTASection from "./BottomCTASection";
 import Calculator from "./Calculator";
+import CaseStudiesSection from "./CaseStudiesSection";
 import ComparisonTableSection from "./ComparisonTableSection";
 import DealerProgramSection from "./DealerProgramSection";
+import FAQSection from "./Faq";
 import HeroHm from "./HeroHm";
 import HighlightsSection from "./HighlightsSection";
 import ImpactNumbersSection from "./ImpactNumbersSection";
@@ -27,8 +29,10 @@ export default function HomeMain() {
         <InteractiveProductShowcase/>
         <DealerProgramSection/>
         <ComparisonTableSection/>
+        <CaseStudiesSection/>
         <Calculator/>
         <TestimonialsSection/>
+        <FAQSection/>
         {/* <BottomCTASection/> */}
 
         </>

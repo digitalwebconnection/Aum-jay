@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Sun, Zap, Shield } from "lucide-react"
+import { Sun, Zap, ArrowRight, Globe2 } from "lucide-react"
 
 // ---- Brand palette (Waaree-inspired)
 const BRAND = {
@@ -48,7 +48,7 @@ export default function HeroHm() {
     <>
       {/* ====== HERO ====== */}
       <section
-        className="relative py-20 sm:py-24 lg:py-28 -mt-5 flex items-center justify-start overflow-hidden bg-[var(--brand-dark)]"
+        className="relative -mt-5 flex items-center justify-start overflow-hidden bg-[var(--brand-dark)] py-20 sm:py-24 lg:py-28"
         style={sectionStyle}
       >
         {/* Background Slideshow + Ken Burns */}
@@ -71,28 +71,28 @@ export default function HeroHm() {
             }}
           />
           {/* Premium grain texture */}
-          <div className="absolute inset-0 z-20 pointer-events-none mix-blend-overlay opacity-30">
-            <div className="w-[200%] h-[200%] animate-grain bg-[radial-gradient(circle_at_30%_30%,rgba(255,197,39,0.08)_0,transparent_35%),radial-gradient(circle_at_70%_60%,rgba(25,168,68,0.06)_0,transparent_40%)]" />
+          <div className="pointer-events-none absolute inset-0 z-20 mix-blend-overlay opacity-30">
+            <div className="h-[200%] w-[200%] animate-grain bg-[radial-gradient(circle_at_30%_30%,rgba(255,197,39,0.08)_0,transparent_35%),radial-gradient(circle_at_70%_60%,rgba(25,168,68,0.06)_0,transparent_40%)]" />
           </div>
         </div>
 
         {/* Animated Solar Sun (glow + rotating rays) */}
-     <SolarSun className="absolute -top-20 -right-20 md:-top-24 md:-right-16 lg:-top-28 lg:-right-14 w-[200px] h-[200px] md:w-[300px] md:h-[300px] opacity-50 z-30" />
+        <SolarSun className="absolute -right-14 -top-28 z-30 h-[200px] w-[200px] opacity-50 md:-right-16 md:-top-24 md:h-[300px] md:w-[300px] lg:-right-14 lg:-top-28" />
 
         {/* Floating Energy Icon */}
-        <div className="absolute top-80 right-6 md:right-34 z-30 animate-float">
+        <div className="absolute right-6 top-80 z-30 animate-float md:right-34">
           <Zap
-            className="w-10 h-10 md:w-12 md:h-12"
+            className="h-10 w-10 md:h-12 md:w-12"
             style={{ color: BRAND.green, filter: "drop-shadow(0 0 5px rgba(25,168,68,0.35))" }}
           />
         </div>
 
         {/* Hero Content */}
-        <div className="container mx-auto px-6 lg:px-0 text-left relative z-40">
-          <div className="max-w-4xl transition-all duration-1000 animate-slide-up">
+        <div className="container relative z-40 mx-auto px-6 text-left lg:px-0">
+          <div className="max-w-4xl animate-slide-up transition-all duration-1000">
             {/* Badge */}
             <span
-              className="inline-flex items-center gap-2 mb-6 px-3 py-1 text-sm  text-white rounded-full shadow-lg animate-pulse-glow"
+              className="mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-white shadow-lg animate-pulse-glow"
               style={{ background: BRAND.green }}
             >
               🏆 Authorized Waaree Franchise
@@ -100,10 +100,10 @@ export default function HeroHm() {
 
             {/* Heading */}
             <h1
-              className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent drop-shadow-lg animate-gradient-x"
+              className="mb-6 bg-clip-text text-4xl font-extrabold text-transparent drop-shadow-lg md:text-5xl animate-gradient-x"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, var(--brand-yellow) 0%, #FFE27A 25%, var(--brand-green) 50%, #7CE39D 75%, var(--brand-yellow) 100%)",
+                  "linear-gradient(90deg, var(--brand-yellow) 0%, #FFE27A 25%, var(--brand-green) 50%, #9FBC09 75%, var(--brand-yellow) 100%)",
                 WebkitTextStroke: "0.3px rgba(0,0,0,0.15)",
               }}
             >
@@ -111,39 +111,74 @@ export default function HeroHm() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-white/90 mb-8 max-w-2xl animate-fade-in">
-              Save up to 90% on electricity bills with India’s #1 solar brand — delivered locally by AUMJAY in Mumbai & Thane.
+            <p className="max-w-2xl text-base text-white/90 md:text-lg animate-fade-in">
+              Save up to 90% on electricity bills with Waaree Certified Solar. Delivered locally by AUMJAY in Mumbai & Thane.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="mb-12 mt-8 flex flex-col gap-4 sm:flex-row">
               <button
-                className="text-lg px-8 py-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 style={{ background: BRAND.green, color: BRAND.white }}
               >
                 🔆 Book Free Home/Society Survey
               </button>
-              <button
-                className="text-lg px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 border-amber-400 border-2 text-white"
-              >
+              <button className="rounded-lg border-2 border-[#9FBC09] px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:scale-105">
                 📩 Request Business Proposal
               </button>
             </div>
 
             {/* Highlights */}
-            <div className="flex flex-wrap gap-6 text-sm text-white/90 animate-fade-in-delay">
+            {/* <div className="flex flex-wrap gap-6 text-sm text-white/90 animate-fade-in-delay">
               <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5" style={{ color: BRAND.yellow }} />
-                <span>18500 - kW Installed</span>
+                <Shield className="h-5 w-5" style={{ color: BRAND.yellow }} />
+                <span>18500 kW Installed</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5" style={{ color: BRAND.green }} />
-                <span>3200 - Households Powered</span>
+                <Zap className="h-5 w-5" style={{ color: BRAND.green }} />
+                <span>3200 Homes Powered</span>
               </div>
               <div className="flex items-center gap-2">
-                <Sun className="w-5 h-5" style={{ color: BRAND.yellow }} />
-                <span>61000 - treesSaved</span>
+                <Sun className="h-5 w-5" style={{ color: BRAND.yellow }} />
+                <span>61000 Trees Saved</span>
               </div>
+            </div> */}
+
+            {/* ===== Impact Links (NEW) ===== */}
+            <div className="mt-6 grid gap-3 sm:auto-cols-fr sm:grid-flow-col">
+              {/* Local Impact */}
+              <a
+                href="#local-impact"
+                className="group flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 backdrop-blur transition hover:bg-white/10"
+              >
+                <span className="inline-flex shrink-0 items-center justify-center rounded-md bg-emerald-500/20 p-2 ring-1 ring-emerald-400/30">
+                  <Sun className="h-4 w-4 text-[#9FBC09]" />
+                </span>
+                <span className="flex-1">
+                  <span className="font-semibold text-white">AUMJAY Local Impact</span>
+                  <span className="block text-xs text-white/80">
+                    25+ Homes Powered | 1&nbsp;MW+ Pipeline Target (Mumbai &amp; Thane)
+                  </span>
+                </span>
+                <ArrowRight className="h-4 w-4 translate-x-0 text-emerald-300 transition group-hover:translate-x-1" />
+              </a> 
+
+              {/* Nationwide Impact */}
+              <a
+                href="#nationwide-impact"
+                className="group flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 backdrop-blur transition hover:bg-white/10"
+              >
+                <span className="inline-flex shrink-0 items-center justify-center rounded-md bg-emerald-500/20 p-2 ring-1 ring-emerald-400/30">
+                  <Globe2 className="h-4 w-4 text-[#9FBC09]" />
+                </span>
+                <span className="flex-1">
+                  <span className="font-semibold text-white">Waaree Nationwide Impact</span>
+                  <span className="block text-xs text-white/80">
+                    3200+ Homes Powered | 18500 kW Installed | 61000+ Trees Saved
+                  </span>
+                </span>
+                <ArrowRight className="h-4 w-4 translate-x-0 text-emerald-300 transition group-hover:translate-x-1" />
+              </a>
             </div>
           </div>
         </div>
@@ -193,8 +228,6 @@ export default function HeroHm() {
           .animate-pulse-glow { animation: pulse-glow 2s infinite alternate; }
         `}</style>
       </section>
-
-    
     </>
   )
 }
@@ -203,7 +236,7 @@ export default function HeroHm() {
 function SolarSun({ className = "" }) {
   return (
     <div className={className} aria-hidden>
-      <svg viewBox="0 0 512 512" className="w-full h-full">
+      <svg viewBox="0 0 512 512" className="h-full w-full">
         <defs>
           <radialGradient id="sunCore" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="var(--brand-yellow)" stopOpacity="0.95" />
@@ -256,4 +289,3 @@ function SolarSun({ className = "" }) {
     </div>
   )
 }
-

@@ -15,28 +15,28 @@ const highlights = [
   {
     icon: Shield,
     title: "25-Year Warranty",
-    description: "Performance-backed coverage on panels (Waaree Grade-A)",
+    description: "Waaree Grade-A panels, performance backed for 25 years.",
     tint: "from-[rgba(25,168,68,0.14)] to-[rgba(255,197,39,0.12)]",
     iconColor: BRAND.green,
   },
   {
     icon: Award,
     title: "Waaree Certified",
-    description: "Authorized franchise • MNRE compliant installations",
+    description: "Waaree Grade-A panels, performance backed for 25 years.",
     tint: "from-[rgba(255,197,39,0.18)] to-[rgba(25,168,68,0.08)]",
     iconColor: BRAND.green,
   },
   {
     icon: TrendingUp,
     title: "3–4 Year ROI",
-    description: "Fast payback with smart sizing + net-metering",
+    description: "Fastest payback with smart sizing & net-metering.",
     tint: "from-[rgba(25,168,68,0.14)] to-[rgba(255,197,39,0.12)]",
     iconColor: BRAND.green,
   },
   {
     icon: Building,
     title: "625 sq. ft. Showroom",
-    description: "Local consultations • After-sales service in Mumbai & Thane",
+    description: "Local consultations + after-sales service in Thane & Mumbai.",
     tint: "from-[rgba(255,197,39,0.18)] to-[rgba(25,168,68,0.08)]",
     iconColor: BRAND.green,
   },
@@ -86,14 +86,14 @@ export default function HighlightsSection() {
         <div className={`text-center mb-4 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.2s" : "0s" }}>
           <span
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[13px] font-semibold shadow"
-            style={{  color: BRAND.dark, border: "1px solid green" }}
+            style={{ color: BRAND.dark, border: "1px solid green" }}
           >
             ✅ Brand Alignment with Waaree
           </span>
         </div>
 
-        <h2 className={`text-3xl md:text-4xl font-extrabold text-center text-black mb-3 transition-colors duration-300 hover:text-green-700 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.4s" : "0s" }}>
-          Why Choose Us for Your Solar Needs?
+        <h2 className={`text-3xl md:text-4xl font-extrabold text-center text-black mb-3 transition-colors duration-300 hover:text-[#0db02b] ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.4s" : "0s" }}>
+          Why Choose AUMJAY + Waaree?
         </h2>
         <p className={`text-center text-black/80 max-w-4xl mx-auto mb-12 transition-colors duration-300 hover:text-green-800 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.6s" : "0s" }}>
           Consistent Waaree palette reinforces brand equity. We spotlight the exact trust drivers customers look for:

@@ -61,7 +61,7 @@ const ITEMS: Item[] = [
     icon: <Icon.Bill />,
     title: "High electricity bills",
     pain: "Monthly costs keep rising and hurting your budget.",
-    solution: "Rooftop solar engineered to offset 60–90% of your bill for homes & housing societies.",
+    solution: "Bills keep rising — we engineer solar to cut 60–90% instantly.",
     tags: ["High-efficiency mono-PERC", "Site-specific design"],
   },
   {
@@ -69,7 +69,7 @@ const ITEMS: Item[] = [
     icon: <Icon.Subsidy />,
     title: "Subsidy confusion",
     pain: "Paperwork and portal steps feel complex and time-consuming.",
-    solution: "Hand-held PM-Surya Ghar process—filing to installation with clear 12–40 day milestones.",
+    solution: "We handle all PM Surya Ghar paperwork — subsidy in your bank within 12–40 days.",
     tags: ["PM-Surya Ghar", "DISCOM coordination"],
   },
   {
@@ -77,7 +77,7 @@ const ITEMS: Item[] = [
     icon: <Icon.Shield />,
     title: "Unreliable vendors",
     pain: "Mixed components and poor after-sales create risk.",
-    solution: "ALMM/IEC components, Waaree-backed warranty, and on-ground service SOPs you can trust.",
+    solution: "Only Waaree-certified panels + 25-year warranty = zero risk.",
     tags: ["ALMM & IEC", "Waaree supply"],
   },
   {
@@ -85,7 +85,7 @@ const ITEMS: Item[] = [
     icon: <Icon.Space />,
     title: "Limited terrace space",
     pain: "Small rooftops limit generation.",
-    solution: "Optimized layouts and custom racking to maximize kWh per sq.ft without clutter.",
+    solution: "Custom racking & layouts maximize units per sq. ft.",
     tags: ["Yield simulation", "Custom racking"],
   },
   {
@@ -93,7 +93,7 @@ const ITEMS: Item[] = [
     icon: <Icon.Wrench />,
     title: "Maintenance & monitoring",
     pain: "Hard to track performance and schedule service.",
-    solution: "App-based monitoring with quarterly/annual AMC plans for predictable upkeep.",
+    solution: "App-based monitoring + AMC plans keep your system worry-free.",
     tags: ["App monitoring", "AMC plans"],
   },
 ];

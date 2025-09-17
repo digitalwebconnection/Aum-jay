@@ -27,21 +27,21 @@ const stats: Array<{
   {
     icon: Shield,
     number: 25,
-    suffix: "+",
-    label: " year Experience ",
+    suffix: "+  (Mumbai & Thane) ",
+    label: " Homes Powered  ",
     gradient: "bg-gradient-to-r from-green-400 to-green-600",
   },
   {
     icon: TrendingDown,
     number: 90,
     suffix: "%",
-    label: "Savings on Electricity Bills",
+    label: "Up to 90% on Electricity Bills",
     gradient: "bg-gradient-to-r from-yellow-400 to-yellow-500",
   },
   {
     icon: Zap,
     number: 1,
-    suffix: " MW+",
+    suffix: " MW+ (This Year)",
     label: "Pipeline Target (Mumbai & Thane)",
     gradient: "bg-gradient-to-r from-green-400 to-green-600",
   },
@@ -161,6 +161,7 @@ export default function ImpactNumbersSection() {
             <StatCard key={index} stat={stat} index={index} isVisible={isVisible} value={animatedNumbers[index]} />
           ))}
         </div>
+        <p className=" text-center mt-5 text-[#0db02b] font-bold text-lg">Nationwide Waaree Impact: 3200+ homes, 18500 kW installed</p>
 
         {/* New value points teaser (no repetition): Subsidy & EPC */}
         <motion.div

@@ -87,10 +87,10 @@ export default function Calculator() {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-green-500 px-8 py-1 text-xs font-medium text-white">
-            ROI & Savings Estimator
+            Instant ROI & Savings Estimator
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            See your potential savings in minutes
+            See How Much You Can Save in Minutes.
           </h2>
           <p className="mt-3 text-slate-600">
             Enter your monthly bill and coverage goal. We’ll estimate system size, costs, and payback. Exact figures need a site survey.
