@@ -15,7 +15,7 @@ import {
   ShieldCheck,
   BadgeCheck,
   Leaf,
-  Clock4,
+
   Building2,
   ChevronRight,
 } from "lucide-react"
@@ -89,14 +89,14 @@ export function Footer() {
             </p>
 
             {/* Newsletter */}
-            <form onSubmit={onSubmit} className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur">
+            <form onSubmit={onSubmit} className="mt-5 rounded-2xl 5 p-2 backdrop-blur">
               <div className="flex overflow-hidden rounded-xl">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setSent(null) }}
                   placeholder="Enter your email for subsidy & ROI tips"
-                  className="w-full bg-transparent px-3 py-3 text-sm text-white placeholder:text-slate-400 focus:outline-none"
+                  className="w-full  px-3 py-3 text-sm text-white bg-amber-50 placeholder:text-black/80 focus:outline-none"
                   aria-label="Email"
                 />
                 <button
@@ -107,7 +107,7 @@ export function Footer() {
                   Subscribe
                 </button>
               </div>
-              <div className="mt-2 min-h-[18px] text-xs">
+              <div className="mt-2  text-xs">
                 {sent === "ok" && <span className="text-emerald-300">Thanks! Check your inbox for a confirmation.</span>}
                 {sent === "err" && <span className="text-rose-300">Please enter a valid email.</span>}
               </div>
@@ -127,7 +127,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label as string}
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs text-slate-300 transition hover:bg-white/10"
+                  className="group inline-flex items-center gap-2 rounded-full hover:bg-green-800 border border-white/15 bg-white/5 px-3 py-2 text-xs text-slate-300 transition "
                 >
                   {icon}
                   <span className="hidden sm:inline">{label}</span>
@@ -165,7 +165,7 @@ export function Footer() {
                 title="AUMJAY Map"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-40 w-full rounded-xl"
+                className="h-40 w-117 rounded-xl"
                 src="https://www.google.com/maps?q=Om%20Sai%20Plaza%20CHSL%20Kasarvadavali%20Thane&output=embed"
               />
             </div>
@@ -193,16 +193,7 @@ export function Footer() {
               ))}
             </nav>
 
-            <div className="mt-6 rounded-xl bg-white/5 p-3 ring-1 ring-white/10">
-              <div className="flex items-center gap-2 text-xs">
-                <Clock4 className="h-4 w-4 text-emerald-300" />
-                <span className="font-semibold text-white">Business Hours</span>
-              </div>
-              <ul className="mt-2 text-xs text-slate-400">
-                <li>Mon–Sat: 9:30 AM – 7:00 PM</li>
-                <li>Sun: By appointment</li>
-              </ul>
-            </div>
+            
           </div>
 
          
