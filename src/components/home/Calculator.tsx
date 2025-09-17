@@ -86,7 +86,7 @@ export default function Calculator() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
+          <span className="inline-flex items-center gap-2 rounded-full bg-green-500 px-8 py-1 text-xs font-medium text-white">
             ROI & Savings Estimator
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">

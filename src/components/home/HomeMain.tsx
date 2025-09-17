@@ -28,8 +28,6 @@ export default function HomeMain() {
         <DealerProgramSection/>
         <ComparisonTableSection/>
         <Calculator/>
-        
-        
         <TestimonialsSection/>
         {/* <BottomCTASection/> */}
 
