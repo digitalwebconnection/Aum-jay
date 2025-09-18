@@ -193,7 +193,7 @@ export function Footer() {
                 ["/services", "Our Services"],
                 ["/support", "Support"],
                 ["/terms", "Terms & Conditions"],
-                ["/Add-Projects", "Add Projects"],
+                ["/Projects", "Projects"],
                 ["/Dealer-Program", "Dealer Program"],
                 ["/Privacy-Policy", "Privacy Policy"],
                 ["/Cookie-Policy", "Cookie Policy"],
