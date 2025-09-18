@@ -11,6 +11,8 @@ const FAQS: Faq[] = [
   { q: "How long does subsidy take?", a: "Typically 12–40 days after commissioning, depending on DISCOM processing and site readiness." },
   { q: "Do I need to visit the DISCOM office?", a: "No. AUMJAY handles all documentation and portal submissions on your behalf." },
   { q: "What about maintenance?", a: "We provide app-based performance monitoring and optional AMC service for scheduled upkeep." },
+  { q: "Do you provide EMI/loan support?", a: " Yes, via partner banks." },
+  { q: "What’s covered under AMC?", a: "Panel cleaning, app monitoring, and preventive service." },
 ]
 
 export default function FAQSection() {

@@ -246,6 +246,7 @@ export default function ComparisonTableSection() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {/* audience */}
           <div className="inline-flex gap-2 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
+            
             {AUDIENCES.map((a) => (
               <button
                 key={a}
@@ -261,6 +262,7 @@ export default function ComparisonTableSection() {
           </div>
           {/* view */}
           <div className="inline-flex gap-2 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
+       
             {(["matrix", "table"] as const).map((v) => (
               <button
                 key={v}
@@ -276,16 +278,18 @@ export default function ComparisonTableSection() {
             ))}
           </div>
         </div>
-
+ <p className="text-rose-500 font-semibold text-center mt-8"> Local = typical small EPC/contractor | <span className="text-[#0DB02B] font-semibold">AUMJAY = Waaree-backed franchise. </span> </p>
         {/* Radar + Key points */}
         <div
           ref={revealRef as any}
           className={cn(
-            "mt-10 grid items-center gap-6 rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60 md:grid-cols-[minmax(260px,360px)_1fr]"
+            "mt-2 grid items-center gap-6 rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60 md:grid-cols-[minmax(260px,360px)_1fr]"
           )}
           style={{ opacity: seen ? 1 : 0, transform: `translateY(${seen ? 0 : 8}px)`, transition: "opacity 600ms ease, transform 600ms ease" }}
         >
+   
           <div className="mx-auto w-full">
+           
             <RadarChart labels={radarLabels} a={aVals} b={bVals} />
             <div className="mt-3 flex items-center justify-center gap-3 text-xs">
               <span className="inline-flex items-center gap-2 rounded-md bg-emerald-50 px-2 py-1 font-medium text-emerald-700">

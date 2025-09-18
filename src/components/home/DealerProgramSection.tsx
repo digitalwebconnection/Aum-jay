@@ -299,7 +299,7 @@ export default function DealerProgramSection() {
                 Ready to grow in your city?
               </h3>
               <p className="text-emerald-50 text-xl">
-               Lock Your Territory in Mumbai & Thane – Limited Zones Available.
+               Lock territory in Mumbai & Thane – Limited zones available.
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">
@@ -404,8 +404,8 @@ function TierPanel({ tier }: { tier: Tier }) {
           >
             <div className="absolute inset-3 rounded-full bg-white ring-1 ring-slate-200" />
             <div className="absolute inset-0 grid place-items-center">
-              <span className="text-xs text-slate-500">Indicative Margin</span>
-              <span className="text-xs font-bold text-slate-900">{tier.margin}</span>
+              <span className="text-xs text-center text-slate-800 mt-5">keep % margin <br /> example.</span>
+              <span className="text-xs font-bold text-slate-900 mb-5">{tier.margin}</span>
             </div>
           </div>
         </div>
@@ -531,7 +531,7 @@ function FAQBlock() {
         <div className="mt-4 space-y-4">
           <Faq q="What’s the dispatch time?" a="24–72 hours depending on stock and location. Priority for Preferred/Exclusive tiers." />
           <Faq q="Do you provide marketing support?" a="Yes, co-branded creatives and local campaigns; higher tiers get co-funding." />
-          <Faq q="Who handles warranty?" a="Warranty routing via our supply team with Waaree-backed process and SLAs." />
+          <Faq q="Who handles warranty?" a="Warranty handled through Waaree’s 25-year backed process." />
         </div>
       </div>
     </div>

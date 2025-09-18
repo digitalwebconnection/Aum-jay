@@ -36,7 +36,7 @@ const highlights = [
   {
     icon: Building,
     title: "625 sq. ft. Showroom",
-    description: "Local consultations + after-sales service in Thane & Mumbai.",
+    description: "Local consultations + after - sales service in Thane & Mumbai,  Open on week 6 days for walk-ins & consultations.",
     tint: "from-[rgba(255,197,39,0.18)] to-[rgba(25,168,68,0.08)]",
     iconColor: BRAND.green,
   },

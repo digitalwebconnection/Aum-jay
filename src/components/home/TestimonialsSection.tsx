@@ -44,7 +44,7 @@ const testimonials: Testimonial[] = [
     role: "Facility Manager, Thane",
     content:
       "AUMJAY handled subsidy filing end-to-end. Money credited in 30 days!",
-    rating: 4,
+    rating: 5,
     initials: "ND",
   },
   {

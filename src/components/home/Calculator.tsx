@@ -238,7 +238,7 @@ export default function Calculator() {
 
               {/* ROI bar */}
               <div className="mt-6 rounded-xl bg-slate-50 p-4">
-                <p className="text-sm font-medium text-slate-900">First-year ROI (est.)</p>
+                <p className="text-sm font-medium text-slate-900">Final design, cost & ROI subject to site survey and DISCOM approval.</p>
                 <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
                   <div
                     className="h-3 bg-[#0db02b]"
@@ -276,7 +276,7 @@ export default function Calculator() {
                   href="#book-survey"
                   className="inline-flex items-center justify-center rounded-xl bg-[#0db02b] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
                 >
-                  Get exact savings → Book Free Survey
+                 Get exact proposal → Book free survey.
                 </a>
                 <a
                   href="#b2b-proposal"
@@ -286,9 +286,7 @@ export default function Calculator() {
                 </a>
               </div>
 
-              <p className="mt-3 text-center text-xs text-slate-500">
-                This tool is for guidance only. Actual design, cost and ROI come after a site survey and DISCOM review.
-              </p>
+            
             </div>
           </div>
         </div>

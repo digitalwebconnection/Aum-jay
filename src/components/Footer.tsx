@@ -91,12 +91,12 @@ export function Footer() {
                 <Leaf className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white">Powering Thane–Mumbai rooftops</h3>
+                <h3 className="text-xl font-semibold text-white">Serving Mumbai & Thane since 2025.</h3>
               </div>
             </div>
 
             <p className="mt-4 max-w-md text-sm text-slate-400">
-             Stay updated with subsidy news, solar savings tips, and AUMJAY project showcases.
+             Get subsidy alerts, savings tips & AUMJAY project updates — straight to your inbox.
             </p>
 
             {/* Newsletter */}
@@ -145,6 +145,15 @@ export function Footer() {
                 </a>
               ))}
             </div>
+            <div className="mt-4 rounded-xl border border-white/10">
+              <iframe
+                title="AUMJAY Map"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-40 w-full rounded-xl"
+                src="https://www.google.com/maps?q=Om%20Sai%20Plaza%20CHSL%20Kasarvadavali%20Thane&output=embed"
+              />
+            </div>
           </div>
 
           {/* Visit us */}
@@ -160,7 +169,7 @@ export function Footer() {
                 <a href="mailto:info@aumjayrenewables.com" className="hover:text-white font-semibold">info@aumjayrenewables.com</a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 text-[color:var(--brand)]" style={{ ["--brand" as any]: BRAND }} />
+                <MapPin className="-mt-2 h-10 w-10 text-[color:var(--brand)]" style={{ ["--brand" as any]: BRAND }} />
                 <a
                   href="https://www.google.com/maps?q=Shop+No.+1,+Om+Sai+Plaza+CHSL,+Ghodbunder+Road,+Kasarvadavali,+Thane+West+-+6400615,+Maharashtra,+India"
                   target="_blank" rel="noopener noreferrer" className="hover:text-white"
@@ -168,17 +177,10 @@ export function Footer() {
                   Shop No. 1, Om Sai Plaza CHSL, Ghodbunder Road, Kasarvadavali, Thane West – 6400615, Maharashtra
                 </a>
               </li>
+              <li> <a href="" className=" text-[#0DB02B] font-bold  ms-6 text-[17px]">Authorized Waaree Franchise</a></li>
             </ul>
 
-            <div className="mt-4 rounded-xl border border-white/10">
-              <iframe
-                title="AUMJAY Map"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-40 w-117 rounded-xl"
-                src="https://www.google.com/maps?q=Om%20Sai%20Plaza%20CHSL%20Kasarvadavali%20Thane&output=embed"
-              />
-            </div>
+            
           </div>
 
           {/* Quick Links */}
@@ -191,6 +193,10 @@ export function Footer() {
                 ["/services", "Our Services"],
                 ["/support", "Support"],
                 ["/terms", "Terms & Conditions"],
+                ["/Add-Projects", "Add Projects"],
+                ["/Dealer-Program", "Dealer Program"],
+                ["/Privacy-Policy", "Privacy Policy"],
+                ["/Cookie-Policy", "Cookie Policy"],
               ].map(([to, label]) => (
                 <Link
                   key={to as string}

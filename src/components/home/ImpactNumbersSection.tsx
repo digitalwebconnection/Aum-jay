@@ -130,7 +130,7 @@ export default function ImpactNumbersSection() {
             <div className="rounded-2xl bg-white">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
                <a href="" className=" border-[#0DB02B] border rounded-xl"> <WhyItem icon={<TrendingDown className="w-5 h-5 text-yellow-600" />} title="90% Average Savings" desc="Smart sizing + net-metering for bill cuts." /></a>
- <a href="" className=" border-[#0DB02B] border rounded-xl">                <WhyItem icon={<Shield className="w-5 h-5 text-green-600" />} title="3200+ Instolation" desc="Waaree-grade performance assurance." /></a>
+ <a href="" className=" border-[#0DB02B] border rounded-xl">                <WhyItem icon={<Shield className="w-5 h-5 text-green-600" />} title="3200+ Installation." desc="Waaree-grade performance assurance." /></a>
                  <a href="" className=" border-[#0DB02B] border rounded-xl"> <WhyItem icon={<Building2 className="w-5 h-5 text-green-700" />} title="CO₂ Offset = 50,000+ Trees" desc="Authorized Waaree franchise • Mumbai & Thane." /></a>            
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function ImpactNumbersSection() {
             <StatCard key={index} stat={stat} index={index} isVisible={isVisible} value={animatedNumbers[index]} />
           ))}
         </div>
-        <p className=" text-center mt-5 text-[#0db02b] font-bold text-lg">Nationwide Waaree Impact: 3200+ homes, 18500 kW installed</p>
+        <p className=" text-center mt-5 text-[#0db02b] font-bold text-lg">Waaree Nationwide:- 3200+ homes powered, 18,500+ kW installed.</p>
 
         {/* New value points teaser (no repetition): Subsidy & EPC */}
         <motion.div
@@ -647,6 +647,11 @@ function ProcessTracker({ steps }: { steps: StepSpec[] }) {
 
           {/* Keyboard hint */}
           <p className="mt-4 text-[11px] text-gray-500">Tip: Use ↑ / ↓ to navigate steps quickly.</p>
+
+
+          <h2 className=" text-xl text-[#0DB02B] font-bold">Subsidy cap info</h2>
+          <p className="text-sm ">₹78,000 max for 3 kW</p>
+          <p className="text-sm">₹1,18,000 max for 5 kW</p>
         </div>
       </div>
     </div>

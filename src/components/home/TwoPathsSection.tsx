@@ -12,7 +12,7 @@ const homeownerFeatures = [
 ]
 
 const businessFeatures = [
-  { icon: Sun,       title: "Product Supply",      description: "Grade-A panels, inverters, cabling & BoS from top OEMs." },
+  { icon: Sun,       title: "Business Solutions.",      description: "Grade-A panels, inverters, cabling & BoS from top OEMs." },
   { icon: Battery,   title: "EPC Services",        description: "Engineering, Procurement & Commissioning with MNRE norms." },
   { icon: Handshake, title: "Dealer Partnerships", description: "Grow via franchise & channel programs with priority pricing." },
 ]
@@ -176,6 +176,8 @@ export default function TwoPathsSection() {
               </div>
             </div>
           </motion.div>
+
+          <p className=" text-center text-[#0Db02B] text-3xl font-semibold py-5 ">Earn up to 14% = ₹1.4L on ₹10L turnover.</p>
 
           {/* Businesses & Dealers */}
           <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden hover:shadow-2xl transition-shadow">

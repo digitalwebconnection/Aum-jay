@@ -83,7 +83,7 @@ const ITEMS: Item[] = [
   {
     id: "space",
     icon: <Icon.Space />,
-    title: "Limited terrace space",
+    title: "Limited terrace space + Maintenance",
     pain: "Small rooftops limit generation.",
     solution: "Custom racking & layouts maximize units per sq. ft.",
     tags: ["Yield simulation", "Custom racking"],
