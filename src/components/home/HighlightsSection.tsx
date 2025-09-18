@@ -92,10 +92,10 @@ export default function HighlightsSection() {
           </span>
         </div>
 
-        <h2 className={`text-3xl md:text-4xl font-extrabold text-center text-black mb-3 transition-colors duration-300 hover:text-[#0db02b] ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.4s" : "0s" }}>
+        <h2 className={`text-2xl md:text-4xl font-extrabold text-center text-black mb-3 transition-colors duration-300 hover:text-[#0db02b] ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.4s" : "0s" }}>
           Why Choose AUMJAY + Waaree?
         </h2>
-        <p className={`text-center text-black/80 max-w-4xl mx-auto mb-12 transition-colors duration-300 hover:text-green-800 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.6s" : "0s" }}>
+        <p className={`text-center text-[14px] md:text-lg text-black/80 max-w-4xl mx-auto mb-12 transition-colors duration-300 hover:text-green-800 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.6s" : "0s" }}>
           Consistent Waaree palette reinforces brand equity. We spotlight the exact trust drivers customers look for:
           <span className="font-semibold"> 25-year warranty, Waaree certification, 3–4 year ROI, and a local 625 sq. ft. showroom.</span>
         </p>

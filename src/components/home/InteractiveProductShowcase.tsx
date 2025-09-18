@@ -182,7 +182,7 @@ export default function InteractiveProductShowcase(): React.ReactElement {
           <button
             key={p.id}
             onClick={() => handleProductChange(p)}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 whitespace-nowrap
+            className={` hidden md:flex px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 whitespace-nowrap
               ${
                 activeProduct.id === p.id
                   ? "bg-[#0DB02B] text-white shadow-lg scale-105 rounded-lg"
@@ -208,10 +208,10 @@ export default function InteractiveProductShowcase(): React.ReactElement {
           </p>
 
           <div className="flex items-center gap-4">
-            <button className="px-6 py-3 bg-black/60 backdrop-blur-sm text-white border border-white/30 hover:bg-black/70 transition-all duration-300 rounded-md text-lg font-semibold">
+            <button className="px-6 py-3  bg-black/60 backdrop-blur-sm text-white border border-white/30 hover:bg-black/70 transition-all duration-300 rounded-md text-[13px] md:text-lg font-semibold">
               Explore More
             </button>
-            <button className="px-6 py-3 bg-transparent border border-white/30 text-white/90 hover:bg-white/5 transition-all duration-300 rounded-md text-lg font-semibold flex items-center">
+            <button className="px-6 py-3 bg-transparent border border-white/30 text-white/90 hover:bg-white/5 transition-all duration-300 rounded-md text-[13px] md:text-lg  font-semibold flex items-center">
               <MessageCircle className="w-5 h-5 mr-2" />
               Enquire
             </button>

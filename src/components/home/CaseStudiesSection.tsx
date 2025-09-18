@@ -90,10 +90,10 @@ export default function CaseStudiesSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
             Case Studies
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Before & After: real savings on real rooftops
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-sm md:text-lg text-slate-600">
             Photos, numbers, and payback—so you can see exactly how solar performs for homes,
             societies, and businesses.
           </p>

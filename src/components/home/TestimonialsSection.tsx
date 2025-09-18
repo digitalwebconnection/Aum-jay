@@ -76,8 +76,8 @@ export default function TestimonialsSection() {
     <section ref={sectionRef} className="relative overflow-hidden py-14">
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="mb-10 text-center text-green-900">
-          <h2 className="mb-3 text-3xl font-bold md:text-4xl">What Our Customers Say</h2>
-          <p className="mx-auto max-w-2xl text-lg">
+          <h2 className="mb-3 text-2xl font-bold md:text-4xl">What Our Customers Say</h2>
+          <p className="mx-auto max-w-2xl text-sm md:text-lg">
             Real experiences from homeowners, societies, and businesses who chose solar energy.
           </p>
         </div>

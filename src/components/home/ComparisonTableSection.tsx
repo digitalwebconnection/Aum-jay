@@ -236,10 +236,10 @@ export default function ComparisonTableSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
             Why AUMJAY vs Others
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Side-by-side clarity — made visual
           </h2>
-          <p className="mt-3 text-slate-600">Pick your audience, choose a view, and see exactly where AUMJAY pulls ahead.</p>
+          <p className="mt-3 text-sm md:text-lg  text-slate-600">Pick your audience, choose a view, and see exactly where AUMJAY pulls ahead.</p>
         </div>
 
         {/* Controls */}

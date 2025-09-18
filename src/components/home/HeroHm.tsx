@@ -100,7 +100,7 @@ export default function HeroHm() {
 
             {/* Heading */}
             <h1
-              className="mb-6 bg-clip-text text-4xl font-extrabold text-transparent drop-shadow-lg md:text-5xl animate-gradient-x"
+              className="mb-6 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-lg md:text-5xl animate-gradient-x"
               style={{
                 backgroundImage:
                   "linear-gradient(90deg, var(--brand-yellow) 0%, #FFE27A 25%, var(--brand-green) 50%, #9FBC09 75%, var(--brand-yellow) 100%)",
@@ -111,38 +111,23 @@ export default function HeroHm() {
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-2xl text-base text-white/90 md:text-lg animate-fade-in">
+            <p className="max-w-2xl text-md text-base text-white/90 md:text-lg animate-fade-in">
               Save up to 90% on electricity bills with Waaree Certified Solar. Delivered locally by AUMJAY in Mumbai & Thane.
             </p>
 
             {/* CTAs */}
             <div className="mb-12 mt-8 flex flex-col gap-4 sm:flex-row">
               <button
-                className="rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="rounded-lg px-4 md:px-8 py-4 text-[15px] md:text-lg  shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 style={{ background: BRAND.green, color: BRAND.white }}
               >
                 🔆 Book Free Home/Society Survey
               </button>
-              <button className="rounded-lg border-2 border-[#9FBC09] px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:scale-105">
+              <button className="rounded-lg border-2 border-[#9FBC09] px-4 md:px-8 py-4 text-[15px] md:text-lg font-semibold text-white transition-all duration-300 hover:scale-105">
                 📩 Request Business Proposal
               </button>
             </div>
 
-            {/* Highlights */}
-            {/* <div className="flex flex-wrap gap-6 text-sm text-white/90 animate-fade-in-delay">
-              <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5" style={{ color: BRAND.yellow }} />
-                <span>18500 kW Installed</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="h-5 w-5" style={{ color: BRAND.green }} />
-                <span>3200 Homes Powered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sun className="h-5 w-5" style={{ color: BRAND.yellow }} />
-                <span>61000 Trees Saved</span>
-              </div>
-            </div> */}
 
             {/* ===== Impact Links (NEW) ===== */}
             <div className="mt-6 grid gap-3 sm:auto-cols-fr sm:grid-flow-col">
@@ -155,7 +140,7 @@ export default function HeroHm() {
                   <Sun className="h-4 w-4 text-[#9FBC09]" />
                 </span>
                 <span className="flex-1">
-                  <span className="font-semibold text-white">AUMJAY Local Impact</span>
+                  <span className="font-semibold text-white text-md md:text-lg">AUMJAY Local Impact</span>
                   <span className="block text-xs text-white/80">
                     25+ Homes Powered | 1&nbsp;MW+ Pipeline Target (Mumbai &amp; Thane)
                   </span>
@@ -172,7 +157,7 @@ export default function HeroHm() {
                   <Globe2 className="h-4 w-4 text-[#9FBC09]" />
                 </span>
                 <span className="flex-1">
-                  <span className="font-semibold text-white">Waaree Nationwide Impact</span>
+                  <span className="font-semibold text-white text-md md:text-lg">Waaree Nationwide Impact</span>
                   <span className="block text-xs text-white/80">
                     3200+ Homes Powered | 18500 kW Installed | 61000+ Trees Saved
                   </span>

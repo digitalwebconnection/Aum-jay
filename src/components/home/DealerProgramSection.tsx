@@ -195,16 +195,16 @@ export default function DealerProgramSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
             Dealer / Distributor Program
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl  md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Business & Dealer Program — <span className="text-emerald-700">faster stock, better margins</span>
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-[13px] md:text-lg text-slate-600">
             Choose your tier, see exact perks, and apply in minutes. Built for velocity from inquiry to dispatch.
           </p>
         </div>
 
         {/* Layout: sticky rail + detail */}
-        <div className="mt-12 grid gap-8 md:grid-cols-[minmax(260px,320px)_1fr]">
+        <div className="mt-0 md:mt-12 grid gap-8 md:grid-cols-[minmax(260px,320px)_1fr]">
           {/* Left sticky rail */}
           <aside className="md:sticky md:top-24">
             <div className="rounded-2xl mt-19 border border-slate-500 bg-white/80 p-5 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60">
@@ -298,7 +298,7 @@ export default function DealerProgramSection() {
               <h3 className="mt-1 text-2xl font-semibold">
                 Ready to grow in your city?
               </h3>
-              <p className="text-emerald-50 text-xl">
+              <p className="text-emerald-50 text-md md:text-xl">
                Lock territory in Mumbai & Thane – Limited zones available.
               </p>
             </div>
@@ -358,7 +358,7 @@ function TierTabs({
             key={t.id}
             onClick={() => setActiveId(t.id)}
             className={cn(
-              "rounded-lg px-3 py-1.5 text-sm font-semibold transition",
+              "rounded-lg px-3 py-1.5 text-[13px] md:text-sm font-semibold transition",
               t.id === activeId ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900"
             )}
           >

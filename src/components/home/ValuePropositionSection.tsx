@@ -91,12 +91,12 @@ export default function ValuePropositionSection() {
               Why Choose AUMJAY + Waaree
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-4 tracking-tight">
               <span className="bg-gradient-to-r from-gray-900 via-emerald-700 to-gray-900 bg-clip-text text-transparent animate-textShine">
                 Your Trusted Solar Energy Partner
               </span>
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-[14px] md:text-lg text-gray-600 mb-8">
               We combine Waaree's industry-leading technology with our local expertise to deliver
               exceptional solar solutions tailored to your needs.
             </p>
@@ -231,7 +231,7 @@ function BenefitItem({
               <Icon className="w-6 h-6 text-emerald-700" />
             </div>
             <div style={{ transform: "translateZ(24px)" }}>
-              <h3 className="font-semibold text-gray-900">{benefit.title}</h3>
+              <h3 className="font-semibold text-sm md:text-lg text-gray-900">{benefit.title}</h3>
               <p className="text-sm text-gray-600 mt-0.5">{benefit.description}</p>
             </div>
           </div>
@@ -259,8 +259,8 @@ function ShowroomCard() {
           <div className="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
             <MapPin className="w-12 h-12 text-emerald-700" />
           </div>
-          <h3 className="text-xl font-semibold mb-1">625 sq. ft. Showroom</h3>
-          <p className="text-gray-600">Visit our local showroom in Mumbai & Thane</p>
+          <h3 className="text-md md:text-xl font-semibold mb-1">625 sq. ft. Showroom</h3>
+          <p className="text-gray-600 text-[13px] md:text-lg">Visit our local showroom in Mumbai & Thane</p>
 
           {/* glow ring */}
           <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl blur-2xl opacity-70 bg-[conic-gradient(from_120deg,rgba(16,185,129,0.18),rgba(250,204,21,0.18),transparent_50%)]" />
@@ -292,7 +292,7 @@ function SEOCard() {
       </div>
 
       <div className="relative px-5 pt-4 pb-5">
-        <ul className="space-y-3 text-sm text-gray-900 list-disc pl-5">
+        <ul className="space-y-3 text-[12px] md:text-sm text-gray-900 list-disc pl-5">
           {localSeoPoints.map((line, i) => (
             <li key={i}>{line}</li>
           ))}

@@ -49,7 +49,7 @@ export default function Scroll() {
         .marquee-track {
           animation: marquee 36s linear infinite;
         }
-        .marquee-track.fast { animation-duration: 28s; }
+        .marquee-track.fast { animation-duration: 5s; }
         .marquee-track.slower { animation-duration: 42s; }
         .marquee-paused { animation-play-state: paused !important; }
       `}</style>
@@ -128,25 +128,3 @@ function LogoBadge({ item }: { item: { src?: string; alt: string; text?: string 
   );
 }
 
-/* ------------------------------------- */
-/*          Testimonial Carousel          */
-/* ------------------------------------- */
-
-
-
-// function TestimonialCard({ name, role, quote, initials }: { name: string; role: string; quote: string; initials?: string }) {
-//   return (
-//     <figure className="mx-auto max-w-3xl rounded-2xl border border-black/5 bg-white p-6 text-center shadow-sm">
-//       <blockquote className="text-balance text-lg leading-relaxed text-slate-800">“{quote}”</blockquote>
-//       <figcaption className="mt-4 flex items-center justify-center gap-3">
-//         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 to-emerald-200 text-sm font-semibold text-slate-800">
-//           {initials ?? <Dot />}
-//         </div>
-//         <div>
-//           <div className="font-semibold text-slate-900">{name}</div>
-//           <div className="text-xs text-slate-500">{role}</div>
-//         </div>
-//       </figcaption>
-//     </figure>
-//   );
-// }

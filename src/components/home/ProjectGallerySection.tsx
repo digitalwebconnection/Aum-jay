@@ -99,10 +99,10 @@ export default function ProjectGallerySection() {
         <div className="inline-flex items-center gap-2 rounded-full bg-gray-200 px-3 py-1 text-xs font-medium" style={{ color: BRAND }}>
           Recent Work
         </div>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Real sites. Clear labels. Proof of savings.
         </h2>
-        <p className="mt-2 max-w-4xl mx-auto  text-slate-600">
+        <p className="mt-2 max-w-4xl mx-auto text-[14px]  md:text-lg text-slate-600">
           Browse installations across Home, Society and Commercial sites. Toggle layouts, filter by type, and open any project for details.
         </p>
       </div>
@@ -238,7 +238,7 @@ export default function ProjectGallerySection() {
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
           href="#book-survey"
-          className="inline-flex items-center justify-center rounded-xl bg-[color:var(--brand)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+          className="inline-flex items-center justify-center rounded-xl bg-[color:var(--brand)] px-12 md:px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           style={{ ["--brand" as any]: BRAND }}
         >
           Book Free Survey

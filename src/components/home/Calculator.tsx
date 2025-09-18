@@ -89,10 +89,10 @@ export default function Calculator() {
           <span className="inline-flex items-center gap-2 rounded-full bg-green-500 px-8 py-1 text-xs font-medium text-white">
             Instant ROI & Savings Estimator
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             See How Much You Can Save in Minutes.
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-sm md:text-lg text-slate-600">
             Enter your monthly bill and coverage goal. We’ll estimate system size, costs, and payback. Exact figures need a site survey.
           </p>
         </div>
@@ -274,7 +274,7 @@ export default function Calculator() {
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
                   href="#book-survey"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#0db02b] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                  className="inline-flex items-center justify-center rounded-xl bg-[#0db02b] px-5 py-3 text-[13px] md:text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
                 >
                  Get exact proposal → Book free survey.
                 </a>

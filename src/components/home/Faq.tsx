@@ -25,10 +25,10 @@ export default function FAQSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-[#9FBC09] px-12 py-1 text-lg font-medium text-white">
             FAQs
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Answers to common solar questions
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 md:text-lg text-sm text-slate-600">
             Straightforward, no-jargon answers about subsidies, DISCOM steps, and ongoing maintenance.
           </p>
         </div>

@@ -259,7 +259,7 @@ function ChatWidget({
       {/* Popover (opens above the button) */}
       <div
         className={[
-          "mb-3 w-[300px] sm:w-[340px] origin-bottom-right transition-all duration-300",
+          "mb-3 ms-10 w-[300px] md:w-[340px] origin-bottom-right transition-all duration-300",
           chatOpen ? "pointer-events-auto translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-2 scale-95 opacity-0",
         ].join(" ")}
         aria-hidden={!chatOpen}
@@ -323,7 +323,7 @@ function ChatWidget({
         aria-expanded={chatOpen}
         aria-label="Chat with us on WhatsApp"
         className={[
-          "group relative ms-40 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
+          "group relative ms-43 w-43 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
           "bg-gradient-to-r from-[color:var(--brand)] via-emerald-600 to-[color:var(--brand)]",
           "shadow-[0_10px_30px_rgba(16,185,129,0.5)] transition-transform duration-300 hover:shadow-[0_14px_36px_rgba(16,185,129,0.6)]",
           attention ? "animate-attention" : "",
@@ -337,7 +337,7 @@ function ChatWidget({
         <span className="group-active:animate-ripple pointer-events-none absolute inset-0 rounded-full" />
 
         <MessageCircle className="mr-2 h-6 w-6 drop-shadow" />
-        <span className="drop-shadow">Chat With Us</span>
+        <span className="drop-shadow text-xs md:text-lg ">Chat With Us</span>
 
         <span className="ml-2 relative">
           <span className="absolute inset-0 rounded-full bg-white/40 blur-sm" />

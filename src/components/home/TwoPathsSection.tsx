@@ -94,10 +94,10 @@ export default function TwoPathsSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Trust / brand header */}
         <motion.div
-          className="flex items-center justify-center gap-3 mb-3"
+          className="md:flex  items-center justify-center gap-3 mb-3"
           initial="hidden" animate={isVisible ? "show" : "hidden"} variants={stagger}
         >
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700 border border-yellow-300">
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-3 my-2 md:my-0 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700 border border-yellow-300">
             🏆 Authorized Waaree Franchise
           </motion.span>
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700 border border-green-300">
@@ -106,7 +106,7 @@ export default function TwoPathsSection() {
         </motion.div>
 
         <motion.h2
-          className="text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-green-700 via-green-600 to-yellow-500 bg-clip-text text-transparent"
+          className="text-center text-2xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-green-700 via-green-600 to-yellow-500 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 14 }}
           animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } } : {}}
         >
@@ -114,7 +114,7 @@ export default function TwoPathsSection() {
         </motion.h2>
 
         <motion.p
-          className="text-center text-gray-700 max-w-2xl mx-auto mb-12"
+          className="text-center text-sm md:text-lg text-gray-700 max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT, delay: 0.15 } } : {}}
         >
@@ -153,12 +153,12 @@ export default function TwoPathsSection() {
                         key={f.title}
                         variants={fadeUp}
                         whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(16,185,129,0.12)" }}
-                        className="flex items-start gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-[#0DB02B] hover:text-white transition-all"
+                        className="flex items-start  gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-[#0DB02B] hover:text-white transition-all"
                       >
                         <div className="p-2 bg-green-100 rounded-full"><Icon className="w-6 h-6 text-green-600" /></div>
                         <div>
-                          <h4 className="font-semibold text-lg">{f.title}</h4>
-                          <p className="text-sm ">{f.description}</p>
+                          <h4 className="font-semibold text-sm md:text-lg">{f.title}</h4>
+                          <p className="text-[12px] md:text-sm ">{f.description}</p>
                         </div>
                       </motion.div>
                     )
@@ -166,10 +166,10 @@ export default function TwoPathsSection() {
                 </motion.div>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
-                  <a href="#" className="px-6 py-3 bg-[#0DB02B] text-white font-bold  rounded-md hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
+                  <a href="#" className="px-6 py-3 bg-[#0DB02B] text-white font-bold md:text-lg text-sm rounded-md hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
                     Explore Homeowner Plans
                   </a>
-                  <a href="#" className="px-6 py-3 border border-yellow-400 font-semibold rounded-md hover:bg-green-50 transition-colors">
+                  <a href="#" className="px-6 py-3 border md:text-lg text-sm border-yellow-400 font-semibold rounded-md hover:bg-green-50 transition-colors">
                     Book Free Survey
                   </a>
                 </div>
@@ -177,7 +177,7 @@ export default function TwoPathsSection() {
             </div>
           </motion.div>
 
-          <p className=" text-center text-[#0Db02B] text-3xl font-semibold py-5 ">Earn up to 14% = ₹1.4L on ₹10L turnover.</p>
+          <p className=" text-center text-[#0Db02B] text-xl md:text-3xl font-semibold py-5 ">Earn up to 14% = ₹1.4L on ₹10L turnover.</p>
 
           {/* Businesses & Dealers */}
           <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden hover:shadow-2xl transition-shadow">
@@ -209,8 +209,8 @@ export default function TwoPathsSection() {
                       >
                         <div className="p-2 bg-yellow-100 rounded-full"><Icon className="w-6 h-6 text-yellow-500" /></div>
                         <div>
-                          <h4 className="font-semibold text-black">{f.title}</h4>
-                          <p className="text-sm text-gray-600">{f.description}</p>
+                          <h4 className="font-semibold text-black text-sm md:text-lg">{f.title}</h4>
+                          <p className="text-[12px] text-gray-600 md:text-sm ">{f.description}</p>
                         </div>
                       </motion.div>
                     )
@@ -218,10 +218,10 @@ export default function TwoPathsSection() {
                 </motion.div>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
-                  <a href="#" className="px-6 py-3 bg-[#0DB02B] text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
+                  <a href="#" className="px-6 py-3 md:text-lg text-sm bg-[#0DB02B] text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
                     Explore Business Solutions
                   </a>
-                  <a href="#" className="px-6 py-3 border border-yellow-400  font-semibold rounded-md hover:bg-yellow-50 transition-colors">
+                  <a href="#" className="px-6 py-3 md:text-lg text-sm border border-yellow-400  font-semibold rounded-md hover:bg-yellow-50 transition-colors">
                     Request Business Proposal
                   </a>
                 </div>
@@ -232,7 +232,7 @@ export default function TwoPathsSection() {
 
         {/* Trust Builders: Testimonials */}
         <motion.div
-          className="mt-14"
+          className="mt-14 mb-25 md:mb-0"
           initial={{ opacity: 0, y: 14 }}
           animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT } } : {}}
         >
@@ -247,10 +247,10 @@ export default function TwoPathsSection() {
                 transition={{ duration: 0.5, ease: EASE_OUT }}
               >
                 <div className="rounded-2xl p-7 bg-white shadow-xl border border-black/5">
-                  <p className="text-gray-800 text-lg">“{t.quote}”</p>
+                  <p className="text-gray-800 text-sm md:text-lg">“{t.quote}”</p>
                   <div className="mt-5 flex items-center gap-3 text-sm text-gray-600">
                     <Shield className="w-4 h-4 text-green-600" />
-                    <span className="font-semibold text-gray-900">{t.name}</span>
+                    <span className="font-semibold text-gray-900 ">{t.name}</span>
                     <span>• {t.role}, {t.loc}</span>
                   </div>
                 </div>
@@ -279,10 +279,10 @@ export default function TwoPathsSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE_OUT } } : {}}
         >
-          <a href="#" className="px-6 py-3 bg-[#0DB02B] border-[#0DB02B] border-2 text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
+          <a href="#" className="px-13 md:px-6 py-3 bg-[#0DB02B] border-[#0DB02B] border-2 md:text-lg text-sm text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
             🔆 Book Free Survey
           </a>
-          <a href="#" className="px-6 py-3 font-bold rounded-md border-[#0DB02B] border-2  hover:bg-yellow-100 transition-colors shadow-md hover:shadow-lg">
+          <a href="#" className="px-6 py-3 font-bold rounded-md md:text-lg text-sm border-[#0DB02B] border-2  hover:bg-yellow-100 transition-colors shadow-md hover:shadow-lg">
             📩 Request Business Proposal
           </a>
         </motion.div>
