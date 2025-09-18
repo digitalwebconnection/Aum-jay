@@ -278,7 +278,7 @@ export default function ComparisonTableSection() {
             ))}
           </div>
         </div>
- <p className="text-rose-500 font-semibold text-center mt-8"> Local = typical small EPC/contractor | <span className="text-[#0DB02B] font-semibold">AUMJAY = Waaree-backed franchise. </span> </p>
+ <p className="text-rose-500 font-semibold text-center mt-8"> Local = Typical small EPC/Contractor | <span className="text-[#0DB02B] font-semibold">AUMJAY = Waaree-backed Franchise. </span> </p>
         {/* Radar + Key points */}
         <div
           ref={revealRef as any}
