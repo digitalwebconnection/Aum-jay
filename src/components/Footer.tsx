@@ -337,7 +337,7 @@ function ChatWidget({
         <span className="group-active:animate-ripple pointer-events-none absolute inset-0 rounded-full" />
 
         <MessageCircle className="mr-2 h-6 w-6 drop-shadow" />
-        <span className="drop-shadow text-xs md:text-lg ">Chat With Us</span>
+        <span className="drop-shadow text-xs  ">Chat With Us</span>
 
         <span className="ml-2 relative">
           <span className="absolute inset-0 rounded-full bg-white/40 blur-sm" />
