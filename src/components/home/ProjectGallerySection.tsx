@@ -93,7 +93,7 @@ export default function ProjectGallerySection() {
   const { ref: revealRef, seen } = useInViewOnce(0.1);
 
   return (
-    <section id="projects" className="relative max-w-7xl mx-auto">
+    <section id="project" className="relative max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-6 items-center text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-gray-200 px-3 py-1 text-xs font-medium" style={{ color: BRAND }}>

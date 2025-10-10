@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
 import logo from "/src/assets/logo.png"
@@ -21,19 +20,14 @@ export default function Header() {
         const lastY = lastYRef.current
         const delta = y - lastY
 
-        // Solid background when scrolled
         setAtTop(y < 8)
 
-        // Only toggle when scrolled a bit to avoid jitter
         const threshold = 6
 
-        // If menu is open, keep header visible
         if (!mobileMenuOpen) {
           if (y > 64 && delta > threshold) {
-            // scrolling down
             setHidden(true)
           } else if (delta < -threshold) {
-            // scrolling up
             setHidden(false)
           }
         } else {
@@ -56,12 +50,10 @@ export default function Header() {
         "fixed z-50 inset-x-0 top-0 transition-transform duration-300 will-change-transform",
         hidden ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
-      aria-hidden={false}
     >
       <div
         className={[
           "backdrop-blur supports-backdrop-blur:bg-white/70",
-          "bg-white",
           atTop ? "bg-white/80" : "bg-white shadow-md",
         ].join(" ")}
       >
@@ -69,36 +61,33 @@ export default function Header() {
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link to="/">
+              <a href="#home">
                 <img src={logo} alt="Logo" className="h-16 w-auto" />
-              </Link>
+              </a>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-12 items-center">
-              <Link to="/" className="text-gray-700 hover:text-[#0DB02B]">Home</Link>
-              <Link to="/about" className="text-gray-700 hover:text-[#0DB02B]">About</Link>
-              <Link to="/service" className="text-gray-700 hover:text-[#0DB02B]">Service</Link>
+              <a href="#home" className="text-gray-700 hover:text-[#0DB02B]">Home</a>
+              <a href="#about" className="text-gray-700 hover:text-[#0DB02B]">About</a>
+              <a href="#service" className="text-gray-700 hover:text-[#0DB02B]">Service</a>
 
-              {/* Project dropdown */}
+              {/* Project Dropdown */}
               <div className="relative group">
-                <button className="flex items-center text-gray-700 hover:text-[#0DB02B] gap-1">
-                  Project <ChevronDown className="w-4 h-4" />
-                </button>
-                <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md py-2 w-40">
-                  <Link to="/project/b2c" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2C</Link>
-                  <Link to="/project/b2b" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2B</Link>
-                </div>
+                <a href="#project"  className="flex items-center text-gray-700 hover:text-[#0DB02B] gap-1">
+                  Project
+                </a>
+     
               </div>
 
-              <Link to="/contact" className="text-gray-700 hover:text-[#0DB02B]">Contact</Link>
+              <a href="#contact" className="text-gray-700 hover:text-[#0DB02B]">Contact</a>
 
-              <Link
-                to="/contact"
+              <a
+                href="#quote"
                 className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition-colors"
               >
                 Get A Quote <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -118,20 +107,19 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white shadow-lg pb-5">
-            <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Home</Link>
-            <Link to="/about" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">About</Link>
-            <Link to="/service" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Service</Link>
+            <a href="#home" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Home</a>
+            <a href="#about" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">About</a>
+            <a href="#service" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Service</a>
 
             <div className="border-t border-gray-100">
               <span className="block px-4 py-2 text-gray-700 font-semibold">Project</span>
-              <Link to="/project/b2c" className="block pl-8 pr-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2C</Link>
-              <Link to="/project/b2b" className="block pl-8 pr-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">B2B</Link>
+
             </div>
 
-            <Link to="/contact" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Contact</Link>
-            <Link to="/contact" className="block px-4 py-2 text-white bg-[#0DB02B] hover:bg-green-700 rounded mx-4 text-center">
+            <a href="#contact" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Contact</a>
+            <a href="#quote" className="block px-4 py-2 text-white bg-[#0DB02B] hover:bg-green-700 rounded mx-4 text-center">
               Get A Quote
-            </Link>
+            </a>
           </div>
         )}
       </div>

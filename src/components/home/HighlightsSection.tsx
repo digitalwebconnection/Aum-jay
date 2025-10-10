@@ -68,6 +68,7 @@ export default function HighlightsSection() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden py-14"
+      id="about"
     >
       {/* Background accents */}
       <div

@@ -39,7 +39,7 @@ export function Footer() {
     const t = setTimeout(() => {
       if (!already) {
         setChatOpen(true)
-        try { sessionStorage.setItem(key, "1") } catch {}
+        try { sessionStorage.setItem(key, "1") } catch { }
       }
     }, 5000)
     return () => clearTimeout(t)
@@ -96,7 +96,7 @@ export function Footer() {
             </div>
 
             <p className="mt-4 max-w-md text-sm text-slate-400">
-             Get subsidy alerts, savings tips & AUMJAY project updates — straight to your inbox.
+              Get subsidy alerts, savings tips & AUMJAY project updates — straight to your inbox.
             </p>
 
             {/* Newsletter */}
@@ -180,7 +180,7 @@ export function Footer() {
               <li> <a href="" className=" text-[#0DB02B] font-bold  ms-6 text-[17px]">Authorized Waaree Franchise</a></li>
             </ul>
 
-            
+
           </div>
 
           {/* Quick Links */}
@@ -259,14 +259,14 @@ function ChatWidget({
       {/* Popover (opens above the button) */}
       <div
         className={[
-          "mb-3 ms-10 w-[300px] md:w-[340px] origin-bottom-right transition-all duration-300",
+          "mb-3   md:ms-10 w-[300px] md:w-[340px] origin-bottom-right transition-all duration-300",
           chatOpen ? "pointer-events-auto translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-2 scale-95 opacity-0",
         ].join(" ")}
         aria-hidden={!chatOpen}
       >
         <div className="relative">
           <div className="absolute -bottom-2 right-8 h-4 w-4 rotate-45 border-b border-r border-black/10 bg-white/95" />
-          <div className="rounded-2xl border border-black/10 bg-white/95 p-4 shadow-2xl backdrop-blur">
+          <div className="rounded-2xl border border-black/10  bg-white/95 p-4 shadow-2xl backdrop-blur">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div
