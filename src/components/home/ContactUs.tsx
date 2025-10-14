@@ -23,7 +23,7 @@ type Snack = {
   message: string
 }
 
-const BRAND = { primary: "#0DB02B" } as const
+
 
 export default function ContactSection() {
   const [loading, setLoading] = useState(false)
