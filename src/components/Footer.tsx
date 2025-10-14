@@ -323,7 +323,7 @@ function ChatWidget({
         aria-expanded={chatOpen}
         aria-label="Chat with us on WhatsApp"
         className={[
-          "group relative ms-43 w-43 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
+          "group relative ms-55 w-43 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
           "bg-gradient-to-r from-[color:var(--brand)] via-emerald-600 to-[color:var(--brand)]",
           "shadow-[0_10px_30px_rgba(16,185,129,0.5)] transition-transform duration-300 hover:shadow-[0_14px_36px_rgba(16,185,129,0.6)]",
           attention ? "animate-attention" : "",

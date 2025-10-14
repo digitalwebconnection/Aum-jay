@@ -50,15 +50,15 @@ export default function HeroHm() {
       <section
         className="relative -mt-5 flex items-center justify-start overflow-hidden bg-[var(--brand-dark)] py-20 sm:py-24 lg:py-28"
         style={sectionStyle}
+        id="home"
       >
         {/* Background Slideshow + Ken Burns */}
         <div className="absolute inset-0 z-0">
           {bgImages.map((img, i) => (
             <div
               key={i}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-                i === current ? "opacity-100 animate-kenburns" : "opacity-0"
-              }`}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100 animate-kenburns" : "opacity-0"
+                }`}
               style={{ backgroundImage: `url(${img})` }}
             />
           ))}
@@ -146,7 +146,7 @@ export default function HeroHm() {
                   </span>
                 </span>
                 <ArrowRight className="h-4 w-4 translate-x-0 text-emerald-300 transition group-hover:translate-x-1" />
-              </a> 
+              </a>
 
               {/* Nationwide Impact */}
               <a

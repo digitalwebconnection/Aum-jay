@@ -2,7 +2,7 @@
 import Calculator from "./Calculator";
 import CaseStudiesSection from "./CaseStudiesSection";
 import ComparisonTableSection from "./ComparisonTableSection";
-import ContactSection from "./ContactUs";
+import ContactForm from "./ContactFrom";
 import DealerProgramSection from "./DealerProgramSection";
 import FAQSection from "./Faq";
 import HeroHm from "./HeroHm";
@@ -33,7 +33,7 @@ export default function HomeMain() {
         <CaseStudiesSection/>
         <Calculator/>
         <TestimonialsSection/>
-        <ContactSection/>
+        <ContactForm/>  
         <FAQSection/>
         {/* <BottomCTASection/> */}
 

@@ -1,53 +1,65 @@
-import { useEffect, useRef, useState } from "react"
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
-import logo from "/src/assets/logo.png"
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import logo from "/src/assets/logo.png";
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [hidden, setHidden] = useState(false)
-  const [atTop, setAtTop] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
-  const lastYRef = useRef(0)
-  const tickingRef = useRef(false)
+  const lastYRef = useRef(0);
+  const tickingRef = useRef(false);
 
-  const toggleMenu = () => setMobileMenuOpen((v) => !v)
+  const toggleMenu = () => setMobileMenuOpen((v) => !v);
 
+  // === Smooth scroll to section by ID ===
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -80; // offset for fixed header
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setMobileMenuOpen(false);
+    }
+  };
+
+  // === Hide header on scroll ===
   useEffect(() => {
     const onScroll = () => {
-      if (tickingRef.current) return
+      if (tickingRef.current) return;
       window.requestAnimationFrame(() => {
-        const y = window.scrollY || 0
-        const lastY = lastYRef.current
-        const delta = y - lastY
+        const y = window.scrollY || 0;
+        const lastY = lastYRef.current;
+        const delta = y - lastY;
 
-        setAtTop(y < 8)
-
-        const threshold = 6
+        setAtTop(y < 8);
+        const threshold = 6;
 
         if (!mobileMenuOpen) {
           if (y > 64 && delta > threshold) {
-            setHidden(true)
+            setHidden(true);
           } else if (delta < -threshold) {
-            setHidden(false)
+            setHidden(false);
           }
         } else {
-          setHidden(false)
+          setHidden(false);
         }
 
-        lastYRef.current = y
-        tickingRef.current = false
-      })
-      tickingRef.current = true
-    }
+        lastYRef.current = y;
+        tickingRef.current = false;
+      });
+      tickingRef.current = true;
+    };
 
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [mobileMenuOpen])
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [mobileMenuOpen]);
 
   return (
     <nav
       className={[
-        "fixed z-50 inset-x-0 top-0 transition-transform duration-300 will-change-transform",
+        "fixed z-50 inset-x-0 top-0 transition-transform duration-300",
         hidden ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
     >
@@ -59,38 +71,38 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <a href="#home">
-                <img src={logo} alt="Logo" className="h-16 w-auto" />
-              </a>
+            {/* === Logo === */}
+            <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection("home")}>
+              <img src={logo} alt="Logo" className="h-16 w-auto" />
             </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-12 items-center">
-              <a href="#home" className="text-gray-700 hover:text-[#0DB02B]">Home</a>
-              <a href="#about" className="text-gray-700 hover:text-[#0DB02B]">About</a>
-              <a href="#service" className="text-gray-700 hover:text-[#0DB02B]">Service</a>
+            {/* === Desktop Menu === */}
+            <div className="hidden md:flex space-x-12 items-center font-medium">
+              <button onClick={() => scrollToSection("home")} className="text-gray-700 hover:text-[#0DB02B]">
+                Home
+              </button>
+              <button onClick={() => scrollToSection("about")} className="text-gray-700 hover:text-[#0DB02B]">
+                About
+              </button>
+              <button onClick={() => scrollToSection("service")} className="text-gray-700 hover:text-[#0DB02B]">
+                Services
+              </button>
+              <button onClick={() => scrollToSection("project")} className="text-gray-700 hover:text-[#0DB02B]">
+                Projects
+              </button>
+              <button onClick={() => scrollToSection("contact")} className="text-gray-700 hover:text-[#0DB02B]">
+                Contact
+              </button>
 
-              {/* Project Dropdown */}
-              <div className="relative group">
-                <a href="#project"  className="flex items-center text-gray-700 hover:text-[#0DB02B] gap-1">
-                  Project
-                </a>
-     
-              </div>
-
-              <a href="#contact" className="text-gray-700 hover:text-[#0DB02B]">Contact</a>
-
-              <a
-                href="#quote"
-                className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition-colors"
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition"
               >
                 Get A Quote <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* === Mobile Menu Button === */}
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
@@ -104,25 +116,34 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* === Mobile Menu === */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white shadow-lg pb-5">
-            <a href="#home" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Home</a>
-            <a href="#about" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">About</a>
-            <a href="#service" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Service</a>
+            {[
+              { label: "Home", id: "home" },
+              { label: "About", id: "about" },
+              { label: "Service", id: "service" },
+              { label: "Projects", id: "project" },
+              { label: "Contact", id: "contact" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]"
+              >
+                {item.label}
+              </button>
+            ))}
 
-            <div className="border-t border-gray-100">
-              <span className="block px-4 py-2 text-gray-700 font-semibold">Project</span>
-
-            </div>
-
-            <a href="#contact" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#0DB02B]">Contact</a>
-            <a href="#quote" className="block px-4 py-2 text-white bg-[#0DB02B] hover:bg-green-700 rounded mx-4 text-center">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="block w-[90%] mx-auto mt-2 px-4 py-2 text-white bg-[#0DB02B] hover:bg-green-700 rounded text-center"
+            >
               Get A Quote
-            </a>
+            </button>
           </div>
         )}
       </div>
     </nav>
-  )
+  );
 }

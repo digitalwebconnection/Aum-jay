@@ -70,7 +70,7 @@ export default function ValuePropositionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 bg-gray-50 overflow-hidden" id="service">
+    <section ref={sectionRef}  className="relative py-16 bg-gray-50 overflow-hidden" id="about">
       {/* Aurora + noise background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-yellow-50 to-white animate-bgShift" />

@@ -121,7 +121,7 @@ export default function ImpactNumbersSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-14 md:py-20 relative overflow-hidden bg-gray-50">
+    <section ref={sectionRef} className="py-14 md:py-20 relative overflow-hidden bg-gray-50" id="service">
       {/* Top scroll progress for this section */}
       <motion.span
         aria-hidden
