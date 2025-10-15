@@ -191,11 +191,11 @@ export default function DealerProgramSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
             Dealer / Distributor Program
           </span>
-          <h2 className="mt-4 text-2xl  md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl  md:text-4xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Business & Dealer Program — <span className="text-emerald-700">faster stock, better margins</span>
           </h2>
           <p className="mt-3 text-[13px] md:text-lg text-slate-600">
