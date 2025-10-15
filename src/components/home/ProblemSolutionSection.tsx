@@ -304,9 +304,11 @@ export default function ProblemSolutionSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
             Your problem <span className="opacity-60">→</span> Our solution
           </span>
-          <h2 className="mt-4 text-lg md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h4 className=" text-green-800 font-samibold text-xl">Designed for PM Surya Ghar Subsidy.</h4>
+          <h2 className="mt-1 text-lg md:text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             We remove blockers from quote to net-metering
           </h2>
+
           <p className="mt-3 text-[14px] md:text-lg text-slate-600">
             AUMJAY combines Waaree supply, EPC design and end-to-end subsidy filing—so you save faster with zero guesswork.
           </p>
@@ -358,19 +360,19 @@ export default function ProblemSolutionSection() {
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#book-survey"
-            className="shine-btn inline-flex items-center justify-center rounded-xl bg-[#0DB02B] px-5 py-3 text-xs md:text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            className="shine-btn inline-flex items-center justify-center rounded-xl bg-[#0DB02B] px-5 py-3 text-xs md:text-sm font-bold shadow-black text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           >
-            See exact savings → Book a free survey
+           See Exact Savings → Book Free Survey (Homes)
           </a>
           <a
             href="#b2b-proposal"
-            className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-xs md:text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-amber-300 px-5 py-3 text-xs md:text-sm  shadow-black font-bold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           >
-            Get EPC / Dealer proposal
+            Get Dealer Proposal (Integrators)
           </a>
         </div>
 
-     
+
       </div>
 
       <SectionEdge side="bottom" />

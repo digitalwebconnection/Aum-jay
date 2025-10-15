@@ -48,7 +48,7 @@ export default function HeroHm() {
     <>
       {/* ====== HERO ====== */}
       <section
-        className="relative -mt-5 flex items-center justify-start overflow-hidden bg-[var(--brand-dark)] py-20 sm:py-24 lg:py-28"
+        className="relative -mt-5 flex items-center justify-start overflow-hidden bg-[var(--brand-dark)] py-20 sm:py-24 lg:py-18"
         style={sectionStyle}
         id="home"
       >
@@ -71,13 +71,13 @@ export default function HeroHm() {
             }}
           />
           {/* Premium grain texture */}
-          <div className="pointer-events-none absolute inset-0 z-20 mix-blend-overlay opacity-30">
-            <div className="h-[200%] w-[200%] animate-grain bg-[radial-gradient(circle_at_30%_30%,rgba(255,197,39,0.08)_0,transparent_35%),radial-gradient(circle_at_70%_60%,rgba(25,168,68,0.06)_0,transparent_40%)]" />
+          <div className="pointer-events-none absolute inset-0 z-20 mix-blend-overlay opacity-10">
+            <div className="h-[200px] w-[200px] animate-grain bg-[radial-gradient(circle_at_30%_30%,rgba(255,197,39,0.08)_0,transparent_35%),radial-gradient(circle_at_70%_60%,rgba(25,168,68,0.06)_0,transparent_40%)]" />
           </div>
         </div>
 
         {/* Animated Solar Sun (glow + rotating rays) */}
-        <SolarSun className="absolute -right-14 -top-28 z-30 h-[200px] w-[200px] opacity-50 md:-right-16 md:-top-24 md:h-[300px] md:w-[300px] lg:-right-14 lg:-top-28" />
+        <SolarSun className="absolute -right-14 -top-28 z-30 h-[200px] w-[200px] opacity-50 md:-right-16 md:-top-24 md:h-[300px] md:w-[300px] lg:-right-24 lg:-top-28" />
 
         {/* Floating Energy Icon */}
         <div className="absolute right-6 top-80 z-30 animate-float md:right-34">
@@ -91,16 +91,23 @@ export default function HeroHm() {
         <div className="container relative z-40 mx-auto px-6 text-left lg:px-0">
           <div className="max-w-4xl animate-slide-up transition-all duration-1000">
             {/* Badge */}
-            <span
-              className="mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-white shadow-lg animate-pulse-glow"
+            <p
+              className="mb-6 inline-flex flex-col gap-1 rounded-full px-6 py-2 text-sm text-white shadow-lg animate-pulse-glow "
               style={{ background: BRAND.green }}
             >
-              🏆 Authorized Waaree Franchise
-            </span>
+              <span className="font-semibold text-lg">
+                🏆 Authorized Waaree Franchise
+              </span>
+              <span className="text-[12px] opacity-90">
+                Proud Waaree Franchise Partner – Thane & Mumbai Region
+              </span>
+            </p>
+
+
 
             {/* Heading */}
             <h1
-              className="mb-6 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-lg md:text-5xl animate-gradient-x"
+              className="mb-6 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-lg md:text-6xl animate-gradient-x"
               style={{
                 backgroundImage:
                   "linear-gradient(90deg, var(--brand-yellow) 0%, #FFE27A 25%, var(--brand-green) 50%, #9FBC09 75%, var(--brand-yellow) 100%)",
@@ -118,13 +125,13 @@ export default function HeroHm() {
             {/* CTAs */}
             <div className="mb-12 mt-8 flex flex-col gap-4 sm:flex-row">
               <button
-                className="rounded-lg px-4 md:px-8 py-4 text-[15px] md:text-lg  shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="rounded-lg px-4 md:px-8  shadow-black py-4 text-[15px] md:text-xl  shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 style={{ background: BRAND.green, color: BRAND.white }}
               >
                 🔆 Book Free Home/Society Survey
               </button>
-              <button className="rounded-lg border-2 border-[#9FBC09] px-4 md:px-8 py-4 text-[15px] md:text-lg font-semibold text-white transition-all duration-300 hover:scale-105">
-                📩 Request Business Proposal
+              <button className="rounded-lg border-2 bg-amber-50/70 border-[#9FBC09] px-4 md:px-8 py-4 shadow-green-800 text-[15px] md:text-xl font-semibold transition-all duration-300 hover:scale-105">
+                Request Business Proposal
               </button>
             </div>
 

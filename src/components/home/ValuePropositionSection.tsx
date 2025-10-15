@@ -40,6 +40,7 @@ const benefits = [
 const localSeoPoints = [
   "Solar rooftop solutions for Thane, Mulund, Dombivli, Borivali housing societies.",
   "Commercial solar EPC in Mumbai & Thane with Waaree Certified panels.",
+  "Now Partnering with Integrators Across Maharashtra.",
 ];
 
 const serviceAreas = [
@@ -70,7 +71,7 @@ export default function ValuePropositionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef}  className="relative py-16 bg-gray-50 overflow-hidden" id="about">
+    <section ref={sectionRef} className="relative py-16 bg-gray-50 overflow-hidden" id="about">
       {/* Aurora + noise background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-yellow-50 to-white animate-bgShift" />
@@ -98,7 +99,7 @@ export default function ValuePropositionSection() {
             </h2>
             <p className="text-[14px] md:text-lg text-gray-600 mb-8">
               We combine Waaree's industry-leading technology with our local expertise to deliver
-              exceptional solar solutions tailored to your needs.
+              exceptional solar solutions tailored to your needs.  Whether you’re a homeowner, housing society, or EPC dealer Aumjay delivers Waaree-certified quality with local support.
             </p>
 
             <motion.ul

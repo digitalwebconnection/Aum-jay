@@ -33,28 +33,28 @@ const stats: Array<{
   label: string;
   gradient: string;
 }> = [
-  {
-    icon: Shield,
-    number: 25,
-    suffix: "+  (Mumbai & Thane) ",
-    label: " Homes Powered  ",
-    gradient: "bg-gradient-to-r from-green-400 to-green-600",
-  },
-  {
-    icon: TrendingDown,
-    number: 90,
-    suffix: "%",
-    label: "Up to 90% on Electricity Bills",
-    gradient: "bg-gradient-to-r from-yellow-400 to-yellow-500",
-  },
-  {
-    icon: Zap,
-    number: 1,
-    suffix: " MW+ (This Year)",
-    label: "Pipeline Target (Mumbai & Thane)",
-    gradient: "bg-gradient-to-r from-green-400 to-green-600",
-  },
-];
+    {
+      icon: Shield,
+      number: 25,
+      suffix: "+  (Mumbai & Thane) ",
+      label: " Homes Powered  ",
+      gradient: "bg-gradient-to-r from-green-400 to-green-600",
+    },
+    {
+      icon: TrendingDown,
+      number: 90,
+      suffix: "%",
+      label: "Up to 90% on Electricity Bills",
+      gradient: "bg-gradient-to-r from-yellow-400 to-yellow-500",
+    },
+    {
+      icon: Zap,
+      number: 1,
+      suffix: " MW+ (This Year)",
+      label: "Pipeline Target (Mumbai & Thane)",
+      gradient: "bg-gradient-to-r from-green-400 to-green-600",
+    },
+  ];
 
 export default function ImpactNumbersSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -175,14 +175,15 @@ export default function ImpactNumbersSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-10 md:mb-14"
         >
-          <h2 className="text-2xl md:text-4xl font-extrabold mb-2 md:mb-3 drop-shadow-md leading-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold mb-2 md:mb-3 drop-shadow-md leading-tight">
             <span className="bg-gradient-to-r from-gray-900 via-green-700 to-gray-900 bg-clip-text text-transparent animate-text-shine">
               Impact That Matches Our Ambition
             </span>
           </h2>
-          <p className="text-gray-600 max-w-xl  text-sm md:text-lg mx-auto">
+          <p className="text-gray-900 max-w-2xl  mb-2 text-sm md:text-xl mx-auto">
             Numbers that reflect real outcomes—and our scale target for this year.
           </p>
+          <h4 className=" text-gray-800 ">1 MW+ installs by 2026 in Thane–Mumbai region</h4>
         </motion.div>
 
         {/* Stats */}
@@ -217,7 +218,7 @@ export default function ImpactNumbersSection() {
           <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold shadow-sm">
               <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-white" />
-              <span>Subsidy & PM Surya Ghar</span>
+              <span>PM Surya Ghar Subsidy – Step-by-Step Assistance by Aumjay</span>
             </div>
           </div>
 
@@ -263,6 +264,7 @@ export default function ImpactNumbersSection() {
             >
               Get Subsidy Guidance <ArrowRight className="h-4 w-4" />
             </a>
+
           </div>
         </motion.section>
       </div>
@@ -534,6 +536,7 @@ function SmartProcessSection() {
     <div className="mt-8 rounded-2xl border border-black/5 bg-white/70 backdrop-blur p-5 md:p-6">
       <div className="flex items-center justify-between gap-3 flex-wrap mb-3">
         <h3 className="text-base md:text-lg font-semibold text-gray-900">Step‑by‑Step Guide</h3>
+
         <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-[10px] md:text-xs font-semibold shadow-sm">
           <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-white">
             <CheckCircle2 className="h-3 w-3" />
@@ -541,7 +544,7 @@ function SmartProcessSection() {
           Typical timeline: <span className="text-gray-700">~ 12–40 days</span>
         </span>
       </div>
-
+      <p className="mb-3 font-samibold">All installations MNRE-empanelled, ALMM & IEC certified.</p>
       <ProcessTracker steps={steps} />
 
       <p className="mt-3 text-[11px] md:text-xs text-gray-500">
@@ -594,8 +597,8 @@ function ProcessTracker({ steps }: { steps: StepSpec[] }) {
                         state === "done"
                           ? "bg-green-600 text-white"
                           : state === "active"
-                          ? "bg-yellow-400 text-gray-900"
-                          : "bg-gray-200 text-gray-600",
+                            ? "bg-yellow-400 text-gray-900"
+                            : "bg-gray-200 text-gray-600",
                       ].join(" ")}
                     >
                       {state === "done" ? <CheckCircle2 className="h-4 w-4" /> : <span className="text-[10px] font-bold">{idx + 1}</span>}

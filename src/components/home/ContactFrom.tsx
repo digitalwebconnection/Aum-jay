@@ -87,7 +87,7 @@ const ContactForm = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-extrabold text-center text-green-700 mb-3"
         >
-             Get Your Free Solar Quote
+          Get Your Free Solar Quote
         </motion.h2>
         <p className="text-gray-600 text-center mb-8">
           Fill out the form and our solar experts will contact you soon.
@@ -103,7 +103,7 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="John Doe"
+              placeholder="Deshmukh Kulkarni"
               required
             />
             <Field
@@ -127,7 +127,7 @@ const ContactForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="(555) 123-4567"
+              placeholder="+91 9*********"
               required
             />
             <Field
@@ -137,7 +137,7 @@ const ContactForm = () => {
               name="address"
               value={formData.address}
               onChange={handleChange}
-              placeholder="123 Solar Street"
+              placeholder="Bandar, Colaba, Mumbai, Maharashtra"
               required
             />
           </div>
