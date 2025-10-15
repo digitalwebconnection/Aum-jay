@@ -217,7 +217,6 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
           <p>
             © <span className="text-emerald-300">2025 Aumjay Renewables Solar</span> Power Pvt. Ltd. | Authorized Waaree Franchise | Thane–Mumbai
-
           </p>
         </div>
       </div>
