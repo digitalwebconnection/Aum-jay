@@ -37,7 +37,7 @@ const TIERS: Tier[] = [
     tag: "Growth",
     margin: "12–14% margin",
     perks: [
-        "(₹1.4L on ₹10L turnover)",
+      "(₹1.4L on ₹10L turnover)",
       "Priority allocation for high-demand SKUs",
       "Quarterly incentives on targets",
       "City/zone semi-exclusivity",
@@ -52,7 +52,7 @@ const TIERS: Tier[] = [
     tag: "Elite",
     margin: "Custom margins ",
     perks: [
-        "Custom margins + zone exclusivity",
+      "Custom margins + zone exclusivity",
       "Territory exclusivity on MoQ",
       "Dedicated account & warranty routing",
       "Co-funded local campaigns",
@@ -166,7 +166,7 @@ function useInViewOnce(threshold = 0.15) {
 export default function DealerProgramSection() {
   const [activeId, setActiveId] = React.useState<string>(TIERS[1].id); // default to "Preferred Partner"
   const active = TIERS.find((t) => t.id === activeId)!;
- 
+
 
   return (
     <section
@@ -299,7 +299,7 @@ export default function DealerProgramSection() {
                 Ready to grow in your city?
               </h3>
               <p className="text-emerald-50 text-md md:text-xl">
-               Lock territory in Mumbai & Thane – Limited zones available.
+                Lock territory in Mumbai & Thane – Limited zones available.
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">
@@ -321,7 +321,7 @@ export default function DealerProgramSection() {
           </div>
         </div>
 
-       
+
       </div>
 
       {/* local styles for shine effect */}

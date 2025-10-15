@@ -96,9 +96,9 @@ export default function HighlightsSection() {
         <h2 className={`text-2xl md:text-4xl font-extrabold text-center text-black mb-3 transition-colors duration-300 hover:text-[#0db02b] ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.4s" : "0s" }}>
           Why Choose AUMJAY + Waaree?
         </h2>
-        <p className={`text-center text-[14px] md:text-lg text-black/80 max-w-4xl mx-auto mb-12 transition-colors duration-300 hover:text-green-800 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.6s" : "0s" }}>
-          Consistent Waaree palette reinforces brand equity. We spotlight the exact trust drivers customers look for:
-          <span className="font-semibold"> 25-year warranty, Waaree certification, 3–4 year ROI, and a local 625 sq. ft. showroom.</span>
+        <p className={`text-center text-[14px] md:text-lg text-black font-bold max-w-5xl mx-auto mb-12 transition-colors duration-300 hover:text-green-800 ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.6s" : "0s" }}>
+          Consistent Waaree palette reinforces brand equity. We spotlight the exact trust drivers customers look for: <br />
+          <span className="font-semibold text-black/80"> 25-year warranty, Waaree certification, 3–4 year ROI, and a local 625 sq. ft. showroom.</span>
         </p>
 
         {/* Highlights grid */}
@@ -108,7 +108,7 @@ export default function HighlightsSection() {
             return (
               <div
                 key={h.title}
-                className={`group relative overflow-hidden rounded-2xl p-6 shadow-xl border border-black/50
+                className={`group  shadow-black relative overflow-hidden rounded-2xl p-6 shadow-lg border border-black/50
                             transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-2xl hover:scale-105
                             ${isVisible ? "animate-card-pop-in" : "opacity-0 scale-95"}`}
                 style={{ animationDelay: isVisible ? `${0.2 + index * 0.1}s` : "0s", background: "white" }}
@@ -118,7 +118,7 @@ export default function HighlightsSection() {
                 {/* Shine sweep */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0DB02B] to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-[2600ms] ease-out" aria-hidden />
 
-                <div className="relative z-10 text-center">
+                <div className="relative z-10 text-center  ">
                   <div className="mb-5 flex justify-center">
                     <div className="p-4 rounded-full bg-black/25 backdrop-blur-sm shadow-md animate-icon-bounce group-hover:scale-110 transition-transform duration-500">
                       <Icon className="w-10 h-10" style={{ color: h.iconColor }} aria-hidden />
@@ -136,12 +136,12 @@ export default function HighlightsSection() {
 
         {/* Trust ribbon */}
         <div className={`mt-10 ms-30 flex flex-wrap items-center justify-center gap-3 text-center ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.8s" : "0s" }}>
-          <span className="inline-flex items-center gap-2 px-5 py-1 rounded-full text-xs font-semibold"
+          <span className="inline-flex  items-center gap-2 px-5 py-1 rounded-full text-xs font-semibold"
             style={{ background: BRAND.deep, color: "white", border: "1px solid rgba(25,168,68,0.35)" }}>
             🏆 Authorized Waaree Franchise
           </span>
           <span className="text-black text-sm hidden sm:inline">•</span>
-          <span className="inline-flex items-center gap-2 px-5 py-1 rounded-full text-xs font-semibold"
+          <span className="inline-flex   items-center gap-2 px-5 py-1 rounded-full text-xs font-semibold"
             style={{ background: BRAND.yellow, color: "black", border: "1px solid rgba(205,197,39,0.35)" }}>
             Mumbai & Thane Service
           </span>
