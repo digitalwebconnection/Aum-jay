@@ -171,7 +171,7 @@ export default function DealerProgramSection() {
   return (
     <section
       id="dealer-program"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-emerald-50/30 to-white py-16 sm:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-emerald-50/30 to-white py-16 sm:py-14"
     >
       {/* floating blobs / decorative */}
       <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-emerald-300/25 blur-3xl" />

@@ -225,7 +225,7 @@ export default function ComparisonTableSection() {
   const { ref: revealRef, seen } = useInViewOnce(0.1);
 
   return (
-    <section id="comparison" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/60 to-white py-16 sm:py-24">
+    <section id="comparison" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/60 to-white py-16 sm:py-14">
       {/* subtle backdrop accents */}
       <div className="pointer-events-none absolute -top-20 -right-24 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-rose-300/20 blur-3xl" />

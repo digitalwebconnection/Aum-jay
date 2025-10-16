@@ -1,4 +1,4 @@
-// import BottomCTASection from "./BottomCTASection";
+
 import Calculator from "./Calculator";
 import CaseStudiesSection from "./CaseStudiesSection";
 import ComparisonTableSection from "./ComparisonTableSection";
@@ -35,8 +35,6 @@ export default function HomeMain() {
         <TestimonialsSection/>
         <ContactForm/>  
         <FAQSection/>
-        {/* <BottomCTASection/> */}
-
         </>
     )
 }
