@@ -55,7 +55,6 @@ const testimonials: Testimonial[] = [
     rating: 5,
     initials: "VS",
   },
- 
 ]
 
 /* -------------------- Component -------------------- */
