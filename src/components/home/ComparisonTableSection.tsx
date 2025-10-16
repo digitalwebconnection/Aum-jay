@@ -1,4 +1,3 @@
-// src/home/ComparisonTableSection.tsx
 import React, { useMemo, useState, useEffect, useRef } from "react";
 
 type Audience = "Home & Societies" | "Commercial & Dealers";
@@ -246,7 +245,7 @@ export default function ComparisonTableSection() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {/* audience */}
           <div className="inline-flex gap-2 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
-            
+
             {AUDIENCES.map((a) => (
               <button
                 key={a}
@@ -262,7 +261,7 @@ export default function ComparisonTableSection() {
           </div>
           {/* view */}
           <div className="inline-flex gap-2 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
-       
+
             {(["matrix", "table"] as const).map((v) => (
               <button
                 key={v}
@@ -278,7 +277,7 @@ export default function ComparisonTableSection() {
             ))}
           </div>
         </div>
- <p className="text-rose-500 font-semibold text-center mt-8"> Local = Typical small EPC/Contractor | <span className="text-[#0DB02B] font-semibold">AUMJAY = Waaree-backed Franchise. </span> </p>
+        <p className="text-rose-500 font-semibold text-center mt-8"> Local = Typical small EPC/Contractor | <span className="text-[#0DB02B] font-semibold">AUMJAY = Waaree-backed Franchise. </span> </p>
         {/* Radar + Key points */}
         <div
           ref={revealRef as any}
@@ -287,9 +286,9 @@ export default function ComparisonTableSection() {
           )}
           style={{ opacity: seen ? 1 : 0, transform: `translateY(${seen ? 0 : 8}px)`, transition: "opacity 600ms ease, transform 600ms ease" }}
         >
-   
+
           <div className="mx-auto w-full">
-           
+
             <RadarChart labels={radarLabels} a={aVals} b={bVals} />
             <div className="mt-3 flex items-center justify-center gap-3 text-xs">
               <span className="inline-flex items-center gap-2 rounded-md bg-emerald-50 px-2 py-1 font-medium text-emerald-700">
@@ -401,8 +400,6 @@ export default function ComparisonTableSection() {
             Request Business Proposal
           </a>
         </div>
-
-        
       </div>
 
       {/* local styles */}

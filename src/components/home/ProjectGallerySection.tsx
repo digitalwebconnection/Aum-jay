@@ -1,4 +1,3 @@
-// src/home/ProjectGallerySection.tsx
 import React, { useEffect, useMemo, useState } from "react";
 
 type ProjectType = "Home" | "Society" | "Commercial";
@@ -58,7 +57,7 @@ function useInViewOnce(threshold = 0.15) {
 
 export default function ProjectGallerySection() {
   const [typeFilter, setTypeFilter] = useState<"All" | ProjectType>("All");
-  const [layout, ] = useState<"masonry" | "grid">("masonry");
+  const [layout,] = useState<"masonry" | "grid">("masonry");
   const [sortDesc, setSortDesc] = useState(true);
   const [active, setActive] = useState<Project | null>(null);
 
@@ -316,7 +315,6 @@ export default function ProjectGallerySection() {
                     Get EPC Proposal
                   </a>
                 </div>
-
                 <p className="mt-3 text-xs text-slate-500">Savings shown are indicative; actuals vary by tariff, irradiation & load profile.</p>
               </div>
             </div>

@@ -167,7 +167,6 @@ export default function DealerProgramSection() {
   const [activeId, setActiveId] = React.useState<string>(TIERS[1].id); // default to "Preferred Partner"
   const active = TIERS.find((t) => t.id === activeId)!;
 
-
   return (
     <section
       id="dealer-program"
@@ -209,6 +208,7 @@ export default function DealerProgramSection() {
           <aside className="md:sticky md:top-24">
             <div className="rounded-2xl mt-19 border border-slate-500 bg-white/80 p-5 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60">
               <p className="text-sm font-semibold text-slate-900">Why join AUMJAY</p>
+
               <ul className="mt-3 space-y-2 text-sm text-slate-700">
                 <li className="flex items-center gap-2">
                   <span className="text-emerald-600">
@@ -320,8 +320,6 @@ export default function DealerProgramSection() {
             </div>
           </div>
         </div>
-
-
       </div>
 
       {/* local styles for shine effect */}

@@ -1,4 +1,3 @@
-// src/home/ProblemSolutionSection.tsx
 import React from "react";
 
 type Item = {

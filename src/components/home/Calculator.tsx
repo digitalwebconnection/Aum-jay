@@ -286,7 +286,6 @@ export default function Calculator() {
                 </a>
               </div>
 
-            
             </div>
           </div>
         </div>

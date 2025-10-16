@@ -16,15 +16,6 @@ import {
 } from "lucide-react";
 import { motion, useMotionValue, useTransform, useScroll, useSpring } from "framer-motion";
 
-/**
- * ✅ What changed (mobile fixes):
- * - Disables 3D tilt/parallax on touch devices (prevents jank & accidental scroll stalls)
- * - Smaller paddings, icons, and fonts on <md screens
- * - Aurora blobs & noise opacity reduced on mobile to save GPU
- * - Safer fallbacks for motion on SSR/mobile (prefers-reduced-motion respected)
- * - Layout tweaks: tighter gaps, better wrapping, no overflow issues
- */
-
 /** Stats: updated pipeline to 1 MW+ for scale perception */
 const stats: Array<{
   icon: any;

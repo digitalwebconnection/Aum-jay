@@ -283,7 +283,7 @@ function ChatWidget({
             </div>
 
             {/* Greeting */}
-            <div className="mt-4">
+            <div className="mt-4" >
               <div className="inline-flex items-center rounded-2xl bg-gray-100 px-3 py-2 text-sm text-gray-800 shadow-sm">
                 <span className="mr-2">Hi! How can we help?</span>
                 <span className="typing-dots">

@@ -1,5 +1,4 @@
 "use client"
-
 import React, { useEffect, useState } from "react"
 import { Sun, Zap, ArrowRight, Globe2 } from "lucide-react"
 
@@ -130,11 +129,10 @@ export default function HeroHm() {
               >
                 🔆 Book Free Home/Society Survey
               </button>
-              <button className="rounded-lg border-2 shadow-black bg-amber-50/70 border-[#9FBC09] px-4 md:px-8 py-4 shadow-green-800 text-[15px] md:text-xl font-semibold transition-all duration-300 hover:scale-105">
+              <button className="rounded-lg border-2 bg-amber-50/70 border-[#9FBC09] px-4 md:px-8 py-4 shadow-green-800 text-[15px] md:text-xl font-semibold transition-all duration-300 hover:scale-105">
                 Request Business Proposal
               </button>
             </div>
-
 
             {/* ===== Impact Links (NEW) ===== */}
             <div className="mt-6 grid gap-3 sm:auto-cols-fr sm:grid-flow-col">

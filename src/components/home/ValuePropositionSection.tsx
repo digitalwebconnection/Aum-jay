@@ -4,15 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { CheckCircle, MapPin, Wrench, Award, Search } from "lucide-react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 
-/**
- * Premium animated version of your ValuePropositionSection
- * - Aurora background + subtle noise
- * - Staggered reveals
- * - 3D tilt hover on cards
- * - Gradient borders with sheen
- * - Micro-interactions on chips
- */
-
 const benefits = [
   {
     icon: Award,

@@ -63,7 +63,7 @@ const allProducts: Product[] = [
       "Waaree Prime represents our flagship product line with the highest efficiency ratings and premium build quality.",
     subtitle: "",
     image:
-      "https://waareeimages.s3.ap-south-1.amazonaws.com/A_solar_pumpinstalled_by_Waaree_Energies_in_operation_a759a9f5e1.webp",
+      "https://i0.wp.com/solarquarter.com/wp-content/uploads/2022/10/17-2.png?fit=1200%2C675&ssl=1",
   },
   {
     id: "Commercial & Product Supply",
@@ -75,7 +75,6 @@ const allProducts: Product[] = [
     subtitle: "",
     image: "https://waaree.com/wp-content/uploads/2025/07/Solar-panels-online-scaled.jpg",
   },
- 
 ]
 
 export default function InteractiveProductShowcase(): React.ReactElement {
@@ -83,7 +82,6 @@ export default function InteractiveProductShowcase(): React.ReactElement {
   const [currentBg, setCurrentBg] = useState<string>(allProducts[0].image)
   const [nextBg, setNextBg] = useState<string | null>(null)
   const [isSwitching, setIsSwitching] = useState(false)
-
   const buttonContainerRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<number | null>(null)
   const intervalRef = useRef<number | null>(null)
@@ -99,10 +97,8 @@ export default function InteractiveProductShowcase(): React.ReactElement {
   useEffect(() => {
     const container = buttonContainerRef.current
     if (!container) return
-
     let scrollDirection = 1
     const speed = 0.5
-
     const scroll = () => {
       if (!container) return
       container.scrollTop += scrollDirection * speed
@@ -111,7 +107,6 @@ export default function InteractiveProductShowcase(): React.ReactElement {
       if (container.scrollTop <= 0) scrollDirection = 1
       requestAnimationFrame(scroll)
     }
-
     scroll()
   }, [])
 
@@ -206,7 +201,6 @@ export default function InteractiveProductShowcase(): React.ReactElement {
           <p className="text-sm md:text-base mb-8 leading-relaxed">
             {activeProduct.details}
           </p>
-
           <div className="flex items-center gap-4">
             <button className="px-6 py-3  bg-black/60 backdrop-blur-sm text-white border border-white/30 hover:bg-black/70 transition-all duration-300 rounded-md text-[13px] md:text-lg font-semibold">
               Explore More
@@ -223,8 +217,6 @@ export default function InteractiveProductShowcase(): React.ReactElement {
           <h3 className="text-2xl font-semibold">{activeProduct.subtitle}</h3>
         </div>
       </div>
-
-      
     </section>
   )
 }
