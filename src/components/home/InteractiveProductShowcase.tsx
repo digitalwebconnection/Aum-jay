@@ -20,7 +20,7 @@ const allProducts: Product[] = [
       "The solar inverter helps convert the direct current (DC) from the solar panels into alternating current (AC), which is used by domestic and commercial appliances.",
     subtitle: "",
     image:
-      "https://www.electrobeamsolar.com/assets/front/images/solar.webp",
+      "https://cdn11.bigcommerce.com/s-unnwlv5df8/product_images/uploaded_images/inverter-price.jpg",
   },
   {
     id: "panels",

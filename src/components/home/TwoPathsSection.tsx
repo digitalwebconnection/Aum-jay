@@ -75,7 +75,7 @@ export default function TwoPathsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 overflow-hidden bg-gradient-to-b from-green-50 via-white to-yellow-50"
+      className="relative py-10 overflow-hidden bg-gradient-to-b from-green-50 via-white to-yellow-50"
     >
       {/* Decorative brand orbs */}
       <motion.div

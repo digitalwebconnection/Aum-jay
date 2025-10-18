@@ -267,7 +267,7 @@ export default function ProblemSolutionSection() {
   return (
     <section
       id="problem-solution"
-      className="relative overflow-hidden bg-slate-50 py-16 sm:py-24"
+      className="relative overflow-hidden bg-slate-50 py-16 sm:py-14"
       onMouseMove={(e) => {
         const w = window.innerWidth || 1;
         const h = window.innerHeight || 1;

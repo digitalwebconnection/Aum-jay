@@ -102,8 +102,6 @@ export default function HeroHm() {
               </span>
             </p>
 
-
-
             {/* Heading */}
             <h1
               className="mb-6 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-lg md:text-6xl animate-gradient-x"

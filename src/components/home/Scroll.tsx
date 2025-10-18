@@ -30,7 +30,7 @@ export default function Scroll() {
 
   return (
     <main className="w-full bg-gradient-to-b from-white via-slate-50 to-white">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-6">
         <header className="mb-6 sm:mb-10 text-center">
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             Our Partners

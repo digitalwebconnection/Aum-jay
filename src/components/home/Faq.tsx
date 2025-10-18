@@ -1,4 +1,3 @@
-// src/home/FAQSection.tsx
 "use client"
 
 import React from "react"

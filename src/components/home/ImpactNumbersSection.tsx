@@ -206,8 +206,8 @@ export default function ImpactNumbersSection() {
           className="mt-12 md:mt-16"
         >
           {/* Section Header */}
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold shadow-sm">
+          <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4 ">
+            <div className="inline-flex items-center gap-2 rounded-full border border-black/50 bg-white px-3 py-1 text-xs font-semibold  ">
               <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-white" />
               <span>PM Surya Ghar Subsidy – Step-by-Step Assistance by Aumjay</span>
             </div>
@@ -452,7 +452,7 @@ function InfoCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       whileHover={{ y: -2 }}
-      className="group relative rounded-2xl border border-black/5 bg-white p-4 md:p-5 shadow-sm"
+      className="group relative rounded-2xl border border-black/50 bg-white p-4 md:p-5 shadow-xl"
     >
       <div className="flex items-center gap-2 mb-2">
         <div className="rounded-lg bg-gray-100 p-2">{icon}</div>

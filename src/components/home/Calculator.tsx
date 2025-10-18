@@ -82,7 +82,7 @@ export default function Calculator() {
   }, [aud, monthlyBill, tariff, offset, pricePerKW, subsidy, emi]);
 
   return (
-    <section id="roi" className="bg-slate-50 py-14 sm:py-20">
+    <section id="roi" className="bg-slate-50 py-14 sm:py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
@@ -118,11 +118,12 @@ export default function Calculator() {
         {/* Calculator */}
         <div className="mt-8 grid gap-6 lg:grid-cols-12">
           {/* Left: Inputs */}
-          <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+          <div className="lg:col-span-5 ">
+            <div className="rounded-2xl border-1 shadow-2xl bg-white p-6 ring-1 ring-slate-200">
               <h3 className="text-lg font-semibold text-slate-900">Inputs</h3>
 
               {/* Quick presets */}
+
               <div className="mt-3 flex flex-wrap gap-2">
                 {[3000, 5000, 8000, 12000, 20000].map((v) => (
                   <button
@@ -149,6 +150,7 @@ export default function Calculator() {
               </div>
 
               {/* Money inputs */}
+
               <div className="mt-5 grid gap-4">
                 <LabeledNumber
                   label="Monthly electricity bill (₹)"
@@ -167,6 +169,7 @@ export default function Calculator() {
                 />
 
                 {/* Offset slider */}
+
                 <div>
                   <label className="flex items-center justify-between text-sm font-medium text-slate-700">
                     <span>Solar coverage goal</span>
@@ -185,6 +188,7 @@ export default function Calculator() {
                 </div>
 
                 {/* Price per kW */}
+
                 <LabeledNumber
                   label={`Price per kW (₹/kW) — ${aud === "Home & Societies" ? "residential" : "commercial"} EPC`}
                   value={pricePerKW}
@@ -218,11 +222,13 @@ export default function Calculator() {
           </div>
 
           {/* Right: Results */}
+
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+            <div className="rounded-2xl shadow-2xl bg-white p-6 ring-1 ring-slate-200 border-1">
               <h3 className="text-lg font-semibold text-slate-900">Results (estimate)</h3>
 
               {/* KPIs */}
+
               <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <KPI title="Recommended system size" value={`${calc.recommendedKW.toFixed(1)} kW`} hint="Rounded to nearest 0.5 kW" />
                 <KPI title="Gross project cost" value={`₹ ${inr(calc.capex)}`} hint={`${aud === "Home & Societies" ? "Residential" : "Commercial"} EPC`} />
@@ -237,6 +243,7 @@ export default function Calculator() {
               </div>
 
               {/* ROI bar */}
+
               <div className="mt-6 rounded-xl bg-slate-50 p-4">
                 <p className="text-sm font-medium text-slate-900">Final design, cost & ROI subject to site survey and DISCOM approval.</p>
                 <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
@@ -251,6 +258,7 @@ export default function Calculator() {
               </div>
 
               {/* Explainer */}
+
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <Explain
                   title="How we estimated size"
@@ -276,7 +284,7 @@ export default function Calculator() {
                   href="#book-survey"
                   className="inline-flex items-center justify-center rounded-xl bg-[#0db02b] px-5 py-3 text-[13px] md:text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
                 >
-                 Get exact proposal → Book free survey.
+                  Get exact proposal → Book free survey.
                 </a>
                 <a
                   href="#b2b-proposal"

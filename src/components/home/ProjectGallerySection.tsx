@@ -95,7 +95,7 @@ export default function ProjectGallerySection() {
     <section id="project" className="relative max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-6 items-center text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-gray-200 px-3 py-1 text-xs font-medium" style={{ color: BRAND }}>
+        <div className="inline-flex items-center gap-2 rounded-full  border-2 bg-gray-200 px-5 py-1 text-sm font-medium" style={{ color: BRAND }}>
           Recent Work
         </div>
         <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -108,7 +108,7 @@ export default function ProjectGallerySection() {
 
       {/* Sticky controls */}
       <div
-        className="sticky z-10 -mx-2 mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white/80 p-2 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+        className="sticky z-10 -mx-2 mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-500 bg-white/80 p-2 backdrop-blur supports-[backdrop-filter]:bg-white/60"
         style={{ top: "calc(var(--header-h, 88px) + 8px)" }}
       >
         <div className="flex flex-wrap gap-2">

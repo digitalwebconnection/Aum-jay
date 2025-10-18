@@ -93,7 +93,6 @@ export default function Header() {
               <button onClick={() => scrollToSection("contact")} className="text-gray-700 hover:text-[#0DB02B]">
                 Contact
               </button>
-
               <button
                 onClick={() => scrollToSection("contact")}
                 className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition"
