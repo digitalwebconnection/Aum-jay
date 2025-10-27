@@ -27,8 +27,8 @@ const stats: Array<{
     {
       icon: Shield,
       number: 25,
-      suffix: "+  (Mumbai & Thane) ",
-      label: " Homes Powered  ",
+      suffix: "+  (Mumbai & Thane) ",
+      label: " Homes Powered  ",
       gradient: "bg-gradient-to-r from-green-400 to-green-600",
     },
     {
@@ -60,6 +60,7 @@ export default function ImpactNumbersSection() {
       const mq = window.matchMedia("(pointer: fine)");
       setEnableTilt(mq.matches);
       const handler = (e: MediaQueryListEvent) => setEnableTilt(e.matches);
+      // Use modern addEventListener if available, fallback to deprecated addListener
       if (mq.addEventListener) mq.addEventListener("change", handler);
       else mq.addListener?.(handler);
       return () => {
@@ -359,6 +360,8 @@ function StatCard({
   const cardRef = useRef<HTMLDivElement | null>(null);
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
+
+  // Conditional transforms only for tilt
   const tiltShadow = useTransform(rotateY, [-12, 12], [
     "0 10px 30px rgba(0,0,0,0.12)",
     "0 10px 30px rgba(0,0,0,0.18)",
@@ -367,7 +370,7 @@ function StatCard({
   const iconY = useTransform(rotateX, [-12, 12], [-6, 6]);
 
   const onMouseMove = (e: React.MouseEvent) => {
-    if (!enableTilt) return;
+    // Note: No need for `if (!enableTilt) return;` here, as the prop itself is conditional now.
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
     const px = (e.clientX - rect.left) / rect.width; // 0..1
@@ -386,17 +389,17 @@ function StatCard({
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
+      // 👇 FIX: Conditionally apply mouse event handlers and style
+      {...(enableTilt ? { onMouseMove, onMouseLeave, style: { rotateX, rotateY, transformStyle: "preserve-3d" as const } } : {})}
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.18 }}
-      style={enableTilt ? { rotateX, rotateY, transformStyle: "preserve-3d" } : undefined}
       className="group relative flex flex-col items-center space-y-3 md:space-y-4 will-change-transform"
       aria-label={stat.label}
     >
       {/* Icon */}
       <motion.div
+        // 👇 FIX: Conditionally apply tilt styles
         style={enableTilt ? { x: iconX, y: iconY, boxShadow: tiltShadow as unknown as string } : undefined}
         initial={{ scale: 0.9, rotate: -6 }}
         animate={isVisible ? { scale: 1.0, rotate: 0 } : {}}
@@ -417,6 +420,7 @@ function StatCard({
         animate={{ scale: 1.0, opacity: 1 }}
         transition={{ duration: 0.35 }}
         className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight shadow-2xl"
+        // 👇 FIX: Conditionally apply tilt style
         style={enableTilt ? { transform: "translateZ(35px)" } : undefined}
       >
         {value.toLocaleString()}
