@@ -58,7 +58,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden bg-[#0c1820] text-slate-300">
+    <footer className="relative p-0 overflow-hidden bg-[#0c1820] text-slate-300">
       {/* top hairline */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
 
@@ -254,11 +254,11 @@ function ChatWidget({
   onToggle: () => void
 }) {
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-2 right-2 z-50">
       {/* Popover (opens above the button) */}
       <div
         className={[
-          "mb-3   md:ms-10 w-[300px] md:w-[340px] origin-bottom-right transition-all duration-300",
+          "mb-3  ms-25 md:ms-10 w-[300px] md:w-[340px] origin-bottom-right transition-all duration-300",
           chatOpen ? "pointer-events-auto translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-2 scale-95 opacity-0",
         ].join(" ")}
         aria-hidden={!chatOpen}
@@ -322,7 +322,7 @@ function ChatWidget({
         aria-expanded={chatOpen}
         aria-label="Chat with us on WhatsApp"
         className={[
-          "group relative ms-55 w-43 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
+          "group relative ms-55 w-45 flex items-center rounded-full px-6 py-3 text-lg font-semibold text-white",
           "bg-gradient-to-r from-[color:var(--brand)] via-emerald-600 to-[color:var(--brand)]",
           "shadow-[0_10px_30px_rgba(16,185,129,0.5)] transition-transform duration-300 hover:shadow-[0_14px_36px_rgba(16,185,129,0.6)]",
           attention ? "animate-attention" : "",
