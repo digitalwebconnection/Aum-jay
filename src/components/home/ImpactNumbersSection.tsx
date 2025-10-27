@@ -47,12 +47,47 @@ const stats: Array<{
     },
   ];
 
+// =========================================================================
+// 💡 NEW: Loading Overlay Component for Smooth Load Effect
+// =========================================================================
+function LoadingOverlay({ isLoading }: { isLoading: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: isLoading ? 1 : 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className={`fixed inset-0 z-[9999] pointer-events-none ${isLoading ? 'pointer-events-auto' : 'pointer-events-none'}`}
+    >
+      <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <Zap className="h-10 w-10 text-green-600 animate-spin-slow" />
+          <h1 className="mt-4 text-xl font-bold text-gray-800">Loading Solar Impact...</h1>
+        </div>
+      </div>
+      <style>{`
+        @keyframes spinSlow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spinSlow 3s linear infinite;
+        }
+      `}</style>
+    </motion.div>
+  );
+}
+
+// =========================================================================
+// Main Component
+// =========================================================================
 export default function ImpactNumbersSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [animatedNumbers, setAnimatedNumbers] = useState(stats.map(() => 0));
   const sectionRef = useRef<HTMLElement | null>(null);
   const hasAnimatedRef = useRef(false);
-  const [enableTilt, setEnableTilt] = useState(false); // 👈 turn off on touch devices
+  const [enableTilt, setEnableTilt] = useState(false);
+  // 💡 NEW: Loading state for the overlay
+  const [isLoading, setIsLoading] = useState(true);
 
   // Detect fine pointer (mouse) only; touch devices get no tilt
   useEffect(() => {
@@ -60,7 +95,6 @@ export default function ImpactNumbersSection() {
       const mq = window.matchMedia("(pointer: fine)");
       setEnableTilt(mq.matches);
       const handler = (e: MediaQueryListEvent) => setEnableTilt(e.matches);
-      // Use modern addEventListener if available, fallback to deprecated addListener
       if (mq.addEventListener) mq.addEventListener("change", handler);
       else mq.addListener?.(handler);
       return () => {
@@ -68,6 +102,15 @@ export default function ImpactNumbersSection() {
         else mq.removeListener?.(handler);
       };
     }
+  }, []);
+
+  // 💡 NEW: Set a minimum duration for the loading screen (e.g., 500ms)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500); // 500ms minimum display time
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Section scroll progress bar
@@ -113,178 +156,183 @@ export default function ImpactNumbersSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-14 md:py-20 relative overflow-hidden bg-gray-50" id="service">
-      {/* Top scroll progress for this section */}
-      <motion.span
-        aria-hidden
-        className="absolute left-0 top-0 h-1 w-full origin-left bg-gradient-to-r from-green-500 via-yellow-400 to-green-500"
-        style={{ scaleX: progressX }}
-      />
+    <>
+      {/* 💡 NEW: Render the loading overlay */}
+      <LoadingOverlay isLoading={isLoading} />
 
-      {/* Aurora / animated background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-green-100 via-yellow-50 to-white animate-gradient" />
-        <div className="pointer-events-none absolute -top-24 -left-24 h-[22rem] w-[22rem] md:h-[38rem] md:w-[38rem] rounded-full bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.18),_transparent_55%)] blur-xl md:blur-2xl animate-blob" />
-        <div className="pointer-events-none absolute -bottom-20 -right-10 h-[18rem] w-[18rem] md:h-[30rem] md:w-[30rem] rounded-full bg-[radial-gradient(circle_at_center,_rgba(250,204,21,0.16),_transparent_55%)] blur-lg md:blur-2xl animate-blob-delayed" />
-        {/* soft noise texture */}
-        <div className="pointer-events-none absolute inset-0 mix-blend-multiply opacity-[0.015] md:opacity-[0.03] [background-image:radial-gradient(#000_1px,transparent_1px)] [background-size:6px_6px]" />
-      </div>
+      <section ref={sectionRef} className="py-14 md:py-20 relative overflow-hidden bg-gray-50" id="service">
+        {/* Top scroll progress for this section */}
+        <motion.span
+          aria-hidden
+          className="absolute left-0 top-0 h-1 w-full origin-left bg-gradient-to-r from-green-500 via-yellow-400 to-green-500"
+          style={{ scaleX: progressX }}
+        />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Why Choose Us */}
-        <motion.div
-          initial={{ opacity: 0, y: -14 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-8 md:mb-12"
-        >
+        {/* Aurora / animated background */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-green-100 via-yellow-50 to-white animate-gradient" />
+          <div className="pointer-events-none absolute -top-24 -left-24 h-[22rem] w-[22rem] md:h-[38rem] md:w-[38rem] rounded-full bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.18),_transparent_55%)] blur-xl md:blur-2xl animate-blob" />
+          <div className="pointer-events-none absolute -bottom-20 -right-10 h-[18rem] w-[18rem] md:h-[30rem] md:w-[30rem] rounded-full bg-[radial-gradient(circle_at_center,_rgba(250,204,21,0.16),_transparent_55%)] blur-lg md:blur-2xl animate-blob-delayed" />
+          {/* soft noise texture */}
+          <div className="pointer-events-none absolute inset-0 mix-blend-multiply opacity-[0.015] md:opacity-[0.03] [background-image:radial-gradient(#000_1px,transparent_1px)] [background-size:6px_6px]" />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          {/* Why Choose Us */}
           <motion.div
-            initial={{ opacity: 0.9 }}
-            animate={{ opacity: 1 }}
-            whileHover={{ scale: 1.005 }}
-            className="relative rounded-2xl p-[1.2px] md:p-[1.5px] bg-gradient-to-r from-yellow-400 via-green-500 to-yellow-400 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)]"
+            initial={{ opacity: 0, y: -14 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="mb-8 md:mb-12"
           >
-            <div className="rounded-2xl bg-white">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 p-4 md:p-6">
-                <a href="#savings" className="border-[#0DB02B] border rounded-xl block">
-                  <WhyItem icon={<TrendingDown className="w-5 h-5 text-yellow-600" />} title="90% Average Savings" desc="Smart sizing + net‑metering for bill cuts." />
-                </a>
-                <a href="#installations" className="border-[#0DB02B] border rounded-xl block">
-                  <WhyItem icon={<Shield className="w-5 h-5 text-green-600" />} title="3200+ Installations" desc="Waaree‑grade performance assurance." />
-                </a>
-                <a href="#impact" className="border-[#0DB02B] border rounded-xl block">
-                  <WhyItem icon={<Building2 className="w-5 h-5 text-green-700" />} title="CO₂ Offset = 50,000+ Trees" desc="Authorized Waaree franchise • Mumbai & Thane." />
-                </a>
+            <motion.div
+              initial={{ opacity: 0.9 }}
+              animate={{ opacity: 1 }}
+              whileHover={{ scale: 1.005 }}
+              className="relative rounded-2xl p-[1.2px] md:p-[1.5px] bg-gradient-to-r from-yellow-400 via-green-500 to-yellow-400 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)]"
+            >
+              <div className="rounded-2xl bg-white">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 p-4 md:p-6">
+                  <a href="#savings" className="border-[#0DB02B] border rounded-xl block">
+                    <WhyItem icon={<TrendingDown className="w-5 h-5 text-yellow-600" />} title="90% Average Savings" desc="Smart sizing + net‑metering for bill cuts." />
+                  </a>
+                  <a href="#installations" className="border-[#0DB02B] border rounded-xl block">
+                    <WhyItem icon={<Shield className="w-5 h-5 text-green-600" />} title="3200+ Installations" desc="Waaree‑grade performance assurance." />
+                  </a>
+                  <a href="#impact" className="border-[#0DB02B] border rounded-xl block">
+                    <WhyItem icon={<Building2 className="w-5 h-5 text-green-700" />} title="CO₂ Offset = 50,000+ Trees" desc="Authorized Waaree franchise • Mumbai & Thane." />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-10 md:mb-14"
+          >
+            <h2 className="text-2xl md:text-5xl font-extrabold mb-2 md:mb-3 drop-shadow-md leading-tight">
+              <span className="bg-gradient-to-r from-gray-900 via-green-700 to-gray-900 bg-clip-text text-transparent animate-text-shine">
+                Impact That Matches Our Ambition
+              </span>
+            </h2>
+            <p className="text-gray-900 max-w-2xl  mb-2 text-sm md:text-xl mx-auto">
+              Numbers that reflect real outcomes—and our scale target for this year.
+            </p>
+            <h4 className=" text-gray-800 ">1 MW+ installs by 2026 in Thane–Mumbai region</h4>
+          </motion.div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center" style={{ perspective: 900 }}>
+            {stats.map((stat, index) => (
+              <StatCard key={index} stat={stat} index={index} isVisible={isVisible} value={animatedNumbers[index]} enableTilt={enableTilt} />
+            ))}
+          </div>
+          <p className="text-center mt-5 text-[#0db02b] font-semibold md:font-bold text-base md:text-lg px-3">
+            Waaree Nationwide: 3200+ homes powered, 18,500+ kW installed.
+          </p>
+
+          {/* New value points teaser (no repetition): Subsidy & EPC */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+          >
+            <TeaserCard title="40% Subsidy Guidance" desc="Clear, step‑by‑step support for PM Surya Ghar and DISCOM approvals." tone="from-yellow-300 to-white" badge="New Value" />
+            <TeaserCard title="EPC Expertise" desc="MNRE‑compliant design, procurement, and on‑time commissioning." tone="from-green-500 to-white" badge="New Value" />
+          </motion.div>
+
+          {/* ---------------- 6. Subsidy & PM Surya Ghar ---------------- */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-12 md:mt-16"
+          >
+            {/* Section Header */}
+            <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4 ">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/50 bg-white px-3 py-1 text-xs font-semibold  ">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-white" />
+                <span>PM Surya Ghar Subsidy – Step-by-Step Assistance by Aumjay</span>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
 
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-10 md:mb-14"
-        >
-          <h2 className="text-2xl md:text-5xl font-extrabold mb-2 md:mb-3 drop-shadow-md leading-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-green-700 to-gray-900 bg-clip-text text-transparent animate-text-shine">
-              Impact That Matches Our Ambition
-            </span>
-          </h2>
-          <p className="text-gray-900 max-w-2xl  mb-2 text-sm md:text-xl mx-auto">
-            Numbers that reflect real outcomes—and our scale target for this year.
-          </p>
-          <h4 className=" text-gray-800 ">1 MW+ installs by 2026 in Thane–Mumbai region</h4>
-        </motion.div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center" style={{ perspective: 900 }}>
-          {stats.map((stat, index) => (
-            <StatCard key={index} stat={stat} index={index} isVisible={isVisible} value={animatedNumbers[index]} enableTilt={enableTilt} />
-          ))}
-        </div>
-        <p className="text-center mt-5 text-[#0db02b] font-semibold md:font-bold text-base md:text-lg px-3">
-          Waaree Nationwide: 3200+ homes powered, 18,500+ kW installed.
-        </p>
-
-        {/* New value points teaser (no repetition): Subsidy & EPC */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
-        >
-          <TeaserCard title="40% Subsidy Guidance" desc="Clear, step‑by‑step support for PM Surya Ghar and DISCOM approvals." tone="from-yellow-300 to-white" badge="New Value" />
-          <TeaserCard title="EPC Expertise" desc="MNRE‑compliant design, procurement, and on‑time commissioning." tone="from-green-500 to-white" badge="New Value" />
-        </motion.div>
-
-        {/* ---------------- 6. Subsidy & PM Surya Ghar ---------------- */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-12 md:mt-16"
-        >
-          {/* Section Header */}
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4 ">
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/50 bg-white px-3 py-1 text-xs font-semibold  ">
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-white" />
-              <span>PM Surya Ghar Subsidy – Step-by-Step Assistance by Aumjay</span>
+            {/* 3-up cards: 40% Subsidy / Scheme / We handle */}
+            <div className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              <InfoCard
+                icon={<Banknote className="h-5 w-5 text-green-700" />}
+                title="40% Subsidy Info"
+                points={[
+                  "Central assistance up to 40% for eligible residential rooftop systems*",
+                  "Exact %/caps depend on category, size & scheme updates",
+                  "We validate eligibility before paperwork",
+                ]}
+              />
+              <InfoCard
+                icon={<Landmark className="h-5 w-5 text-amber-700" />}
+                title="PM Surya Ghar Yojana"
+                points={[
+                  "National portal based workflow (online application)",
+                  "Empanelled‑vendor installation + net‑metering",
+                  "Direct benefit transfer post‑commissioning",
+                ]}
+              />
+              <InfoCard
+                icon={<ClipboardList className="h-5 w-5 text-blue-700" />}
+                title="What We Handle"
+                points={[
+                  "Eligibility check & savings estimate",
+                  "Portal application & documentation",
+                  "Liaison with DISCOM till subsidy credit",
+                ]}
+              />
             </div>
-          </div>
 
-          {/* 3-up cards: 40% Subsidy / Scheme / We handle */}
-          <div className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <InfoCard
-              icon={<Banknote className="h-5 w-5 text-green-700" />}
-              title="40% Subsidy Info"
-              points={[
-                "Central assistance up to 40% for eligible residential rooftop systems*",
-                "Exact %/caps depend on category, size & scheme updates",
-                "We validate eligibility before paperwork",
-              ]}
-            />
-            <InfoCard
-              icon={<Landmark className="h-5 w-5 text-amber-700" />}
-              title="PM Surya Ghar Yojana"
-              points={[
-                "National portal based workflow (online application)",
-                "Empanelled‑vendor installation + net‑metering",
-                "Direct benefit transfer post‑commissioning",
-              ]}
-            />
-            <InfoCard
-              icon={<ClipboardList className="h-5 w-5 text-blue-700" />}
-              title="What We Handle"
-              points={[
-                "Eligibility check & savings estimate",
-                "Portal application & documentation",
-                "Liaison with DISCOM till subsidy credit",
-              ]}
-            />
-          </div>
+            {/* >>> Premium Step-by-Step: Smart Process Tracker <<< */}
+            <SmartProcessSection />
 
-          {/* >>> Premium Step-by-Step: Smart Process Tracker <<< */}
-          <SmartProcessSection />
+            {/* CTA */}
+            <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-xl bg-green-600 px-4 py-2 text-white shadow hover:bg-green-700 transition-colors"
+              >
+                Get Subsidy Guidance <ArrowRight className="h-4 w-4" />
+              </a>
 
-          {/* CTA */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-green-600 px-4 py-2 text-white shadow hover:bg-green-700 transition-colors"
-            >
-              Get Subsidy Guidance <ArrowRight className="h-4 w-4" />
-            </a>
+            </div>
+          </motion.section>
+        </div>
 
-          </div>
-        </motion.section>
-      </div>
+        {/* Animations */}
+        <style>{`
+          @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+          .animate-gradient { background-size: 200% 200%; animation: gradientShift 10s ease infinite; }
 
-      {/* Animations */}
-      <style>{`
-        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .animate-gradient { background-size: 200% 200%; animation: gradientShift 10s ease infinite; }
+          @keyframes pulseSlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: 0.95; } }
+          .animate-pulse-slow { animation: pulseSlow 4s ease-in-out infinite; }
 
-        @keyframes pulseSlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: 0.95; } }
-        .animate-pulse-slow { animation: pulseSlow 4s ease-in-out infinite; }
+          @keyframes shine { 0% { transform: translateX(-120%) } 100% { transform: translateX(220%) } }
+          .animate-shine { animation: shine 2.2s ease-in-out infinite; }
 
-        @keyframes shine { 0% { transform: translateX(-120%) } 100% { transform: translateX(220%) } }
-        .animate-shine { animation: shine 2.2s ease-in-out infinite; }
+          @keyframes sheen { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+          .animate-sheen { background-size: 300% 300%; animation: sheen 6s linear infinite; }
 
-        @keyframes sheen { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .animate-sheen { background-size: 300% 300%; animation: sheen 6s linear infinite; }
+          /* Aurora blobs */
+          @keyframes blobMove { 0%, 100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(2rem, -1rem, 0) scale(1.08); } }
+          .animate-blob { animation: blobMove 16s ease-in-out infinite; filter: blur(28px); }
+          .animate-blob-delayed { animation: blobMove 18s ease-in-out 1.2s infinite; filter: blur(24px); }
 
-        /* Aurora blobs */
-        @keyframes blobMove { 0%, 100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(2rem, -1rem, 0) scale(1.08); } }
-        .animate-blob { animation: blobMove 16s ease-in-out infinite; filter: blur(28px); }
-        .animate-blob-delayed { animation: blobMove 18s ease-in-out 1.2s infinite; filter: blur(24px); }
-
-        /* Gradient text shine */
-        @keyframes textShine { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .animate-text-shine { background-size: 200% auto; animation: textShine 6s linear infinite; }
-      `}</style>
-    </section>
+          /* Gradient text shine */
+          @keyframes textShine { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+          .animate-text-shine { background-size: 200% auto; animation: textShine 6s linear infinite; }
+        `}</style>
+      </section>
+    </>
   );
 }
 
@@ -370,7 +418,6 @@ function StatCard({
   const iconY = useTransform(rotateX, [-12, 12], [-6, 6]);
 
   const onMouseMove = (e: React.MouseEvent) => {
-    // Note: No need for `if (!enableTilt) return;` here, as the prop itself is conditional now.
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
     const px = (e.clientX - rect.left) / rect.width; // 0..1
@@ -389,7 +436,7 @@ function StatCard({
   return (
     <motion.div
       ref={cardRef}
-      // 👇 FIX: Conditionally apply mouse event handlers and style
+      // Conditionally apply mouse event handlers and style
       {...(enableTilt ? { onMouseMove, onMouseLeave, style: { rotateX, rotateY, transformStyle: "preserve-3d" as const } } : {})}
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -399,7 +446,6 @@ function StatCard({
     >
       {/* Icon */}
       <motion.div
-        // 👇 FIX: Conditionally apply tilt styles
         style={enableTilt ? { x: iconX, y: iconY, boxShadow: tiltShadow as unknown as string } : undefined}
         initial={{ scale: 0.9, rotate: -6 }}
         animate={isVisible ? { scale: 1.0, rotate: 0 } : {}}
@@ -420,7 +466,6 @@ function StatCard({
         animate={{ scale: 1.0, opacity: 1 }}
         transition={{ duration: 0.35 }}
         className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight shadow-2xl"
-        // 👇 FIX: Conditionally apply tilt style
         style={enableTilt ? { transform: "translateZ(35px)" } : undefined}
       >
         {value.toLocaleString()}
