@@ -119,7 +119,7 @@ export default function Calculator() {
         <div className="mt-8 grid gap-6 lg:grid-cols-12">
           {/* Left: Inputs */}
           <div className="lg:col-span-5 ">
-            <div className="rounded-2xl border-1 shadow-2xl bg-white p-6 ring-1 ring-slate-200">
+            <div className="rounded-2xl border-1 border-black/50 shadow-2xl bg-white p-6 ring-1 ring-slate-200">
               <h3 className="text-lg font-semibold text-slate-900">Inputs</h3>
 
               {/* Quick presets */}
@@ -224,7 +224,7 @@ export default function Calculator() {
           {/* Right: Results */}
 
           <div className="lg:col-span-7">
-            <div className="rounded-2xl shadow-2xl bg-white p-6 ring-1 ring-slate-200 border-1">
+            <div className="rounded-2xl shadow-2xl bg-white p-6 ring-1 ring-slate-200 border-1 border-black/50">
               <h3 className="text-lg font-semibold text-slate-900">Results (estimate)</h3>
 
               {/* KPIs */}
