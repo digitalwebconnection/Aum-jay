@@ -144,7 +144,7 @@ function CaseCard({ cs, onOpen }: { cs: CaseStudy; onOpen: () => void }) {
   const payback = capex / (Math.max(1, savings) * 12)
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="group relative  overflow-hidden rounded-2xl bg-white  border-1 border-black/40  shadow-xl transition hover:-translate-y-0.5  hover:shadow-2xl">
       {/* Before/After slider - NEW implementation */}
       <CompareSlider before={cs.beforeImg} after={cs.afterImg} label={`${cs.location} • ${cs.sizeKW} kW`} />
 
