@@ -6,14 +6,14 @@ import { motion, type Variants } from "framer-motion"
 
 /* ---------------------------- Content Data ---------------------------- */
 const homeownerFeatures = [
-  { icon: Sun,    title: "Rooftop Solutions",   description: "Maximize generation with site-audited, properly oriented arrays." },
+  { icon: Sun, title: "Rooftop Solutions", description: "Maximize generation with site-audited, properly oriented arrays." },
   { icon: Battery, title: "Society Solar Plans", description: "Dedicated plans for common areas & lifts with net-metering." },
-  { icon: Zap,    title: "Subsidy Guidance",    description: "End-to-end help with PM Surya Ghar & DISCOM processes." },
+  { icon: Zap, title: "Subsidy Guidance", description: "End-to-end help with PM Surya Ghar & DISCOM processes." },
 ]
 
 const businessFeatures = [
-  { icon: Sun,       title: "Business Solutions.",      description: "Grade-A panels, inverters, cabling & BoS from top OEMs." },
-  { icon: Battery,   title: "EPC Services",        description: "Engineering, Procurement & Commissioning with MNRE norms." },
+  { icon: Sun, title: "Business Solutions.", description: "Grade-A panels, inverters, cabling & BoS from top OEMs." },
+  { icon: Battery, title: "EPC Services", description: "Engineering, Procurement & Commissioning with MNRE norms." },
   { icon: Handshake, title: "Dealer Partnerships", description: "Grow via franchise & channel programs with priority pricing." },
 ]
 

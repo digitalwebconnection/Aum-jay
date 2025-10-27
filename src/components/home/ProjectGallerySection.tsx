@@ -336,7 +336,7 @@ export default function ProjectGallerySection() {
         </div>
       )}
 
-      {/* local keyframes (no Tailwind config needed) */}
+      {/* Local keyframes: Tailwind does not support custom keyframes directly in JSX, so we use inline styles for animation here. This keeps the animation self-contained and maintainable for future updates. */}
       <style>{`
         @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         .reveal { animation: fadeUp 600ms ease forwards; }

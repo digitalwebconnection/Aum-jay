@@ -17,24 +17,24 @@ import TwoPathsSection from "./TwoPathsSection";
 import ValuePropositionSection from "./ValuePropositionSection";
 
 export default function HomeMain() {
-    return(
+    return (
         <>
-        <HeroHm/>
-        <HighlightsSection/>
-        <Scroll/>
-        <ValuePropositionSection/>
-        <ProblemSolutionSection/>
-        <ImpactNumbersSection/>
-        <ProjectGallerySection/>
-        <TwoPathsSection/>
-        <InteractiveProductShowcase/>
-        <DealerProgramSection/>
-        <ComparisonTableSection/>
-        <CaseStudiesSection/>
-        <Calculator/>
-        <TestimonialsSection/>
-        <ContactForm/>  
-        <FAQSection/>
+            <HeroHm />
+            <HighlightsSection />
+            <Scroll />
+            <ValuePropositionSection />
+            <ProblemSolutionSection />
+            <ImpactNumbersSection />
+            <ProjectGallerySection />
+            <TwoPathsSection />
+            <InteractiveProductShowcase />
+            <DealerProgramSection />
+            <ComparisonTableSection />
+            <CaseStudiesSection />
+            <Calculator />
+            <TestimonialsSection />
+            <ContactForm />
+            <FAQSection />
         </>
     )
 }

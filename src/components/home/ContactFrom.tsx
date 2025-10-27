@@ -82,7 +82,7 @@ const ContactForm = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative w-full max-w-3xl backdrop-blur-md bg-white/90 shadow-2xl rounded-3xl py-5 px-10 border border-green-100"
+        className="relative w-full max-w-3xl backdrop-blur-md bg-white/90 shadow-2xl rounded-3xl py-5 px-4 md:px-10 border border-green-100"
       >
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -98,7 +98,7 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <Field
-              icon={<User className="text-green-600" />}
+              icon={<User className="text-green-600 " />}
               label="Full Name *"
               type="text"
               name="name"
@@ -195,8 +195,8 @@ const ContactForm = () => {
                 <RefreshCw className="w-4 h-4" /> Refresh
               </button>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="flex-1 bg-gradient-to-r from-green-100 to-green-200 border border-green-300 rounded-md text-center py-1 font-mono text-xl font-bold tracking-widest text-green-700 shadow-inner">
+            <div className=" md:flex items-center gap-3">
+              <div className="mb-4 md:mb-0 flex-1 bg-gradient-to-r from-green-100 to-green-200 border border-green-300 rounded-md text-center py-1 font-mono text-xl font-bold tracking-widest text-green-700 shadow-inner">
                 {captchaCode}
               </div>
               <input
@@ -204,7 +204,7 @@ const ContactForm = () => {
                 value={captchaInput}
                 onChange={(e) => setCaptchaInput(e.target.value)}
                 required
-                className="flex-1 px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 uppercase bg-gradient-to-r from-white to-green-50"
+                className="flex-1 w-full px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 uppercase bg-gradient-to-r from-white to-green-50"
                 placeholder="Enter code"
               />
             </div>

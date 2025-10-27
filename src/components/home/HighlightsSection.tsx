@@ -135,7 +135,7 @@ export default function HighlightsSection() {
         </div>
 
         {/* Trust ribbon */}
-        <div className={`mt-10 ms-30 flex flex-wrap items-center justify-center gap-3 text-center ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.8s" : "0s" }}>
+        <div className={`mt-10  md:ms-30 flex flex-wrap items-center justify-center gap-3 text-center ${isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-5"}`} style={{ animationDelay: isVisible ? "0.8s" : "0s" }}>
           <span className="inline-flex  items-center gap-2 px-5 py-1 rounded-full text-xs font-semibold"
             style={{ background: BRAND.deep, color: "white", border: "1px solid rgba(25,168,68,0.35)" }}>
             🏆 Authorized Waaree Franchise

@@ -164,7 +164,7 @@ function ZigRow({ item, index }: { item: Item; index: number }) {
         <div
           className={[
             "rounded-2xl border p-5 md:p-6 transition-all duration-700",
-            even ? "bg-rose-50/70 border-rose-200" : "bg-rose-50/40 border-rose-200/80",
+            even ? "bg-rose-50/70 border-rose-500" : "bg-rose-50/40 border-rose-500/80",
             inView ? "opacity-100 translate-x-0" : even ? "opacity-0 -translate-x-6" : "opacity-0 translate-x-6",
           ].join(" ")}
           style={{ transitionDelay: "40ms" }}
@@ -216,7 +216,7 @@ function ZigRow({ item, index }: { item: Item; index: number }) {
         <div
           className={[
             "rounded-2xl border p-5 md:p-6 transition-all duration-700",
-            even ? "bg-emerald-50/80 border-emerald-200" : "bg-emerald-50/60 border-emerald-200/80",
+            even ? "bg-emerald-50/80 border-emerald-500" : "bg-emerald-50/60 border-emerald-500/80",
             inView ? "opacity-100 translate-x-0" : even ? "opacity-0 translate-x-6" : "opacity-0 -translate-x-6",
           ].join(" ")}
           style={{ transitionDelay: "140ms" }}
@@ -339,7 +339,7 @@ export default function ProblemSolutionSection() {
                 </a>
                 <a
                   href="#b2b-proposal"
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                  className="inline-flex items-center justify-center rounded-xl border border-gray-600 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
                 >
                   Request Proposal
                 </a>
