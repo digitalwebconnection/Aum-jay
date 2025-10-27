@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import PopupExample from "../PopupExample";
 
 type ProjectType = "Home" | "Society" | "Commercial";
 type Project = {
@@ -60,6 +61,7 @@ export default function ProjectGallerySection() {
   const [layout,] = useState<"masonry" | "grid">("masonry");
   const [sortDesc, setSortDesc] = useState(true);
   const [active, setActive] = useState<Project | null>(null);
+                       
 
   const counts = useMemo(() => {
     const c = { All: PROJECTS.length, Home: 0, Society: 0, Commercial: 0 } as Record<"All" | ProjectType, number>;
@@ -90,6 +92,7 @@ export default function ProjectGallerySection() {
 
   // Reveal-once for the gallery block
   const { ref: revealRef, seen } = useInViewOnce(0.1);
+   const [showPopup, setShowPopup] = useState(false);
 
   return (
     <section id="project" className="relative max-w-7xl mx-auto">
@@ -235,13 +238,13 @@ export default function ProjectGallerySection() {
 
       {/* CTA */}
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a
-          href="#book-survey"
+        <button
+         onClick={() => setShowPopup(true)}
           className="inline-flex items-center justify-center rounded-xl bg-[color:var(--brand)] px-12 md:px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           style={{ ["--brand" as any]: BRAND }}
         >
           Book Free Survey
-        </a>
+        </button>
         <a
           href="#b2b-proposal"
           className="inline-flex items-center justify-center rounded-xl border border-[color:var(--brand)] bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
@@ -250,6 +253,8 @@ export default function ProjectGallerySection() {
           Request Business Proposal
         </a>
       </div>
+{/* Popup */}
+      {showPopup && <PopupExample onClose={() => setShowPopup(false)} />}
 
       {/* Lightbox */}
       {active && (

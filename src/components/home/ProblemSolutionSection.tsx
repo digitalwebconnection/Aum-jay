@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState} from "react";
+import PopupExample from "../PopupExample";
 
 type Item = {
   id: string;
@@ -263,6 +264,7 @@ function ZigRow({ item, index }: { item: Item; index: number }) {
 export default function ProblemSolutionSection() {
   const [mx, setMx] = React.useState(0.5);
   const [my, setMy] = React.useState(0.5);
+   const [showPopup, setShowPopup] = useState(false);
 
   return (
     <section
@@ -331,12 +333,7 @@ export default function ProblemSolutionSection() {
               </div>
 
               <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-                <button
-                  
-                  className="shine-btn inline-flex items-center justify-center rounded-xl bg-[#0DB02B] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-                >
-                  Book Free Survey
-                </button>
+               
                 <a
                   href="#b2b-proposal"
                   className="inline-flex items-center justify-center rounded-xl border border-gray-600 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
@@ -357,12 +354,12 @@ export default function ProblemSolutionSection() {
 
         {/* CTA strip (bottom) */}
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#book-survey"
+          <button
+            onClick={() => setShowPopup(true)}
             className="shine-btn inline-flex items-center justify-center rounded-xl bg-[#0DB02B] px-5 py-3 text-xs md:text-sm font-bold shadow-black text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           >
            See Exact Savings → Book Free Survey (Homes)
-          </a>
+          </button>
           <a
             href="#b2b-proposal"
             className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-amber-300 px-5 py-3 text-xs md:text-sm  shadow-black font-bold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
@@ -371,6 +368,8 @@ export default function ProblemSolutionSection() {
           </a>
         </div>
 
+{/* Popup */}
+      {showPopup && <PopupExample onClose={() => setShowPopup(false)} />}
 
       </div>
 
