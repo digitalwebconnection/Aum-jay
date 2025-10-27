@@ -1,7 +1,6 @@
-// src/home/CaseStudiesSection.tsx
 "use client"
 
-import React, {  useState } from "react"
+import React, { useState, useCallback, useEffect, useRef } from "react"
 import { MapPin, Zap, X, ArrowRight, Gauge, Percent, Building2 } from "lucide-react"
 
 /* -------------------- Brand -------------------- */
@@ -16,8 +15,8 @@ type CaseStudy = {
   location: string
   type: CaseType
   sizeKW: number
-  beforeBill: number        // ₹/month before solar
-  afterBill: number         // ₹/month after solar
+  beforeBill: number        // ₹/month before solar
+  afterBill: number         // ₹/month after solar
   beforeImg: string
   afterImg: string
   notes?: string[]
@@ -146,7 +145,7 @@ function CaseCard({ cs, onOpen }: { cs: CaseStudy; onOpen: () => void }) {
 
   return (
     <article className="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-      {/* Before/After slider */}
+      {/* Before/After slider - NEW implementation */}
       <CompareSlider before={cs.beforeImg} after={cs.afterImg} label={`${cs.location} • ${cs.sizeKW} kW`} />
 
       {/* Content */}
@@ -185,7 +184,7 @@ function CaseCard({ cs, onOpen }: { cs: CaseStudy; onOpen: () => void }) {
   )
 }
 
-/* ===================== Compare Slider ===================== */
+/* ===================== Compare Slider (Touch & Mouse Enabled) ===================== */
 
 function CompareSlider({
   before,
@@ -196,42 +195,107 @@ function CompareSlider({
   after: string
   label?: string
 }) {
+  const containerRef = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState(60) // %
+  const [isDragging, setIsDragging] = useState(false)
+
+  // Function to calculate the position based on event (mouse or touch)
+  const calculatePosition = (clientX: number) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect()
+      const newPos = ((clientX - rect.left) / rect.width) * 100
+      setPos(Math.min(100, Math.max(0, newPos)))
+    }
+  }
+
+  // --- MOUSE HANDLERS ---
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+    calculatePosition(e.clientX)
+  }
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!isDragging) return
+      calculatePosition(e.clientX)
+    },
+    [isDragging]
+  )
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false)
+  }, [])
+
+  // --- TOUCH HANDLERS ---
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+    calculatePosition(e.touches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return
+    // Prevent scrolling while dragging the slider
+    e.preventDefault()
+    calculatePosition(e.touches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+  }
+
+  // Global event listeners for drag end (important for mouse dragging outside the box)
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("mouseup", handleMouseUp)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("mouseup", handleMouseUp)
+    }
+  }, [handleMouseMove, handleMouseUp])
+
   return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden">
+    <div
+      ref={containerRef}
+      className="relative aspect-[4/3] w-full cursor-ew-resize select-none overflow-hidden"
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      // Apply style for dragging feedback
+      style={{
+        cursor: isDragging ? 'ew-resize' : 'grab',
+      }}
+    >
       {/* after image (base) */}
-      <img src={after} alt="After solar" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={after} alt="After solar" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      
       {/* before image (clipped) */}
       <img
         src={before}
         alt="Before solar"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ clipPath: `polygon(0 0, ${pos}% 0, ${pos}% 100%, 0 100%)` }}
+        loading="lazy"
       />
-      {/* center handle */}
+      
+      {/* center handle (pointer-events-none prevents it from blocking the drag start) */}
       <div
-        className="absolute inset-y-0"
+        className="absolute inset-y-0 z-20 pointer-events-none"
         style={{ left: `${pos}%` }}
         aria-hidden
       >
-        <div className="h-full w-[2px] bg-white/80 mix-blend-overlay" />
-        <div className="absolute top-1/2 -translate-y-1/2 -ml-3 h-6 w-6 rounded-full border-2 border-white bg-emerald-500 shadow" />
+        <div className="h-full w-[3px] bg-white/80 mix-blend-overlay shadow-lg" />
+        <div className="absolute top-1/2 -translate-y-1/2 -ml-3 h-8 w-6 rounded-full border-2 border-white bg-emerald-500 shadow-xl flex items-center justify-center">
+            {/* Simple arrow icon for handle */}
+            <ArrowRight className="h-3 w-3 rotate-45 text-white" />
+        </div>
       </div>
-      {/* slider input */}
-      <input
-        type="range"
-        min={0}
-        max={100}
-        step={1}
-        value={pos}
-        onChange={(e) => setPos(Number(e.target.value))}
-        className="absolute bottom-3 left-1/2 z-10 w-[88%] -translate-x-1/2 accent-[color:var(--brand)]"
-        style={{ ["--brand" as any]: BRAND }}
-        aria-label="Compare before and after"
-      />
+      
       {/* label gradient */}
       {label && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-2">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-2 z-10">
           <p className="text-xs font-medium text-white">{label}</p>
         </div>
       )}
@@ -251,14 +315,14 @@ function CaseModal({ cs, onClose }: { cs: CaseStudy; onClose: () => void }) {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 animate-slide-up" // Added slide-up animation
       onClick={onClose}
     >
       <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-white" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 z-10 rounded-full bg-black/70 p-2 text-white shadow transition hover:bg-black"
+          className="absolute right-3 top-3 z-30 rounded-full bg-black/70 p-2 text-white shadow transition hover:bg-black"
         >
           <X className="h-5 w-5" />
         </button>
