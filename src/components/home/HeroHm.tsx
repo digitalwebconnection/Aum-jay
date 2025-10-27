@@ -87,17 +87,17 @@ export default function HeroHm() {
         </div>
 
         {/* Hero Content */}
-        <div className="container relative z-40 mx-auto px-6 text-left lg:px-0">
+        <div className="container relative z-40 mx-auto px-4 text-left lg:px-0">
           <div className="max-w-4xl animate-slide-up transition-all duration-1000">
             {/* Badge */}
             <p
-              className="mb-6 inline-flex flex-col gap-1 rounded-full px-6 py-2 text-sm text-white shadow-lg animate-pulse-glow "
+              className="mb-6 inline-flex flex-col gap-0 rounded-full px-6 py-2 text-sm text-white shadow-lg animate-pulse-glow "
               style={{ background: BRAND.green }}
             >
-              <span className="font-semibold text-lg">
+              <span className="font-semibold text-md md:text-lg">
                 🏆 Authorized Waaree Franchise
               </span>
-              <span className="text-[12px] opacity-90">
+              <span className=" text-[11px] md:text-[12px] opacity-90">
                 Proud Waaree Franchise Partner – Thane & Mumbai Region
               </span>
             </p>
