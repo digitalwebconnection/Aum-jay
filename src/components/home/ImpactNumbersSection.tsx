@@ -61,7 +61,7 @@ function LoadingOverlay({ isLoading }: { isLoading: boolean }) {
       <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center">
         <div className="flex flex-col items-center">
           <Zap className="h-10 w-10 text-green-600 animate-spin-slow" />
-          <h1 className="mt-4 text-xl font-bold text-gray-800">Loading Solar Impact...</h1>
+          <h1 className="mt-4 text-xl font-bold text-gray-800">Loading...</h1>
         </div>
       </div>
       <style>{`
@@ -242,8 +242,8 @@ export default function ImpactNumbersSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
           >
-            <TeaserCard title="40% Subsidy Guidance" desc="Clear, step‑by‑step support for PM Surya Ghar and DISCOM approvals." tone="from-yellow-300 to-white" badge="New Value" />
-            <TeaserCard title="EPC Expertise" desc="MNRE‑compliant design, procurement, and on‑time commissioning." tone="from-green-500 to-white" badge="New Value" />
+            <TeaserCard title="40% Subsidy Guidance" desc="Clear, step‑by‑step support for PM Surya Ghar and DISCOM approvals." tone="from-yellow-400 to-white/20" badge="New Value" />
+            <TeaserCard title="EPC Expertise" desc="MNRE‑compliant design, procurement, and on‑time commissioning." tone="from-green-600 to-white/20" badge="New Value" />
           </motion.div>
 
           {/* ---------------- 6. Subsidy & PM Surya Ghar ---------------- */}
@@ -378,7 +378,7 @@ function TeaserCard({
   return (
     <motion.div
       whileHover={{ y: -3 }}
-      className={`group relative rounded-2xl p-5 md:p-6 bg-gradient-to-br ${tone} border border-black/5 shadow-sm transition-all`}
+      className={`group relative rounded-2xl p-5 md:p-6 bg-gradient-to-br ${tone}  shadow-xl transition-all`}
     >
       <span aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl bg-[conic-gradient(from_90deg,rgba(34,197,94,0.18),rgba(250,204,21,0.18),transparent_50%)]" />
       <div className="relative">
