@@ -126,7 +126,7 @@ export default function Header() {
 
               {/* Slide Menu */}
               <motion.div
-                className="fixed top-0 right-0 w-[75%] h-full bg-white/90 backdrop-blur-xl shadow-xl z-50 flex flex-col "
+                className="fixed top-0 right-0 w-[75%] h-full  bg-white/90 backdrop-blur-xl shadow-xl z-50 flex flex-col "
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
@@ -140,12 +140,12 @@ export default function Header() {
                   />
                 </div>
 
-                <div className="flex flex-col space-y-6 py-5 px-4 bg-white/90 font-semibold text-lg">
+                <div className="flex rounded-bl-2xl flex-col space-y-6 py-5 px-4 bg-white/90 font-semibold text-lg">
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className="text-gray-700 hover:text-[#0DB02B] text-left"
+                      className="text-gray-900 hover:text-[#0DB02B] text-left"
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.08 }}
