@@ -49,7 +49,7 @@ const SolarInquiryPopup: React.FC<PopupExampleProps> = ({ onClose }) => {
             <Sun className="w-12 h-12 text-yellow-500" />
           </motion.div>
           <h2 className="mt-3 text-3xl font-bold text-green-700">
-            Go Solar Today ☀️
+            Go Solar Today 
           </h2>
           <p className="text-gray-600 mt-2">
             Get a <span className="text-green-600 font-semibold">Free Solar Installation Quote</span> —
