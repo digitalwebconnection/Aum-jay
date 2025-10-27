@@ -229,7 +229,7 @@ export default function Calculator() {
 
               {/* KPIs */}
 
-              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <KPI title="Recommended system size" value={`${calc.recommendedKW.toFixed(1)} kW`} hint="Rounded to nearest 0.5 kW" />
                 <KPI title="Gross project cost" value={`₹ ${inr(calc.capex)}`} hint={`${aud === "Home & Societies" ? "Residential" : "Commercial"} EPC`} />
                 <KPI title="Net cost after subsidy" value={`₹ ${inr(calc.netCapex)}`} hint="Capex – subsidy" />
@@ -244,7 +244,7 @@ export default function Calculator() {
 
               {/* ROI bar */}
 
-              <div className="mt-6 rounded-xl bg-slate-50 p-4">
+              <div className="mt-2 rounded-xl bg-slate-50 p-4">
                 <p className="text-sm font-medium text-slate-900">Final design, cost & ROI subject to site survey and DISCOM approval.</p>
                 <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
                   <div
@@ -259,7 +259,7 @@ export default function Calculator() {
 
               {/* Explainer */}
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="mt-2 grid gap-4 sm:grid-cols-2">
                 <Explain
                   title="How we estimated size"
                   points={[
@@ -284,14 +284,8 @@ export default function Calculator() {
                   href="#book-survey"
                   className="inline-flex items-center justify-center rounded-xl bg-[#0db02b] px-5 py-3 text-[13px] md:text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
                 >
-                  Get exact proposal → Book free survey.
-                </a>
-                <a
-                  href="#b2b-proposal"
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-                >
                   Request Business Proposal
-                </a>
+                </a>            
               </div>
 
             </div>
