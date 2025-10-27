@@ -75,7 +75,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div id="contact" className="flex items-center justify-center h-full  p-12 relative overflow-hidden  " style={{ backgroundImage: `url("https://cleanpower.org/wp-content/uploads/2021/01/solar-panels-los-angeles-california.jpg" ) ` }}>
+    <div id="contact" className="flex items-center justify-center h-full p-6 md:p-12 relative overflow-hidden  " style={{ backgroundImage: `url("https://cleanpower.org/wp-content/uploads/2021/01/solar-panels-los-angeles-california.jpg" ) ` }}>
       {/* Subtle Background Animation */}
       <div className="absolute h-full w-full inset-0 bg-black/75" />
       <motion.div
