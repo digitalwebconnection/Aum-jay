@@ -108,7 +108,7 @@ export default function ProjectGallerySection() {
 
       {/* Sticky controls */}
       <div
-        className="sticky z-10 -mx-2 mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-500 bg-white/80 p-2 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+        className="sticky z-10 mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-500 bg-white/80 p-2 backdrop-blur supports-[backdrop-filter]:bg-white/60"
         style={{ top: "calc(var(--header-h, 88px) + 8px)" }}
       >
         <div className="flex flex-wrap gap-2">
@@ -117,7 +117,7 @@ export default function ProjectGallerySection() {
               key={t}
               onClick={() => setTypeFilter(t)}
               className={cn(
-                "rounded-full border px-3 py-1.5 text-sm font-medium transition",
+                "rounded-full border px-2 py-1.5 text-sm font-medium transition",
                 t === typeFilter
                   ? "border-[color:var(--brand)] bg-[color:var(--brand-soft)] text-[color:var(--brand)]"
                   : "border-slate-300 bg-white text-slate-700 hover:border-slate-400"
