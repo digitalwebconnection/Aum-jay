@@ -302,7 +302,7 @@ export default function ComparisonTableSection() {
             </div>
           </div>
 
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className=" hidden md:grid gap-3 sm:grid-cols-2">
             {rows.slice(0, 4).map((r) => (
               <li key={r.label} className="rounded-xl border border-emerald-600 bg-slate-50 p-4 ring-1 ring-slate-200">
                 <p className="text-sm font-semibold text-slate-900">{r.label}</p>
