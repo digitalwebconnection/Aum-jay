@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useEffect, useRef } from "react"
 import { MapPin, Zap, X, ArrowRight, Gauge, Percent, Building2 } from "lucide-react"
+import PopupExample from "../PopupExample"
 
 /* -------------------- Brand -------------------- */
 const BRAND = "#0DB02B"
@@ -77,7 +78,7 @@ const CASES: CaseStudy[] = [
 
 export default function CaseStudiesSection() {
   const [active, setActive] = useState<CaseStudy | null>(null)
-
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <section id="case-studies" className="relative bg-white py-14 sm:py-20">
       {/* Top hairline */}
@@ -107,13 +108,14 @@ export default function CaseStudiesSection() {
 
         {/* CTA row */}
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#book-survey"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02]"
-            style={{ background: BRAND }}
+          <button
+            onClick={() => setShowPopup(true)}
+            className="shine-btn inline-flex items-center justify-center rounded-xl bg-[color:var(--brand)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            style={{ ["--brand" as any]: BRAND }}
           >
             Book Free Survey
-          </a>
+
+          </button>
           <a
             href="#b2b-proposal"
             className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md"
@@ -121,6 +123,8 @@ export default function CaseStudiesSection() {
             Request Business Proposal
           </a>
         </div>
+        {/* Popup */}
+        {showPopup && <PopupExample onClose={() => setShowPopup(false)} />}
       </div>
 
       {/* Modal */}
@@ -138,6 +142,7 @@ export default function CaseStudiesSection() {
 /* ===================== Card ===================== */
 
 function CaseCard({ cs, onOpen }: { cs: CaseStudy; onOpen: () => void }) {
+
   const savings = cs.beforeBill - cs.afterBill
   const pct = (savings / cs.beforeBill) * 100
   const capex = cs.sizeKW * pricePerKW(cs.type)
@@ -270,7 +275,7 @@ function CompareSlider({
     >
       {/* after image (base) */}
       <img src={after} alt="After solar" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-      
+
       {/* before image (clipped) */}
       <img
         src={before}
@@ -279,7 +284,7 @@ function CompareSlider({
         style={{ clipPath: `polygon(0 0, ${pos}% 0, ${pos}% 100%, 0 100%)` }}
         loading="lazy"
       />
-      
+
       {/* center handle (pointer-events-none prevents it from blocking the drag start) */}
       <div
         className="absolute inset-y-0 z-20 pointer-events-none"
@@ -288,11 +293,11 @@ function CompareSlider({
       >
         <div className="h-full w-[3px] bg-white/80 mix-blend-overlay shadow-lg" />
         <div className="absolute top-1/2 -translate-y-1/2 -ml-3 h-8 w-6 rounded-full border-2 border-white bg-emerald-500 shadow-xl flex items-center justify-center">
-            {/* Simple arrow icon for handle */}
-            <ArrowRight className="h-3 w-3 rotate-45 text-white" />
+          {/* Simple arrow icon for handle */}
+          <ArrowRight className="h-3 w-3 rotate-45 text-white" />
         </div>
       </div>
-      
+
       {/* label gradient */}
       {label && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-2 z-10">
@@ -306,6 +311,8 @@ function CompareSlider({
 /* ===================== Modal ===================== */
 
 function CaseModal({ cs, onClose }: { cs: CaseStudy; onClose: () => void }) {
+
+
   const savings = cs.beforeBill - cs.afterBill
   const pct = (savings / cs.beforeBill) * 100
   const capex = cs.sizeKW * pricePerKW(cs.type)
@@ -381,7 +388,9 @@ function CaseModal({ cs, onClose }: { cs: CaseStudy; onClose: () => void }) {
           </div>
         </div>
       </div>
+
     </div>
+
   )
 }
 

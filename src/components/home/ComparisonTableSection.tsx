@@ -1,3 +1,5 @@
+"use client";
+import PopupExample from "../PopupExample";
 import React, { useMemo, useState, useEffect, useRef } from "react";
 
 type Audience = "Home & Societies" | "Commercial & Dealers";
@@ -212,6 +214,7 @@ function RadarChart({
 export default function ComparisonTableSection() {
   const [aud, setAud] = useState<Audience>("Home & Societies");
   const [view, setView] = useState<"matrix" | "table">("matrix");
+  const [showPopup, setShowPopup] = useState(false);
 
   const rows: Row[] = useMemo(() => (aud === "Home & Societies" ? HOME_ROWS : BIZ_ROWS), [aud]);
   const scores: Record<string, number> = aud === "Home & Societies" ? SCORE_HOME : SCORE_BIZ;
@@ -386,13 +389,16 @@ export default function ComparisonTableSection() {
 
         {/* CTA */}
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#book-survey"
+          <button
+            onClick={() => setShowPopup(true)}
             className="shine-btn inline-flex items-center justify-center rounded-xl bg-[color:var(--brand)] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
             style={{ ["--brand" as any]: BRAND }}
           >
-            Book Free Survey <span className="ml-2 inline-block"><Icon.Arrow /></span>
-          </a>
+            Book Free Survey
+            <span className="ml-2 inline-block">
+              <Icon.Arrow />
+            </span>
+          </button>
           <a
             href="#b2b-proposal"
             className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:scale-[1.02] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
@@ -401,6 +407,8 @@ export default function ComparisonTableSection() {
           </a>
         </div>
       </div>
+      {/* Popup */}
+      {showPopup && <PopupExample onClose={() => setShowPopup(false)} />}
 
       {/* local styles */}
       <style>{`

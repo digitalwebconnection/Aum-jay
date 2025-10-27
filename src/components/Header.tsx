@@ -117,7 +117,7 @@ export default function Header() {
             <>
               {/* Dark Blur Background */}
               <motion.div
-                className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+                className="fixed inset-0 bg-black/30  backdrop-blur-sm z-40"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -126,21 +126,21 @@ export default function Header() {
 
               {/* Slide Menu */}
               <motion.div
-                className="fixed top-0 right-0 w-[75%] h-full  bg-white/90 backdrop-blur-xl shadow-xl z-50 flex flex-col "
+                className="fixed top-0  right-0 w-[75%] h-full   bg-white/90 backdrop-blur-xl shadow-xl z-50 flex flex-col "
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", damping: 22 }}
               >
-                <div className="flex bg-white/90 justify-between items-center p-3 ">
+                <div className="flex bg-white/90 border-l-1 border-black/50 justify-between  items-center p-3 ">
                   <img src={logo} alt="Logo" className="h-12 w-auto" />
                   <X
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-7 h-7 text-gray-600 cursor-pointer hover:text-[#0DB02B]"
                   />
                 </div>
-
-                <div className="flex rounded-bl-2xl flex-col space-y-6 py-5 px-4 bg-white/90 font-semibold text-lg">
+            
+                <div className="flex  shadow-2xl border-black/50 border-l-1 border-b-1  rounded-bl-2xl  flex-col space-y-6 py-5 px-4  bg-white/90 font-semibold text-lg">
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.id}

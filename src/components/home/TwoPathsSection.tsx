@@ -3,6 +3,7 @@
 import { Sun, Battery, Zap, Home, Building2, Handshake, Shield, MapPin } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { motion, type Variants } from "framer-motion"
+import PopupExample from "../PopupExample" // ✅ Import Popup component
 
 /* ---------------------------- Content Data ---------------------------- */
 const homeownerFeatures = [
@@ -23,10 +24,8 @@ const testimonials = [
   { quote: "Warehouse PV commissioned on schedule; great after-sales support.", name: "K. Shah", role: "Operations Head", loc: "Bhiwandi" },
 ]
 
-/* ---------------------------- Motion Variants (typed) ---------------------------- */
-/** Cubic-bezier equivalent of easeOut */
+/* ---------------------------- Motion Variants ---------------------------- */
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1]
-
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 22 },
   show: {
@@ -35,14 +34,8 @@ const fadeUp: Variants = {
     transition: { duration: 0.55, ease: EASE_OUT },
   },
 }
-
 const stagger: Variants = {
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
-    },
-  },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
 }
 
 /* ---------------------------- Component ---------------------------- */
@@ -50,8 +43,8 @@ export default function TwoPathsSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [slide, setSlide] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
+  const [showPopup, setShowPopup] = useState(false) // ✅ Popup state
 
-  // Trigger entrance animations once
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -66,17 +59,13 @@ export default function TwoPathsSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Testimonial auto-rotate
   useEffect(() => {
     const id = setInterval(() => setSlide((s) => (s + 1) % testimonials.length), 5200)
     return () => clearInterval(id)
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-10 overflow-hidden bg-gradient-to-b from-green-50 via-white to-yellow-50"
-    >
+    <section ref={sectionRef} className="relative py-10 overflow-hidden bg-gradient-to-b from-green-50 via-white to-yellow-50">
       {/* Decorative brand orbs */}
       <motion.div
         aria-hidden
@@ -92,11 +81,8 @@ export default function TwoPathsSection() {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Trust / brand header */}
-        <motion.div
-          className="md:flex  items-center justify-center gap-3 mb-3"
-          initial="hidden" animate={isVisible ? "show" : "hidden"} variants={stagger}
-        >
+        {/* Trust header */}
+        <motion.div className="md:flex items-center justify-center gap-3 mb-3" initial="hidden" animate={isVisible ? "show" : "hidden"} variants={stagger}>
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-3 my-2 md:my-0 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700 border border-yellow-300">
             🏆 Authorized Waaree Franchise
           </motion.span>
@@ -122,12 +108,8 @@ export default function TwoPathsSection() {
           <span className="font-semibold">Businesses & Dealers</span> — with the exact solutions you need.
         </motion.p>
 
-        {/* Two Cards */}
-        <motion.div
-          className="space-y-12"
-          initial="hidden" animate={isVisible ? "show" : "hidden"} variants={stagger}
-        >
-          {/* Homeowners & Societies */}
+        {/* Homeowners section */}
+        <motion.div className="space-y-12" initial="hidden" animate={isVisible ? "show" : "hidden"} variants={stagger}>
           <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden hover:shadow-2xl transition-shadow">
             <div className="flex flex-col md:flex-row">
               <div
@@ -153,12 +135,12 @@ export default function TwoPathsSection() {
                         key={f.title}
                         variants={fadeUp}
                         whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(16,185,129,0.12)" }}
-                        className="flex items-start  gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-[#0DB02B] hover:text-white transition-all"
+                        className="flex items-start gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-[#0DB02B] hover:text-white transition-all"
                       >
                         <div className="p-2 bg-green-100 rounded-full"><Icon className="w-6 h-6 text-green-600" /></div>
                         <div>
                           <h4 className="font-semibold text-sm md:text-lg">{f.title}</h4>
-                          <p className="text-[12px] md:text-sm ">{f.description}</p>
+                          <p className="text-[12px] md:text-sm">{f.description}</p>
                         </div>
                       </motion.div>
                     )
@@ -166,20 +148,21 @@ export default function TwoPathsSection() {
                 </motion.div>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
+                  <button
+                    onClick={() => setShowPopup(true)} // ✅ Opens popup
+                    className="px-6 py-3 border md:text-lg text-sm border-yellow-400 font-semibold rounded-md hover:bg-green-50 transition-colors"
+                  >
+                    Book Free Survey
+                  </button>
                   <a href="#" className="px-6 py-3 bg-[#0DB02B] text-white font-bold md:text-lg text-sm rounded-md hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
                     Explore Homeowner Plans
-                  </a>
-                  <a href="#" className="px-6 py-3 border md:text-lg text-sm border-yellow-400 font-semibold rounded-md hover:bg-green-50 transition-colors">
-                    Book Free Survey
                   </a>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <p className=" text-center text-[#0Db02B] text-xl md:text-3xl font-semibold py-5 ">Earn up to 14% = ₹1.4L on ₹10L turnover.</p>
-
-          {/* Businesses & Dealers */}
+          {/* Businesses section */}
           <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden hover:shadow-2xl transition-shadow">
             <div className="flex flex-col md:flex-row-reverse">
               <div
@@ -210,7 +193,7 @@ export default function TwoPathsSection() {
                         <div className="p-2 bg-yellow-100 rounded-full"><Icon className="w-6 h-6 text-yellow-500" /></div>
                         <div>
                           <h4 className="font-semibold text-black text-sm md:text-lg">{f.title}</h4>
-                          <p className="text-[12px] text-gray-600 md:text-sm ">{f.description}</p>
+                          <p className="text-[12px] text-gray-600 md:text-sm">{f.description}</p>
                         </div>
                       </motion.div>
                     )
@@ -221,7 +204,7 @@ export default function TwoPathsSection() {
                   <a href="#" className="px-6 py-3 md:text-lg text-sm bg-[#0DB02B] text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
                     Explore Business Solutions
                   </a>
-                  <a href="#" className="px-6 py-3 md:text-lg text-sm border border-yellow-400  font-semibold rounded-md hover:bg-yellow-50 transition-colors">
+                  <a href="#" className="px-6 py-3 md:text-lg text-sm border border-yellow-400 font-semibold rounded-md hover:bg-yellow-50 transition-colors">
                     Request Business Proposal
                   </a>
                 </div>
@@ -230,75 +213,9 @@ export default function TwoPathsSection() {
           </motion.div>
         </motion.div>
 
-        {/* Trust Builders: Testimonials */}
-        <motion.div
-          className="mt-14 mb-25 md:mb-0"
-          initial={{ opacity: 0, y: 14 }}
-          animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT } } : {}}
-        >
-          <h3 className="text-center text-2xl font-bold text-gray-900 mb-6">What our customers say</h3>
-          <div className="relative max-w-4xl mx-auto">
-            {testimonials.map((t, i) => (
-              <motion.article
-                key={t.name + i}
-                className={`absolute inset-0 ${i === slide ? "pointer-events-auto" : "pointer-events-none"}`}
-                initial={{ opacity: 0, x: 16 }}
-                animate={i === slide ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
-                transition={{ duration: 0.5, ease: EASE_OUT }}
-              >
-                <div className="rounded-2xl p-7 bg-white shadow-xl border border-black/5">
-                  <p className="text-gray-800 text-sm md:text-lg">“{t.quote}”</p>
-                  <div className="mt-5 flex items-center gap-3 text-sm text-gray-600">
-                    <Shield className="w-4 h-4 text-green-600" />
-                    <span className="font-semibold text-gray-900 ">{t.name}</span>
-                    <span>• {t.role}, {t.loc}</span>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-            {/* Spacer to keep height */}
-            <div className="invisible rounded-2xl p-7">.</div>
-
-            {/* Dots */}
-            <div className="mt-6 flex justify-center gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSlide(i)}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${i === slide ? "bg-yellow-500 w-6" : "bg-gray-300"}`}
-                />
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Dual CTA bar */}
-        <motion.div
-          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-3"
-          initial={{ opacity: 0, y: 10 }}
-          animate={isVisible ? { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE_OUT } } : {}}
-        >
-          <a href="#" className="px-13 md:px-6 py-3 bg-[#0DB02B] border-[#0DB02B] border-2 md:text-lg text-sm text-white font-bold rounded-md hover:bg-green-700 transition-colors shadow-md hover:shadow-lg">
-            🔆 Book Free Survey
-          </a>
-          <a href="#" className="px-6 py-3 font-bold rounded-md md:text-lg text-sm border-[#0DB02B] border-2  hover:bg-yellow-100 transition-colors shadow-md hover:shadow-lg">
-            📩 Request Business Proposal
-          </a>
-        </motion.div>
+        {/* ✅ Popup render */}
+        {showPopup && <PopupExample onClose={() => setShowPopup(false)} />}
       </div>
-
-      {/* Subtle floating icons */}
-      <Sun className="absolute top-10 left-10 w-20 h-20 text-yellow-400 opacity-20 animate-float-slow" />
-      <Battery className="absolute bottom-20 right-10 w-16 h-16 text-[#0DB02B] opacity-30 animate-float-slow-reverse" />
-      <Zap className="absolute top-1/3 right-20 w-14 h-14 text-yellow-500 opacity-15 animate-float-slow" />
-
-      {/* Extra animations */}
-      <style>{`
-        @keyframes float-slow { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
-        .animate-float-slow { animation: float-slow 11s ease-in-out infinite; }
-        .animate-float-slow-reverse { animation: float-slow 13s ease-in-out infinite reverse; }
-      `}</style>
     </section>
   )
 }

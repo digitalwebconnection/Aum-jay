@@ -62,22 +62,6 @@ export default function FAQSection() {
           ))}
         </div>
 
-        {/* CTA row */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#book-survey"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-150 hover:scale-[1.02]"
-            style={{ background: BRAND }}
-          >
-            Book Free Survey
-          </a>
-          <a
-            href="#b2b-proposal"
-            className="inline-flex items-center justify-center shadow-black rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-transform duration-150 hover:scale-[1.02] hover:shadow-md"
-          >
-            Request Business Proposal
-          </a>
-        </div>
 
       </div>
 
