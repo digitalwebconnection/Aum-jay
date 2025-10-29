@@ -4,6 +4,9 @@ import { Footer } from "./components/Footer"
 import HomeMain from "./components/home/HomeMain"
 
 import MainAbout from "./components/AboutUs/MainAbout"
+import MainService from "./components/Service/MainService"
+import MainProject from "./components/Project/MainProject"
+import MainContact from "./components/ContactUs/MainContact"
 
 function App() {
   return (
@@ -14,10 +17,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeMain />} />
             <Route path="/about" element={<MainAbout/>} />
-            {/* <Route path="/service" element={<Service />} />
-            <Route path="/project" element={<Project />} />
-            <Route path="/pages" element={<Pages />} />
-            <Route path="/contact" element={<Contact />} /> */}
+            <Route path="/services" element={<MainService/>} />
+            <Route path="/project" element={<MainProject/>} />
+            <Route path="/contact" element={<MainContact/>} />
           </Routes>
         </main>
         <Footer/>

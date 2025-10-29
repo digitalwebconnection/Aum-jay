@@ -95,7 +95,7 @@ export default function ProjectGallerySection() {
    const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <section id="project" className="relative max-w-7xl mx-auto">
+    <section id="project" className="relative max-w-7xl mx-auto py-20">
       {/* Header */}
       <div className="mb-6 items-center text-center">
         <div className="inline-flex items-center gap-2 rounded-full  border-2 bg-gray-200 px-5 py-1 text-sm font-medium" style={{ color: BRAND }}>

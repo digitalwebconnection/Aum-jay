@@ -2,8 +2,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "/src/assets/logo.png";
 
+/**
+ * Header (react-router version)
+ * - Uses <NavLink> for routing and active styles
+ * - No element IDs or scrollToSection
+ * - Preserves hide-on-scroll + glass look + mobile drawer
+ */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -12,18 +19,17 @@ export default function Header() {
   const lastYRef = useRef(0);
   const tickingRef = useRef(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const toggleMenu = () => setMobileMenuOpen((v) => !v);
 
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -80;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
-  };
+  // Close the mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
+  // Hide-on-scroll logic
   useEffect(() => {
     const onScroll = () => {
       if (tickingRef.current) return;
@@ -51,13 +57,21 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [mobileMenuOpen]);
 
+  // Prevent body scroll when drawer is open
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+  }, [mobileMenuOpen]);
+
   const menuItems = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Services", id: "service" },
-    { label: "Projects", id: "project" },
-    { label: "Contact", id: "contact" },
+    { label: "Home", to: "/" },
+    { label: "About", to: "/about" },
+    { label: "Services", to: "/services" },
+    { label: "Projects", to: "/project" },
+    { label: "Contact", to: "/contact" },
   ];
+
+  const navLinkBase =
+    "transition-colors text-gray-700 hover:text-[#0DB02B] focus:outline-none";
 
   return (
     <nav
@@ -73,30 +87,37 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
-            <div
-              onClick={() => scrollToSection("home")}
+            <button
+              onClick={() => navigate("/")}
               className="flex-shrink-0 cursor-pointer transition-transform hover:scale-105"
+              aria-label="Go to home"
             >
               <img src={logo} alt="Logo" className="h-14 w-auto drop-shadow-md" />
-            </div>
+            </button>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-10 items-center font-medium">
               {menuItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 hover:text-[#0DB02B] transition-colors"
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    [
+                      navLinkBase,
+                      isActive ? "text-[#0DB02B]" : "text-gray-700",
+                    ].join(" ")
+                  }
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
-              <button
-                onClick={() => scrollToSection("contact")}
+
+              <NavLink
+                to="/contact"
                 className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition"
               >
                 Get A Quote <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
+              </NavLink>
             </div>
 
             {/* Mobile Menu Button */}
@@ -104,6 +125,8 @@ export default function Header() {
               <button
                 onClick={toggleMenu}
                 className="text-gray-700 hover:text-[#0DB02B] focus:outline-none"
+                aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
               </button>
@@ -117,7 +140,7 @@ export default function Header() {
             <>
               {/* Dark Blur Background */}
               <motion.div
-                className="fixed inset-0 bg-black/30  backdrop-blur-sm z-40"
+                className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -126,43 +149,57 @@ export default function Header() {
 
               {/* Slide Menu */}
               <motion.div
-                className="fixed top-0  right-0 w-[75%] h-full   bg-white/90 backdrop-blur-xl shadow-xl z-50 flex flex-col "
+                className="fixed top-0 right-0 w-[75%] h-full bg-white/90 backdrop-blur-xl shadow-xl z-50 flex flex-col"
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", damping: 22 }}
               >
-                <div className="flex bg-white/90 border-l-1 border-black/50 justify-between  items-center p-3 ">
+                <div className="flex bg-white/90 justify-between items-center p-3 border-b border-black/10">
                   <img src={logo} alt="Logo" className="h-12 w-auto" />
                   <X
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-7 h-7 text-gray-600 cursor-pointer hover:text-[#0DB02B]"
+                    aria-label="Close menu"
                   />
                 </div>
-            
-                <div className="flex  shadow-2xl border-black/50 border-l-1 border-b-1  rounded-bl-2xl  flex-col space-y-6 py-5 px-4  bg-white/90 font-semibold text-lg">
+
+                <div className="flex flex-col space-y-6 py-5 px-4 bg-white/90 font-semibold text-lg">
                   {menuItems.map((item, index) => (
-                    <motion.button
-                      key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className="text-gray-900 hover:text-[#0DB02B] text-left"
+                    <motion.div
+                      key={item.to}
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.08 }}
                     >
-                      {item.label}
-                    </motion.button>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          [
+                            "block text-left",
+                            isActive ? "text-[#0DB02B]" : "text-gray-900 hover:text-[#0DB02B]",
+                          ].join(" ")
+                        }
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </NavLink>
+                    </motion.div>
                   ))}
 
-                  <motion.button
-                    onClick={() => scrollToSection("contact")}
-                    className="mt-0 py-3 bg-[#0DB02B] text-white rounded-full text-center hover:bg-green-700 transition font-semibold flex items-center justify-center gap-2"
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                   >
-                    Get A Quote <ArrowRight className="w-5 h-5" />
-                  </motion.button>
+                    <NavLink
+                      to="/contact"
+                      className="mt-0 py-3 bg-[#0DB02B] text-white rounded-full text-center hover:bg-green-700 transition font-semibold flex items-center justify-center gap-2"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Get A Quote <ArrowRight className="w-5 h-5" />
+                    </NavLink>
+                  </motion.div>
                 </div>
               </motion.div>
             </>
