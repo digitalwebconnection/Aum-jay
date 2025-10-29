@@ -81,7 +81,7 @@ export default function ContactPage() {
                     </p>
                     <div className="grid gap-4 sm:grid-cols-1">
                         <Info icon={<Phone />} label="Phone" value="+91 9321508896" />
-                        <Info icon={<Mail />} label="Email" value="info@aumjaysolar.in" />
+                        <Info icon={<Mail />} label="Email" value="info@aumjayrenewables.com" />
                         <Info icon={<MapPin />} label="Office" value="Mumbai, Maharashtra" />
                     </div>
                     <div className="rounded-2xl overflow-hidden border border-gray-200 shadow">

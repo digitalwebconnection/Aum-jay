@@ -42,7 +42,7 @@ export default function ContactHero() {
                     <div className="flex items-center justify-center sm:justify-start gap-2">
                          <div className="bg-black/90 flex px-8 py-1 rounded-full items-center gap-2">
                         <Mail className="h-5 w-5 text-[#0DB02B]" />
-                        <span>info@aumjaysolar.in</span>
+                        <span>info@aumjayrenewables.com</span>
                         </div>
                     </div>
                     <div className="flex items-center justify-center sm:justify-start gap-2">
