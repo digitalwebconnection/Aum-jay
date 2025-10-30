@@ -37,23 +37,20 @@ export default function ContactHero() {
                             <Phone className="h-5 w-5 text-[#0DB02B]" />
                             <span>+91 9321508896</span>
                         </div>
-
                     </div>
                     <div className="flex items-center justify-center sm:justify-start gap-2">
-                         <div className="bg-black/90 flex px-8 py-1 rounded-full items-center gap-2">
-                        <Mail className="h-5 w-5 text-[#0DB02B]" />
-                        <span>info@aumjayrenewables.com</span>
+                        <div className="bg-black/90 flex px-8 py-1 rounded-full items-center gap-2">
+                            <Mail className="h-5 w-5 text-[#0DB02B]" />
+                            <span>info@aumjayrenewables.com</span>
                         </div>
                     </div>
                     <div className="flex items-center justify-center sm:justify-start gap-2">
-                         <div className="bg-black/90 flex px-8 py-1 rounded-full items-center gap-2">
-                        <MapPin className="h-5 w-5 text-[#0DB02B]" />
-                        <span>Mumbai, Maharashtra</span>
+                        <div className="bg-black/90 flex px-8 py-1 rounded-full items-center gap-2">
+                            <MapPin className="h-5 w-5 text-[#0DB02B]" />
+                            <span>Mumbai, Maharashtra</span>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
     );

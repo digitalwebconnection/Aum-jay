@@ -107,7 +107,7 @@ export function Footer() {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setSent(null) }}
                   placeholder="Enter your email for subsidy & ROI tips"
-                  className="w-full px-3 py-3 text-sm text-white bg-amber-50 placeholder:text-black/80 focus:outline-none"
+                  className="w-full px-3 py-3 text-sm text-black bg-amber-50 placeholder:text-black/80 focus:outline-none"
                   aria-label="Email"
                 />
                 <button
@@ -189,14 +189,14 @@ export function Footer() {
             <nav className="space-y-2 text-sm">
               {[
                 ["/about", "About Us"],
-                ["/contact", "Contact Us"],
                 ["/services", "Our Services"],
-                ["/support", "Support"],
-                ["/terms", "Terms & Conditions"],
+                // ["/support", "Support"],
+                // ["/terms", "Terms & Conditions"],
                 ["/Projects", "Projects"],
-                ["/Dealer-Program", "Dealer Program"],
-                ["/Privacy-Policy", "Privacy Policy"],
-                ["/Cookie-Policy", "Cookie Policy"],
+                  ["/contact", "Contact Us"],
+                // ["/Dealer-Program", "Dealer Program"],
+                // ["/Privacy-Policy", "Privacy Policy"],
+                // ["/Cookie-Policy", "Cookie Policy"],
               ].map(([to, label]) => (
                 <Link
                   key={to as string}

@@ -75,14 +75,12 @@ export default function Header() {
 
   return (
     <nav
-      className={`fixed z-50 inset-x-0 top-0 transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      }`}
+      className={`fixed z-50 inset-x-0 top-0 transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
+        }`}
     >
       <div
-        className={`backdrop-blur-md transition-all duration-500 ${
-          atTop ? "bg-white/60" : "bg-white/90 shadow-md"
-        }`}
+        className={`backdrop-blur-md transition-all duration-500 ${atTop ? "bg-white/60" : "bg-white/90 shadow-md"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
@@ -112,12 +110,12 @@ export default function Header() {
                 </NavLink>
               ))}
 
-              <NavLink
-                to="/contact"
+              <a
+                href="tel:+919321508896"
                 className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition"
               >
-                Get A Quote <ArrowRight className="w-5 h-5 ml-2" />
-              </NavLink>
+                Request a Call  <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
