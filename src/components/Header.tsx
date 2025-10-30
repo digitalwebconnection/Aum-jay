@@ -190,13 +190,12 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <NavLink
-                      to="/contact"
-                      className="mt-0 py-3 bg-[#0DB02B] text-white rounded-full text-center hover:bg-green-700 transition font-semibold flex items-center justify-center gap-2"
-                      onClick={() => setMobileMenuOpen(false)}
+                    <a
+                      href="tel:+919321508896"
+                      className="flex items-center px-6 py-2 bg-[#0DB02B] text-white font-semibold rounded-full hover:bg-green-700 transition"
                     >
-                      Get A Quote <ArrowRight className="w-5 h-5" />
-                    </NavLink>
+                      Request a Call  <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
                   </motion.div>
                 </div>
               </motion.div>
