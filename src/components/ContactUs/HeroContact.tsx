@@ -1,6 +1,4 @@
 
-import { Phone, Mail, MapPin } from "lucide-react";
-
 export default function ContactHero() {
     return (
         <section className="relative py-15 flex items-center justify-center overflow-hidden">
