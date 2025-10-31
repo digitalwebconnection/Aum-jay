@@ -617,8 +617,8 @@ function ProcessTracker({ steps }: { steps: StepSpec[] }) {
                     if (e.key === "ArrowUp") setActive(Math.max(active - 1, 0));
                   }}
                   className={[
-                    "w-full text-left rounded-xl border border-black/5 bg-white px-4 py-3 shadow-sm hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-green-500/60",
-                    state === "active" ? "ring-1 ring-green-500/40" : "",
+                    "w-full text-left rounded-xl border-1 border-black/15 bg-white px-4 py-3 shadow-lg shadow-black/50 hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-green-500/60",
+                    state === "active" ? "ring-1 ring-green-500/60" : "",
                   ].join(" ")}
                 >
                   <div className="flex items-start gap-3">
@@ -664,10 +664,10 @@ function ProcessTracker({ steps }: { steps: StepSpec[] }) {
 
       {/* Right: active step details */}
       <div className="md:col-span-7">
-        <div className="rounded-2xl border border-black/5 bg-white p-4 md:p-5 shadow-sm h-full">
+        <div className="  bg-white p-4 md:p-5  h-full">
           {/* Inline progress */}
           <div className="mb-4">
-            <div className="flex items-center justify-between text-[11px] md:text-xs text-gray-600 mb-1">
+            <div className="flex items-center justify-between text-[13px] md:text-xs text-black mb-1">
               <span>Progress</span>
               <span>{Math.round(percent)}%</span>
             </div>

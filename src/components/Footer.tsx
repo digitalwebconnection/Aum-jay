@@ -11,6 +11,7 @@ import {
   Phone,
   MapPin,
   Instagram,
+  Code2,
   ShieldCheck,
   BadgeCheck,
   Leaf,
@@ -193,7 +194,7 @@ export function Footer() {
                 // ["/support", "Support"],
                 // ["/terms", "Terms & Conditions"],
                 ["/Projects", "Projects"],
-                  ["/contact", "Contact Us"],
+                ["/contact", "Contact Us"],
                 // ["/Dealer-Program", "Dealer Program"],
                 // ["/Privacy-Policy", "Privacy Policy"],
                 // ["/Cookie-Policy", "Cookie Policy"],
@@ -217,6 +218,10 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
           <p>
             © <span className="text-emerald-300">2025 Aumjay Renewables Solar</span> Power Pvt. Ltd. | Authorized Waaree Franchise | Thane–Mumbai
+          </p>
+          <p className="flex md:me-25 md:px-10 items-center justify-center gap-2 pb-12 md:pb-0  text-white text-sm">
+            <Code2 className="w-6 h-6 text-green-400" />
+            <p>Developed by <span className="font-semibold text-green-400">Digital Web Connection</span></p>
           </p>
         </div>
       </div>

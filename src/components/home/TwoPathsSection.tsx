@@ -144,7 +144,7 @@ export default function TwoPathsSection() {
               </div>
 
               <div className="md:w-2/3 p-6">
-                <motion.div className="grid grid-cols-1 gap-5" variants={stagger}>
+                <motion.div className="grid grid-cols-1   gap-5" variants={stagger}>
                   {homeownerFeatures.map((f) => {
                     const Icon = f.icon
                     return (
@@ -152,7 +152,7 @@ export default function TwoPathsSection() {
                         key={f.title}
                         variants={fadeUp}
                         whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(16,185,129,0.12)" }}
-                        className="flex items-start  gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md shadow-sm hover:bg-[#0DB02B] hover:text-white transition-all"
+                        className="flex items-start  shadow-xl  shadow-black/30  gap-4 p-3 border-l-4 border-green-800 bg-white rounded-md  hover:bg-[#0DB02B] hover:text-white transition-all"
                       >
                         <div className="p-2 bg-green-100 rounded-full"><Icon className="w-6 h-6 text-green-600" /></div>
                         <div>
@@ -207,7 +207,7 @@ export default function TwoPathsSection() {
                         key={f.title}
                         variants={fadeUp}
                         whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(250,204,21,0.14)" }}
-                        className="flex items-start gap-4 p-4 border-l-4 border-yellow-400 bg-white rounded-md shadow-xl hover:bg-yellow-200 transition-all"
+                        className="flex items-start gap-4 p-4 border-l-4 border-yellow-400 bg-white rounded-md shadow-xl  shadow-black/30 hover:bg-yellow-200 transition-all"
                       >
                         <div className="p-2 bg-yellow-100 rounded-full"><Icon className="w-6 h-6 text-yellow-500" /></div>
                         <div>

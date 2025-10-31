@@ -269,7 +269,7 @@ export default function ProblemSolutionSection() {
   return (
     <section
       id="problem-solution"
-      className="relative overflow-hidden bg-slate-50 py-16 sm:py-14"
+      className="relative overflow-hidden bg-slate-50 py-16 sm:py-10"
       onMouseMove={(e) => {
         const w = window.innerWidth || 1;
         const h = window.innerHeight || 1;
@@ -319,7 +319,7 @@ export default function ProblemSolutionSection() {
         <div className="mt-12 md:grid md:grid-cols-[minmax(260px,320px)_1fr] md:gap-8">
           {/* Left sticky intro */}
           <aside className="mb-6 md:mb-0 md:sticky md:top-24">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border-1  border-slate-800/20 bg-white p-6 shadow-lg shadow-black/50">
               <p className="text-sm font-semibold text-slate-900">What this means for you</p>
               <ul className="mt-3 space-y-2 text-sm text-slate-700">
                 <li>• Clear fix for each pain point</li>

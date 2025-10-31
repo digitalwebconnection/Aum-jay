@@ -9,7 +9,7 @@ const MainService = () => {
         <>
             <ServicesPage />
             <ValuePropositionSection />
-                <CaseStudiesSection/>
+            <CaseStudiesSection />
             <ProblemSolutionSection />
         </>
     )

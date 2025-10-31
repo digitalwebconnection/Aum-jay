@@ -79,7 +79,7 @@ export default function Header() {
         }`}
     >
       <div
-        className={`backdrop-blur-md transition-all duration-500 ${atTop ? "bg-white/60" : "bg-white/90 shadow-md"
+        className={`backdrop-blur-md  transition-all duration-500 ${atTop ? "bg-white/60" : "bg-white/90 shadow-md"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

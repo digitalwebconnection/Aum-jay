@@ -80,7 +80,7 @@ export default function CaseStudiesSection() {
   const [active, setActive] = useState<CaseStudy | null>(null)
   const [showPopup, setShowPopup] = useState(false);
   return (
-    <section id="case-studies" className="relative bg-white py-14 sm:py-20">
+    <section id="case-studies" className="relative bg-white py-7 sm:py-10">
       {/* Top hairline */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/60 to-transparent" />
 
@@ -100,7 +100,7 @@ export default function CaseStudiesSection() {
         </div>
 
         {/* Cards grid */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {CASES.map((cs) => (
             <CaseCard key={cs.id} cs={cs} onOpen={() => setActive(cs)} />
           ))}
@@ -149,7 +149,7 @@ function CaseCard({ cs, onOpen }: { cs: CaseStudy; onOpen: () => void }) {
   const payback = capex / (Math.max(1, savings) * 12)
 
   return (
-    <article className="group relative  overflow-hidden rounded-2xl bg-white  border-1 border-black/40  shadow-xl transition hover:-translate-y-0.5  hover:shadow-2xl">
+    <article className="group relative  overflow-hidden rounded-2xl bg-white  border-1 border-black/40  shadow-xl  shadow-black/40 transition hover:-translate-y-0.5  hover:shadow-2xl">
       {/* Before/After slider - NEW implementation */}
       <CompareSlider before={cs.beforeImg} after={cs.afterImg} label={`${cs.location} • ${cs.sizeKW} kW`} />
 
