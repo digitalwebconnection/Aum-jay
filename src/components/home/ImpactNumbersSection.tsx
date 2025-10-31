@@ -296,15 +296,7 @@ export default function ImpactNumbersSection() {
             <SmartProcessSection />
 
             {/* CTA */}
-            <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-green-600 px-4 py-2 text-white shadow hover:bg-green-700 transition-colors"
-              >
-                Get Subsidy Guidance <ArrowRight className="h-4 w-4" />
-              </a>
 
-            </div>
           </motion.section>
         </div>
 

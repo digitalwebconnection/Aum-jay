@@ -1,213 +1,251 @@
 "use client";
-import React, {  useState } from "react";
-import { Phone, Mail, MapPin, ArrowRight, Loader2, CheckCircle, Upload } from "lucide-react";
 
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, User, IndianRupee, Home, Send } from "lucide-react";
 
 export default function ContactPage() {
     const [form, setForm] = useState({
         name: "",
-        email: "",
         phone: "",
-        customerType: "Home",
-        bill: "",
+        email: "",
         city: "",
-        installType: "Rooftop",
-        subject: "",
+        bill: "",
         message: "",
-        file: null as File | null,
     });
+    const [submitted, setSubmitted] = useState(false);
 
-    const [verified, setVerified] = useState(false);
-    const [status, setStatus] = useState<{ ok: boolean; msg: string } | null>(null);
-    const [submitting, setSubmitting] = useState(false);
-
-    const isEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    const isPhone = (p: string) => /^(\+?91[-\s]?)?[6-9]\d{9}$/.test(p.replace(/\s|-/g, ""));
-
-    const validate = () => {
-        if (!form.name.trim()) return "Please enter your name.";
-        if (!isEmail(form.email)) return "Enter a valid email address.";
-        if (!isPhone(form.phone)) return "Enter a valid Indian phone number.";
-        if (!form.city.trim()) return "Please enter your city or location.";
-        if (!form.bill.trim()) return "Please enter your monthly electricity bill amount.";
-        if (form.message.trim().length < 10) return "Please describe your requirements briefly.";
-        if (!verified) return "Please complete verification.";
-        return null;
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setForm((prev) => ({ ...prev, [name]: value }));
+        setForm({ ...form, [name]: value });
     };
 
-    async function handleSubmit(e: React.FormEvent) {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const err = validate();
-        if (err) return setStatus({ ok: false, msg: err });
-        setStatus(null);
-        setSubmitting(true);
-        try {
-            await new Promise((res) => setTimeout(res, 1000)); // simulate
-            setStatus({ ok: true, msg: "Thank you! Our solar consultant will contact you soon." });
-            setForm({
-                name: "",
-                email: "",
-                phone: "",
-                customerType: "Home",
-                bill: "",
-                city: "",
-                installType: "Rooftop",
-                subject: "",
-                message: "",
-                file: null,
-            });
-            setVerified(false);
-        } catch {
-            setStatus({ ok: false, msg: "Something went wrong. Please try again." });
-        } finally {
-            setSubmitting(false);
-        }
-    }
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+        setForm({ name: "", phone: "", email: "", city: "", bill: "", message: "" });
+    };
+
+
+    const contactCards = [
+        {
+            icon: <Phone className="h-8 w-8 text-green-600" />,
+            title: "Call Us",
+            value: "+91 9321508896",
+            href: "tel:+919321508896",
+            bg: "from-green-700/90 to-green-500/90",
+        },
+        {
+            icon: <Mail className="h-8 w-8 text-yellow-500" />,
+            title: "Email Us",
+            value: "info@aumjayrenewables.com",
+            href: "mailto:info@aumjayrenewables.com",
+            bg: "from-yellow-700/90 to-yellow-500/90",
+        },
+        {
+            icon: <MapPin className="h-8 w-8 text-blue-500" />,
+            title: "Our Location",
+            value: "Mumbai, Maharashtra",
+            bg: "from-blue-700/90 to-blue-400/90",
+        },
+    ];
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-white to-green-50 py-16">
-            <div className="max-w-7xl mx-auto grid gap-10 px-6 md:grid-cols-2 items-start">
-                {/* LEFT INFO */}
-                <div className="space-y-6">
-                    <h2 className="text-3xl font-bold text-gray-900">Let’s Get You Started With Solar </h2>
-                    <p className="text-gray-600">
-                        Tell us a few details — our team will prepare a customized solar proposal including capacity, ROI,
-                        and subsidy options for your location.
-                    </p>
-                    <div className="grid gap-4 sm:grid-cols-1">
-                        <Info icon={<Phone />} label="Phone" value="+91 9321508896" />
-                        <Info icon={<Mail />} label="Email" value="info@aumjayrenewables.com" />
-                        <Info icon={<MapPin />} label="Office" value="Mumbai, Maharashtra" />
-                    </div>
-                    <div className="rounded-2xl overflow-hidden border border-gray-200 shadow">
-                        <iframe
-                            title="Aumjay Solar Map"
-                            src="https://www.google.com/maps?q=Mumbai&output=embed"
-                            className="w-full h-64"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
+        <main className="min-h-screen bg-gradient-to-b from-yellow-50 via-white to-green-50 text-gray-800">
+            {/* ---------- TOP SECTION ---------- */}
+            <section className="relative py-20 px-6 md:px-16 overflow-hidden">
+                {/* 🌞 Solar Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-yellow-50 to-white -z-10" />
 
-                {/* RIGHT FORM */}
-                <form
-                    onSubmit={handleSubmit}
-                    className="bg-white/80 backdrop-blur-md border border-green-600/50 rounded-3xl p-8 shadow-2xl space-y-5"
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-6xl mx-auto text-center"
                 >
-                    <h3 className="text-2xl font-semibold text-gray-900">Solar Installation Enquiry</h3>
-                    <p className="text-sm text-gray-500 mb-4">We’ll call you within 24 hours with a quote.</p>
+                    <h2 className="text-5xl max-w-3xl mx-auto font-bold mb-10 ">
+                        Talk About How We Can Help
+                        You Reduce Your Energy
+                    </h2>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
-                        <Field name="name" label="Full Name" value={form.name} onChange={handleChange} required />
-                        <Field name="email" label="Email" type="email" value={form.email} onChange={handleChange} required />
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {contactCards.map((card, idx) => (
+                            <motion.div
+                                key={idx}
+                                whileHover={{ scale: 1.07, y: -5 }}
+                                className={`group relative bg-gradient-to-br ${card.bg} rounded-2xl shadow-xl shadow-black/30 border border-gray-800/20 p-8 flex flex-col items-center text-center transition-all duration-300`}
+                            >
+                                <div className="bg-gray-900  shadow-md shadow-black/50 rounded-full p-4 mb-4 group-hover:shadow-xl transition">
+                                    {card.icon}
+                                </div>
+                                <p className="font-semibold text-lg text-gray-800 mb-1">{card.title}</p>
+                                {card.href ? (
+                                    <a
+                                        href={card.href}
+                                        className="text-white font-medium hover:underline"
+                                    >
+                                        {card.value}
+                                    </a>
+                                ) : (
+                                    <span className="text-white font-medium">{card.value}</span>
+                                )}
+                                {/* glowing background accent */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-green-100/20 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300" />
+                            </motion.div>
+                        ))}
                     </div>
+                </motion.div>
+            </section>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
-                        <Field name="phone" label="Phone Number" value={form.phone} onChange={handleChange} required />
-                        <Field name="city" label="City / Location" value={form.city} onChange={handleChange} required />
-                    </div>
+            {/* ---------- MIDDLE SECTION (CONTACT FORM) ---------- */}
+            <section className="py-16 px-6 md:px-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="max-w-4xl mx-auto bg-white/30 rounded-3xl shadow-2xl shadow-black/50 border-gray-900/20 border-2 p-8 md:p-12"
+                >
+                    <h3 className="text-2xl md:text-3xl font-bold text-center text-green-700 mb-8">
+                        Get in Touch with Us
+                    </h3>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
-                        <Select
-                            name="customerType"
-                            label="Customer Type"
-                            value={form.customerType}
+                    <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
+                        <FormInput
+                            label="First Name"
+                            name="name"
+                            value={form.name}
                             onChange={handleChange}
-                            options={["Home", "Society", "Commercial", "Industrial"]}
+                            placeholder="Enter your First name"
+                            icon={<User className="h-4 w-4 text-green-600" />}
+                            required
                         />
-                        <Select
-                            name="installType"
-                            label="Installation Type"
-                            value={form.installType}
+                        <FormInput
+                            label="Last Name"
+                            name="name"
+                            value={form.name}
                             onChange={handleChange}
-                            options={["Rooftop", "Ground Mount", "Carport", "Hybrid"]}
+                            placeholder="Enter your Last name"
+                            icon={<User className="h-4 w-4 text-green-600" />}
+                            required
                         />
-                    </div>
-
-                    <Field
-                        name="bill"
-                        label="Monthly Electricity Bill (₹)"
-                        value={form.bill}
-                        onChange={handleChange}
-                        required
-                        placeholder="e.g., 5000"
-                    />
-
-                    <Field
-                        name="message"
-                        label="Message / Requirements"
-                        textarea
-                        value={form.message}
-                        onChange={handleChange}
-                        required
-                        placeholder="Tell us about your site, load, or project requirements..."
-                    />
-
-                    {/* File Upload */}
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 flex items-center gap-2 mb-1">
-                            <Upload className="h-4 w-4 text-[#0DB02B]" /> Attach Electricity Bill / Site Photo (optional)
-                        </label>
-                        <input
-                            type="file"
-                            onChange={(e) => setForm({ ...form, file: e.target.files ? e.target.files[0] : null })}
-                            className="block w-full text-sm text-gray-600 file:mr-3 file:rounded-full file:border-0 file:bg-[#0DB02B] file:px-4 file:py-2 file:text-white hover:file:bg-green-700"
+                        <FormInput
+                            label="Phone Number"
+                            name="phone"
+                            value={form.phone}
+                            onChange={handleChange}
+                            placeholder="+91 XXXXX XXXXX"
+                            icon={<Phone className="h-4 w-4 text-green-600" />}
+                            required
                         />
-                    </div>
-
-                    {/* Captcha */}
-                    <div className="mt-4">
-                        <ClickCaptcha verified={verified} setVerified={setVerified} />
-                    </div>
-
-                    {status && (
-                        <div
-                            className={`text-sm px-3 py-2 rounded-xl ${status.ok
-                                    ? "bg-green-50 text-green-700 border border-green-200"
-                                    : "bg-red-50 text-red-700 border border-red-200"
-                                }`}
-                        >
-                            {status.msg}
+                        <FormInput
+                            label="Email"
+                            name="email"
+                            type="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder="your@email.com"
+                            icon={<Mail className="h-4 w-4 text-green-600" />}
+                            required
+                        />
+                        <FormInput
+                            label="City"
+                            name="city"
+                            value={form.city}
+                            onChange={handleChange}
+                            placeholder="e.g., Mumbai"
+                            icon={<Home className="h-4 w-4 text-green-600" />}
+                            required
+                        />
+                        <FormInput
+                            label="Monthly Bill Amount (₹)"
+                            name="bill"
+                            value={form.bill}
+                            onChange={handleChange}
+                            placeholder="e.g., 5000"
+                            icon={<IndianRupee className="h-4 w-4 text-green-600" />}
+                            required
+                        />
+                        <div className="md:col-span-2">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Message (optional)
+                            </label>
+                            <textarea
+                                name="message"
+                                rows={4}
+                                value={form.message}
+                                onChange={handleChange}
+                                placeholder="Your message here..."
+                                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-green-400 focus:border-green-400"
+                            />
                         </div>
-                    )}
 
-                    <button
-                        type="submit"
-                        disabled={submitting}
-                        className="w-full mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-[#0DB02B] text-white font-semibold py-3 text-sm hover:bg-green-700 transition-all shadow-md"
-                    >
-                        {submitting ? <Loader2 className="h-5 w-5 animate-spin" /> : <ArrowRight className="h-5 w-5" />}
-                        {submitting ? "Submitting..." : "Request a Quote"}
-                    </button>
-                </form>
-            </div>
+                        <motion.button
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            type="submit"
+                            className="md:col-span-2 flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all"
+                        >
+                            <Send className="h-4 w-4" />
+                            Submit
+                        </motion.button>
+
+                        {submitted && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="md:col-span-2 mt-4 text-center text-green-700 font-medium bg-green-50 border border-green-200 rounded-lg py-2"
+                            >
+                                ✅ Thank you! We’ll get back to you shortly.
+                            </motion.div>
+                        )}
+                    </form>
+                </motion.div>
+            </section>
+
+            {/* ---------- BOTTOM SECTION (MAP) ---------- */}
+            <section className="pb-16 px-6 md:px-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="max-w-6xl mx-auto text-center"
+                >
+                    <h3 className="text-2xl md:text-3xl font-bold text-green-700 mb-6">
+                        Visit Our Office
+                    </h3>
+                    <div className="overflow-hidden rounded-xl shadow-lg border border-green-200">
+                        <iframe
+                            title="Aumjay Renewables Office"
+                            src="https://www.google.com/maps?q=Mumbai,+Maharashtra&output=embed"
+                            loading="lazy"
+                            className="w-full h-[300px]"
+                        />
+                    </div>
+                </motion.div>
+            </section>
         </main>
     );
 }
 
-/* ------- Subcomponents ------- */
-
-function Field({ name, label, value, onChange, type = "text", textarea, placeholder, required }: any) {
-    const base =
-        "w-full rounded-xl border border-gray-300 px-3 py-2 text-sm shadow-sm outline-none transition focus:border-[#0DB02B] focus:ring-2 focus:ring-[#0DB02B]/20";
+/* ------------------- Subcomponent ------------------- */
+function FormInput({
+    label,
+    name,
+    type = "text",
+    value,
+    onChange,
+    placeholder,
+    icon,
+    required,
+}: any) {
     return (
         <label className="block text-sm font-medium text-gray-700">
             {label} {required && <span className="text-red-500">*</span>}
-            {textarea ? (
-                <textarea
-                    rows={5}
-                    name={name}
-                    value={value}
-                    onChange={onChange}
-                    placeholder={placeholder}
-                    className={`${base} mt-1`}
-                />
-            ) : (
+            <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-green-400 focus-within:border-green-400">
+                {icon}
                 <input
                     type={type}
                     name={name}
@@ -215,81 +253,9 @@ function Field({ name, label, value, onChange, type = "text", textarea, placehol
                     onChange={onChange}
                     placeholder={placeholder}
                     required={required}
-                    className={`${base} mt-1`}
+                    className="w-full outline-none text-sm bg-transparent"
                 />
-            )}
-        </label>
-    );
-}
-
-function Select({ name, label, value, onChange, options }: any) {
-    return (
-        <label className="block text-sm font-medium text-gray-700">
-            {label}
-            <select
-                name={name}
-                value={value}
-                onChange={onChange}
-                className="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#0DB02B] focus:ring-2 focus:ring-[#0DB02B]/20 outline-none"
-            >
-                {options.map((opt: string) => (
-                    <option key={opt} value={opt}>
-                        {opt}
-                    </option>
-                ))}
-            </select>
-        </label>
-    );
-}
-
-function Info({ icon, label, value }: any) {
-    return (
-        <div className="flex items-center gap-3 rounded-xl border border-gray-500/80 bg-white p-4 shadow-xl">
-            <div className="text-[#0DB02B]">{icon}</div>
-            <div>
-                <p className="text-xs font-semibold text-gray-500">{label}</p>
-                <p className="text-sm text-gray-800">{value}</p>
             </div>
-        </div>
-    );
-}
-
-/* --- Modern Click Verification --- */
-function ClickCaptcha({ verified, setVerified }: { verified: boolean; setVerified: (v: boolean) => void }) {
-    const [progress, setProgress] = useState(0);
-
-    function handleClick() {
-        if (verified) return;
-        const steps = 6;
-        let p = 0;
-        const timer = setInterval(() => {
-            p += 100 / steps;
-            setProgress(p);
-            if (p >= 100) {
-                clearInterval(timer);
-                setTimeout(() => setVerified(true), 200);
-            }
-        }, 80);
-    }
-
-    return (
-        <div
-            onClick={handleClick}
-            className="relative w-full h-11 rounded-full border border-gray-300 overflow-hidden cursor-pointer bg-gray-100"
-        >
-            <div
-                className="absolute left-0 top-0 h-full bg-[#0DB02B] transition-all duration-300"
-                style={{ width: verified ? "100%" : `${progress}%` }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center text-sm font-medium text-gray-700">
-                {verified ? (
-                    <span className="flex items-center gap-1 text-white">
-                        <CheckCircle className="h-4 w-4" /> Verified
-                    </span>
-                ) : (
-                    "Click to Verify"
-                )}
-            </div>
-        </div>
+        </label>
     );
 }

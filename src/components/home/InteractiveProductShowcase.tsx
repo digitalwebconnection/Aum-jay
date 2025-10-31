@@ -148,7 +148,7 @@ export default function InteractiveProductShowcase(): React.ReactElement {
   }
 
   return (
-    <section className="relative h-[32rem] overflow-hidden text-white">
+    <section className="relative h-[26rem] overflow-hidden text-white">
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
         <div
