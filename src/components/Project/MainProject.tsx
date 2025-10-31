@@ -1,4 +1,4 @@
-import ProjectGallerySection from "../home/ProjectGallerySection"
+import ProjectGallerySection from "./ProjectGallerySection"
 import ProjectsHero from "./HeroPj"
 
 

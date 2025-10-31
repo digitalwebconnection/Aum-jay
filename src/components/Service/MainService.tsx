@@ -1,7 +1,7 @@
 
-import CaseStudiesSection from '../home/CaseStudiesSection'
-import ProblemSolutionSection from '../home/ProblemSolutionSection'
-import ValuePropositionSection from '../home/ValuePropositionSection'
+import CaseStudiesSection from './CaseStudiesSection'
+import ProblemSolutionSection from './ProblemSolutionSection'
+import ValuePropositionSection from './ValuePropositionSection'
 import ServicesPage from './HeroSv'
 
 const MainService = () => {

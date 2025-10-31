@@ -64,7 +64,7 @@ export default function ContactPage() {
                     transition={{ duration: 0.6 }}
                     className="max-w-6xl mx-auto text-center"
                 >
-                    <h2 className="text-5xl max-w-3xl mx-auto font-bold mb-10 ">
+                    <h2 className="text-3xl md:text-5xl max-w-3xl mx-auto font-bold mb-10 ">
                         Talk About How We Can Help
                         You Reduce Your Energy
                     </h2>

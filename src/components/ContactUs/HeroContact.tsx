@@ -7,12 +7,12 @@ export default function ContactHero() {
             {/* Background Image */}
             <div className="absolute inset-0 -z-10">
                 <img
-                    src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2000&auto=format&fit=crop"
+                    src="https://avaada.com/wp-content/uploads/types-ofsolar-panels-min-1-scaled-1.jpg"
                     alt="Contact Aumjay Solar"
                     className="h-full w-full object-cover"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 bg-black/80" />
             </div>
 
             {/* Content */}
@@ -31,7 +31,7 @@ export default function ContactHero() {
                 </p>
 
                 {/* Contact Info */}
-                <div className="mt-8 flex justify-between gap-4 text-left text-white/90">
+                {/* <div className="mt-8 flex justify-between gap-4 text-left text-white/90">
                     <div className="flex items-center  justify-center sm:justify-start gap-2">
                         <div className="bg-black/90 flex px-8 py-1 rounded-full items-center gap-2">
                             <Phone className="h-5 w-5 text-[#0DB02B]" />
@@ -50,7 +50,7 @@ export default function ContactHero() {
                             <span>Mumbai, Maharashtra</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );

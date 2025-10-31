@@ -18,7 +18,7 @@ export default function AboutHeroModern() {
         />
 
         {/* Animated Overlay (Dynamic Solar Gradient) */}
-        <div className="absolute inset-0 -z-0 bg-gradient-to-b from-black/70 via-black/60 to-[#0DB02B]/10">
+        <div className="absolute inset-0 -z-0 bg-gradient-to-b from-black/90 via-black/70 to-[#0DB02B]/10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_10%,rgba(255,197,39,0.15),transparent_60%)] animate-pulse-slow" />
         </div>
 
@@ -99,7 +99,7 @@ export default function AboutHeroModern() {
               <img
                 src="https://i0.wp.com/www.ecomena.org/wp-content/uploads/2024/08/optimal-solar-system-size.jpg"
                 alt="Solar Panel Installation Team"
-                className="w-full rounded-2xl shadow-2xl object-cover h-85 "
+                className="w-full rounded-2xl shadow-black shadow-2xl object-cover h-85 "
               />
             </div>
 

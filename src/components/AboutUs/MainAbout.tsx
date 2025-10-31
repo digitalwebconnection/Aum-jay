@@ -1,7 +1,8 @@
-import ComparisonTableSection from "../home/ComparisonTableSection";
-import DealerProgramSection from "../home/DealerProgramSection";
-import InteractiveProductShowcase from "../home/InteractiveProductShowcase";
+import ComparisonTableSection from "./ComparisonTableSection";
+import DealerProgramSection from "./DealerProgramSection";
+import InteractiveProductShowcase from "./InteractiveProductShowcase";
 import AboutHero from "./HeroAb";
+import SolarSystemChooser from "./SolarSystemChooser";
 
 export default function MainAbout() {
     return (
@@ -10,6 +11,7 @@ export default function MainAbout() {
             <ComparisonTableSection />
             <InteractiveProductShowcase />
             <DealerProgramSection />
+            <SolarSystemChooser/>
         </>
     )
 }

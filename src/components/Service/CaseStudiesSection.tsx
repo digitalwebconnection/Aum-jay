@@ -39,9 +39,9 @@ const CASES: CaseStudy[] = [
     beforeBill: 9500,
     afterBill: 1800,
     beforeImg:
-      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1600&auto=format&fit=crop",
+      "https://www.propertycrow.com/photos/38/photo-405.jpeg",
     afterImg:
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1600&auto=format&fit=crop",
+      "https://4.imimg.com/data4/OH/VL/MY-671351/2.jpg",
     notes: ["Rail-less mounting to preserve waterproofing", "Mono-PERC high-efficiency modules"],
   },
   {
@@ -53,9 +53,9 @@ const CASES: CaseStudy[] = [
     beforeBill: 265000,
     afterBill: 85000,
     beforeImg:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop",
+      "https://files.propertywala.com/photos/7f/J303720119.front-view.89727l.jpg",
     afterImg:
-      "https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=1600&auto=format&fit=crop",
+      "https://solarizeindia.in/wp-content/uploads/2024/10/150-housing-societies-in-Dwarka-to-get-rooftop-solar-installations-FB-1200x628-compressed-1024x536.jpg",
     notes: ["Shared common-area loads offset", "AMC + app-based monitoring for RWA"],
   },
   {
@@ -67,9 +67,9 @@ const CASES: CaseStudy[] = [
     beforeBill: 420000,
     afterBill: 120000,
     beforeImg:
-      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1600&auto=format&fit=crop",
+      "https://www.itln.in/h-upload/2025/10/03/87082-mahindra-logistics-guwahati-multi-client-warehousing-facility.webp",
     afterImg:
-      "https://images.unsplash.com/photo-1584270354949-c26b0d5b2d02?q=80&w=1600&auto=format&fit=crop",
+      "https://www.shutterstock.com/image-photo/solar-energy-factory-warehouse-building-600nw-2517264391.jpg",
     notes: ["North-south stringing to minimise shading", "Net-metering with surge protection SOPs"],
   },
 ]
